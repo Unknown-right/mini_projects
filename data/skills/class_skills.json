@@ -1,0 +1,161 @@
+
+{
+  "warrior": {
+    "slash": {
+      "id": "slash",
+      "name": "Slash",
+      "description": "Une attaque basique à l'épée.",
+      "type": "physical",
+      "mp_cost": 5,
+      "base_damage": 15,
+      "scaling": {
+        "str": 1.2
+      },
+      "effects": {},
+      "unlock_level": 1,
+      "cooldown": 0
+    },
+    "defend": {
+      "id": "defend",
+      "name": "Defend",
+      "description": "Position défensive qui réduit les dégâts subis.",
+      "type": "buff",
+      "mp_cost": 8,
+      "effects": {
+        "defense_up": {
+          "value": 50,
+          "duration": 3
+        }
+      },
+      "unlock_level": 1,
+      "cooldown": 3
+    },
+    "battlecry": {
+      "id": "battlecry",
+      "name": "Battlecry",
+      "description": "Un cri de guerre qui augmente l'attaque de toute l'équipe.",
+      "type": "buff",
+      "mp_cost": 15,
+      "effects": {
+        "attack_up": {
+          "value": 20,
+          "duration": 4
+        }
+      },
+      "unlock_level": 3,
+      "cooldown": 5
+    },
+    "whirlwind": {
+      "id": "whirlwind",
+      "name": "Whirlwind",
+      "description": "Une attaque tournoyante qui frappe tous les ennemis.",
+      "type": "physical",
+      "mp_cost": 25,
+      "base_damage": 30,
+      "scaling": {
+        "str": 1.0
+      },
+      "effects": {
+        "aoe": true
+      },
+      "unlock_level": 6,
+      "cooldown": 4
+    },
+    "shield_bash": {
+      "id": "shield_bash",
+      "name": "Shield Bash",
+      "description": "Frappe avec le bouclier pour étourdir l'ennemi.",
+      "type": "physical",
+      "mp_cost": 18,
+      "base_damage": 20,
+      "scaling": {
+        "str": 0.8,
+        "vit": 0.4
+      },
+      "effects": {
+        "stun": {
+          "chance": 60,
+          "duration": 2
+        }
+      },
+      "unlock_level": 9,
+      "cooldown": 5,
+      "requires_equipment": "shield"
+    }
+  },
+  "mage": {
+    "fireball": {
+      "id": "fireball",
+      "name": "Fireball",
+      "description": "Lance une boule de feu sur l'ennemi.",
+      "type": "fire",
+      "mp_cost": 15,
+      "base_damage": 25,
+      "scaling": {
+        "int": 1.5
+      },
+      "effects": {
+        "burn": {
+          "chance": 30,
+          "damage": 5,
+          "duration": 3
+        }
+      },
+      "unlock_level": 1,
+      "cooldown": 1
+    },
+    "mana_shield": {
+      "id": "mana_shield",
+      "name": "Mana Shield",
+      "description": "Crée un bouclier d'énergie qui absorbe les dégâts.",
+      "type": "buff",
+      "mp_cost": 20,
+      "effects": {
+        "damage_absorb": {
+          "value": 50,
+          "duration": 5
+        }
+      },
+      "unlock_level": 1,
+      "cooldown": 4
+    },
+    "frost_bolt": {
+      "id": "frost_bolt",
+      "name": "Frost Bolt",
+      "description": "Projette un trait de glace qui ralentit l'ennemi.",
+      "type": "ice",
+      "mp_cost": 10,
+      "base_damage": 15,
+      "scaling": {
+        "int": 1.3
+      },
+      "effects": {
+        "slow": {
+          "value": 30,
+          "duration": 2
+        }
+      },
+      "unlock_level": 1,
+      "cooldown": 2
+    },
+    "lightning_strike": {
+      "id": "lightning_strike",
+      "name": "Lightning Strike",
+      "description": "Invoque la foudre sur les ennemis.",
+      "type": "lightning",
+      "mp_cost": 35,
+      "base_damage": 45,
+      "scaling": {
+        "int": 1.8
+      },
+      "effects": {
+        "paralysis": {
+          "chance": 20,
+          "duration": 1
+        }
+      },
+      "unlock_level": 8,
+      "cooldown": 6
+    }
+  }
+}

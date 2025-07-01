@@ -1,0 +1,90 @@
+
+{
+  "flame_cyclone": {
+    "id": "flame_cyclone",
+    "name": "Cyclone de Flammes",
+    "description": "Un tourbillon enflammé qui brûle tous les ennemis.",
+    "components": ["whirlwind", "fireball"],
+    "unlock_condition": "Utiliser Whirlwind et Fireball dans le même combat 5 fois",
+    "mp_cost": 40,
+    "base_damage": 70,
+    "scaling": {
+      "str": 0.8,
+      "int": 1.2
+    },
+    "effects": {
+      "aoe": true,
+      "burn": {
+        "chance": 70,
+        "damage": 10,
+        "duration": 3
+      }
+    },
+    "cooldown": 8
+  },
+  "shadow_assassination": {
+    "id": "shadow_assassination",
+    "name": "Assassinat de l'Ombre",
+    "description": "Une attaque mortelle depuis les ténèbres.",
+    "components": ["backstab", "shadow_step"],
+    "unlock_condition": "Effectuer 20 éliminations après avoir utilisé Shadow Step",
+    "mp_cost": 35,
+    "base_damage": 100,
+    "scaling": {
+      "dex": 2.5
+    },
+    "effects": {
+      "instant_kill_chance": 0.15,
+      "stealth": {
+        "duration": 2
+      }
+    },
+    "cooldown": 12
+  },
+  "divine_storm": {
+    "id": "divine_storm",
+    "name": "Tempête Divine",
+    "description": "Une tempête de lumière sacrée qui soigne les alliés et blesse les ennemis.",
+    "components": ["holy_strike", "heal"],
+    "unlock_condition": "Soigner 5000 HP et infliger 5000 dégâts saints",
+    "mp_cost": 60,
+    "base_damage": 50,
+    "scaling": {
+      "int": 1.0,
+      "vit": 1.0
+    },
+    "effects": {
+      "aoe": true,
+      "heal_allies": {
+        "base_healing": 40,
+        "scaling": {
+          "int": 1.2
+        }
+      },
+      "holy_damage": {
+        "multiplier": 2.0,
+        "vs_undead": 3.0
+      }
+    },
+    "cooldown": 15
+  },
+  "arcane_barrage": {
+    "id": "arcane_barrage",
+    "name": "Barrage Arcanique",
+    "description": "Une salve rapide de projectiles magiques.",
+    "components": ["magic_missile", "haste"],
+    "unlock_condition": "Lancer Magic Missile 100 fois",
+    "mp_cost": 45,
+    "base_damage": 15,
+    "scaling": {
+      "int": 0.8
+    },
+    "effects": {
+      "multi_hit": {
+        "count": 5,
+        "damage_multiplier": 1.0
+      }
+    },
+    "cooldown": 10
+  }
+}

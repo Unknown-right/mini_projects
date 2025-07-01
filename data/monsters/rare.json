@@ -1,0 +1,46 @@
+{
+  "example_rare": {
+    "id": "example_rare",
+    "name": "Exemple Rare",
+    "type": "humanoïde",
+    "faction": "neutral",
+    "hp": 30.0,
+    "mp": 15.0,
+    "attack": 15.0,
+    "defense": 12.0,
+    "magic_attack": 7.5,
+    "magic_defense": 7.5,
+    "speed": 10,
+    "exp_reward": 22.5,
+    "gold_reward": [
+      5,
+      15
+    ],
+    "level_range": [
+      1,
+      5
+    ],
+    "abilities": [
+      "simple_attack"
+    ],
+    "loot_table": {
+      "common": [
+        "basic_potion"
+      ],
+      "uncommon": [
+        "basic_equipment"
+      ],
+      "rare": [
+        "special_item"
+      ]
+    },
+    "weaknesses": [],
+    "resistances": [],
+    "spawn_locations": [
+      "forest",
+      "plains"
+    ],
+    "description": "Un exemple de monstre de rareté rare.",
+    "behavior_profile": "standard"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "example_elite": {
+    "id": "example_elite",
+    "name": "Exemple Elite",
+    "type": "humanoïde",
+    "faction": "neutral",
+    "hp": 40.0,
+    "mp": 20.0,
+    "attack": 20.0,
+    "defense": 16.0,
+    "magic_attack": 10.0,
+    "magic_defense": 10.0,
+    "speed": 10,
+    "exp_reward": 30.0,
+    "gold_reward": [
+      5,
+      15
+    ],
+    "level_range": [
+      1,
+      5
+    ],
+    "abilities": [
+      "simple_attack"
+    ],
+    "loot_table": {
+      "common": [
+        "basic_potion"
+      ],
+      "uncommon": [
+        "basic_equipment"
+      ],
+      "rare": [
+        "special_item"
+      ]
+    },
+    "weaknesses": [],
+    "resistances": [],
+    "spawn_locations": [
+      "forest",
+      "plains"
+    ],
+    "description": "Un exemple de monstre de rareté elite.",
+    "behavior_profile": "standard"
+  }
+}

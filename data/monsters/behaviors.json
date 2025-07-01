@@ -1,0 +1,26 @@
+{
+  "standard": {
+    "attack_preference": "random",
+    "defensive_threshold": 0.3,
+    "skill_usage_rate": 0.5,
+    "flee_chance": 0.1,
+    "priority_targets": []
+  },
+  "aggressive": {
+    "attack_preference": "strongest",
+    "defensive_threshold": 0.2,
+    "skill_usage_rate": 0.7,
+    "flee_chance": 0.05,
+    "priority_targets": [
+      "healers",
+      "mages"
+    ]
+  },
+  "cautious": {
+    "attack_preference": "weakest",
+    "defensive_threshold": 0.5,
+    "skill_usage_rate": 0.4,
+    "flee_chance": 0.2,
+    "priority_targets": []
+  }
+}

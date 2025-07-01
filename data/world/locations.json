@@ -1,0 +1,178 @@
+{
+  "starting_town": {
+      "name": "Villevent",
+      "description": "Une petite ville paisible située au pied des montagnes. Les habitants y vivent de l'agriculture et du commerce.",
+      "type": "ville",
+      "danger_level": 0,
+      "connections": {
+          "nord": "dark_forest",
+          "est": "eastern_plains",
+          "sud": "southern_road",
+          "ouest": "western_hills"
+      },
+      "npcs": [
+          {
+              "id": "mayor",
+              "name": "Maire Durand",
+              "description": "Un homme corpulent avec une moustache imposante. Il dirige la ville depuis 15 ans.",
+              "dialogue": {
+                  "greeting": "Bonjour voyageur! Bienvenue à Villevent.",
+                  "topics": {
+                      "ville": "Villevent est une ville paisible, fondée il y a 200 ans. Nous vivons principalement de l'agriculture et du commerce.",
+                      "quête": "Hmm, maintenant que vous le mentionnez, nous avons des problèmes avec des gobelins qui pillent nos fermes. Si vous pouviez nous aider...",
+                      "rumeurs": "On raconte qu'il y a un trésor caché dans la forêt sombre au nord. Mais personne n'ose s'y aventurer..."
+                  },
+                  "quest_offer": "goblin_problem"
+              }
+          },
+          {
+              "id": "blacksmith",
+              "name": "Forgeron Bras-d'Acier",
+              "description": "Un nain trapu aux bras musclés, toujours couvert de suie.",
+              "dialogue": {
+                  "greeting": "Mrph! Besoin d'une arme solide?",
+                  "topics": {
+                      "armes": "J'ai les meilleures armes de la région! Forgées avec du minerai des montagnes de l'ouest.",
+                      "armures": "Mes armures vous protégeront même contre un troll. Garantie à vie!",
+                      "forgeage": "Je peux améliorer votre équipement si vous m'apportez les bons matériaux."
+                  },
+                  "shop": "blacksmith_shop"
+              }
+          }
+      ],
+      "objects": [
+          {
+              "id": "town_well",
+              "name": "Puits",
+              "description": "Un vieux puits en pierre au centre de la place du marché.",
+              "interactive": true,
+              "action": "Vous regardez dans le puits. Il semble profond et sombre. Vous entendez l'écho de l'eau en bas."
+          },
+          {
+              "id": "notice_board",
+              "name": "Panneau d'affichage",
+              "description": "Un tableau en bois où sont affichées diverses annonces et offres de quêtes.",
+              "interactive": true,
+              "action": "Vous examinez les annonces. Il y a plusieurs offres de quêtes disponibles."
+          }
+      ],
+      "shops": [
+          {
+              "id": "blacksmith_shop",
+              "name": "Forge de Bras-d'Acier",
+              "description": "Une forge chaude et bruyante, remplie d'armes et d'armures de qualité.",
+              "inventory": [
+                  {"id": "iron_sword", "price": 150},
+                  {"id": "leather_armor", "price": 120},
+                  {"id": "health_potion", "price": 30},
+                  {"id": "iron_shield", "price": 100}
+              ]
+          },
+          {
+              "id": "general_store",
+              "name": "Échoppe d'Aldric",
+              "description": "Une boutique bien achalandée avec toutes sortes d'articles utiles.",
+              "inventory": [
+                  {"id": "torch", "price": 5},
+                  {"id": "rope", "price": 15},
+                  {"id": "bread", "price": 2},
+                  {"id": "water_flask", "price": 10}
+              ]
+          }
+      ],
+      "quests": ["goblin_problem", "lost_child"]
+  },
+  "dark_forest": {
+      "name": "Forêt Sombre",
+      "description": "Une forêt ancienne et dense où les rayons du soleil peinent à percer la canopée. Des bruits inquiétants résonnent parfois entre les arbres.",
+      "type": "forêt",
+      "danger_level": 3,
+      "connections": {
+          "sud": "starting_town",
+          "est": "forgotten_ruins",
+          "nord": "northern_mountains"
+      },
+      "npcs": [
+          {
+              "id": "hermit",
+              "name": "Vieux Ermite",
+              "description": "Un vieil homme vêtu de haillons qui vit seul dans une cabane délabrée.",
+              "dialogue": {
+                  "greeting": "Hmm? Rares sont les visiteurs par ici...",
+                  "topics": {
+                      "forêt": "Cette forêt recèle bien des secrets. J'ai passé ma vie à l'étudier et je n'en connais pas la moitié.",
+                      "créatures": "Méfiez-vous des loups-garous lors des nuits de pleine lune. Et ne vous aventurez pas trop au nord... les trolls y sont nombreux.",
+                      "secret": "Si vous m'apportez 5 champignons lumineux, je vous apprendrai quelque chose d'utile..."
+                  },
+                  "quest_offer": "luminous_mushrooms"
+              }
+          }
+      ],
+      "enemies": ["wolf", "dark_slime", "forest_spider"],
+      "boss": {
+          "id": "forest_guardian",
+          "name": "Gardien de la Forêt",
+          "description": "Un énorme être végétal à l'aspect menaçant, protecteur des lieux sacrés de la forêt.",
+          "trigger": "exploration_count",
+          "trigger_value": 5
+      },
+      "objects": [
+          {
+              "id": "ancient_tree",
+              "name": "Arbre Ancien",
+              "description": "Un arbre gigantesque dont le tronc fait plusieurs mètres de diamètre. Des symboles étranges sont gravés dans son écorce.",
+              "interactive": true,
+              "action": "Vous touchez les symboles gravés. Une sensation étrange parcourt votre corps.",
+              "secret": {
+                  "trigger": "druid_class",
+                  "effect": "reveal_nature_magic",
+                  "message": "Les symboles s'illuminent brièvement. Vous ressentez un lien profond avec la nature. Compétence débloquée: 'Communion avec la Nature'."
+              }
+          }
+      ]
+  },
+  "eastern_plains": {
+      "name": "Plaines de l'Est",
+      "description": "De vastes étendues herbeuses où souffle un vent constant. On aperçoit quelques fermes isolées au loin.",
+      "type": "plaine",
+      "danger_level": 1,
+      "connections": {
+          "ouest": "starting_town",
+          "est": "eastern_river",
+          "sud": "southern_swamp"
+      },
+      "npcs": [
+          {
+              "id": "farmer",
+              "name": "Fermier Marcel",
+              "description": "Un homme robuste aux mains calleuses, toujours accompagné de son fidèle chien.",
+              "dialogue": {
+                  "greeting": "Bien le bonjour, étranger! La récolte s'annonce bonne cette année.",
+                  "topics": {
+                      "ferme": "Ma famille cultive ces terres depuis des générations. C'est une vie simple mais honnête.",
+                      "problèmes": "Ces satanés gobelins nous causent bien des soucis. Ils ont volé trois de mes moutons le mois dernier!",
+                      "commerce": "Si vous avez besoin de provisions, ma femme tient un petit étal près de notre ferme."
+                  },
+                  "quest_offer": "missing_sheep"
+              }
+          }
+      ],
+      "enemies": ["goblin", "dire_wolf", "plains_snake"],
+      "objects": [
+          {
+              "id": "old_well",
+              "name": "Vieux Puits",
+              "description": "Un puits en pierre à moitié effondré. Il semble abandonné depuis longtemps.",
+              "interactive": true,
+              "action": "Vous regardez dans le puits. Au fond, vous apercevez un éclat métallique.",
+              "secret": {
+                  "trigger": "examine_count",
+                  "trigger_value": 3,
+                  "effect": "give_item",
+                  "item_id": "magic_ring",
+                  "message": "Après plusieurs examens attentifs, vous décidez de descendre dans le puits. Au fond, vous trouvez un anneau magique!"
+              }
+          }
+      ]
+  }
+}

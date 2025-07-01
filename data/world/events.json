@@ -1,0 +1,9 @@
+{
+    "id": "goblin_invasion",
+    "name": "Invasion de Gobelins",
+    "description": "Une horde de gobelins a envahi la région. Leur nombre a considérablement augmenté dans toutes les zones.",
+    "trigger": "day_count",
+    "trigger_value": 10,
+    "duration": 5,
+    "effects": {}
+}

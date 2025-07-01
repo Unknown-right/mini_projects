@@ -1,0 +1,120 @@
+
+{
+  "weapon_mastery": {
+    "id": "weapon_mastery",
+    "name": "Maîtrise d'Arme",
+    "description": "Augmente les dégâts avec tous les types d'armes.",
+    "max_level": 5,
+    "effects_per_level": [
+      {
+        "damage_multiplier": 1.05
+      },
+      {
+        "damage_multiplier": 1.10
+      },
+      {
+        "damage_multiplier": 1.15
+      },
+      {
+        "damage_multiplier": 1.20
+      },
+      {
+        "damage_multiplier": 1.25
+      }
+    ],
+    "classes": ["warrior", "berserker", "knight"]
+  },
+  "arcane_efficiency": {
+    "id": "arcane_efficiency",
+    "name": "Efficacité Arcanique",
+    "description": "Réduit le coût en MP des sorts.",
+    "max_level": 5,
+    "effects_per_level": [
+      {
+        "mp_cost_reduction": 0.04
+      },
+      {
+        "mp_cost_reduction": 0.08
+      },
+      {
+        "mp_cost_reduction": 0.12
+      },
+      {
+        "mp_cost_reduction": 0.16
+      },
+      {
+        "mp_cost_reduction": 0.20
+      }
+    ],
+    "classes": ["mage", "archmage", "elementalist"]
+  },
+  "critical_precision": {
+    "id": "critical_precision",
+    "name": "Précision Critique",
+    "description": "Augmente les chances de coup critique.",
+    "max_level": 5,
+    "effects_per_level": [
+      {
+        "critical_chance": 0.03
+      },
+      {
+        "critical_chance": 0.06
+      },
+      {
+        "critical_chance": 0.09
+      },
+      {
+        "critical_chance": 0.12
+      },
+      {
+        "critical_chance": 0.15
+      }
+    ],
+    "classes": ["thief", "assassin", "shadow"]
+  },
+  "divine_grace": {
+    "id": "divine_grace",
+    "name": "Grâce Divine",
+    "description": "Augmente la puissance des sorts de guérison.",
+    "max_level": 5,
+    "effects_per_level": [
+      {
+        "healing_multiplier": 1.10
+      },
+      {
+        "healing_multiplier": 1.20
+      },
+      {
+        "healing_multiplier": 1.30
+      },
+      {
+        "healing_multiplier": 1.40
+      },
+      {
+        "healing_multiplier": 1.50
+      }
+    ],
+    "classes": ["cleric", "priest", "paladin"]
+  },
+  "survival_instinct": {
+    "id": "survival_instinct",
+    "name": "Instinct de Survie",
+    "description": "Chance de survivre à un coup mortel avec 1 HP.",
+    "max_level": 3,
+    "effects_per_level": [
+      {
+        "survival_chance": 0.15,
+        "cooldown": 300
+      },
+      {
+        "survival_chance": 0.30,
+        "cooldown": 240
+      },
+      {
+        "survival_chance": 0.45,
+        "cooldown": 180
+      }
+    ],
+    "classes": ["warrior", "berserker", "thief", "assassin"]
+  }
+}
