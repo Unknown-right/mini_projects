@@ -1,17 +1,17 @@
 {
-  "example_common": {
-    "id": "example_common",
-    "name": "Exemple Common",
+  "example_uncommon": {
+    "id": "example_uncommon",
+    "name": "Exemple Uncommon",
     "type": "humanoïde",
     "faction": "neutral",
-    "hp": 20.0,
-    "mp": 10.0,
-    "attack": 10.0,
-    "defense": 8.0,
-    "magic_attack": 5.0,
-    "magic_defense": 5.0,
+    "hp": 24.0,
+    "mp": 12.0,
+    "attack": 12.0,
+    "defense": 9.6,
+    "magic_attack": 6.0,
+    "magic_defense": 6.0,
     "speed": 10,
-    "exp_reward": 15.0,
+    "exp_reward": 18.0,
     "gold_reward": [
       5,
       15
@@ -40,7 +40,7 @@
       "forest",
       "plains"
     ],
-    "description": "Un exemple de monstre de rareté common.",
+    "description": "Un exemple de monstre de rareté uncommon.",
     "behavior_profile": "standard"
   }
 }

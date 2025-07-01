@@ -1,0 +1,32 @@
+{
+  "simple_attack": {
+    "name": "Attaque Simple",
+    "type": "physical",
+    "damage_multiplier": 1.0,
+    "mp_cost": 0,
+    "cooldown": 0,
+    "effects": []
+  },
+  "powerful_attack": {
+    "name": "Attaque Puissante",
+    "type": "physical",
+    "damage_multiplier": 1.8,
+    "mp_cost": 10,
+    "cooldown": 2,
+    "effects": [
+      {
+        "type": "stun",
+        "chance": 0.2,
+        "duration": 1
+      }
+    ]
+  },
+  "heal": {
+    "name": "Soin",
+    "type": "healing",
+    "heal_percentage": 0.2,
+    "mp_cost": 15,
+    "cooldown": 3,
+    "effects": []
+  }
+}

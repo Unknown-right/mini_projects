@@ -1,0 +1,26 @@
+{
+  "neutral": {
+    "name": "Neutres",
+    "relations": {
+      "evil": "cautious",
+      "good": "friendly"
+    },
+    "description": "Faction neutre qui ne s'allie à personne en particulier."
+  },
+  "evil": {
+    "name": "Maléfiques",
+    "relations": {
+      "neutral": "manipulative",
+      "good": "hostile"
+    },
+    "description": "Créatures maléfiques cherchant à dominer le monde."
+  },
+  "good": {
+    "name": "Bénéfiques",
+    "relations": {
+      "neutral": "protective",
+      "evil": "hostile"
+    },
+    "description": "Créatures bénéfiques qui protègent la nature et les innocents."
+  }
+}

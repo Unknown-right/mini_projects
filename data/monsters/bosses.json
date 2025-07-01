@@ -1,0 +1,72 @@
+{
+  "example_boss": {
+    "id": "example_boss",
+    "name": "Boss d'Exemple",
+    "type": "boss",
+    "faction": "evil",
+    "hp": 500,
+    "mp": 100,
+    "attack": 40,
+    "defense": 30,
+    "magic_attack": 35,
+    "magic_defense": 30,
+    "speed": 15,
+    "exp_reward": 500,
+    "gold_reward": [
+      200,
+      500
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "powerful_attack",
+      "aoe_attack",
+      "heal"
+    ],
+    "special_drops": [
+      "boss_weapon",
+      "boss_armor"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "health_potion",
+        "mana_potion"
+      ],
+      "uncommon": [
+        "magic_scroll",
+        "enchanted_ring"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark",
+      "poison"
+    ],
+    "phases": [
+      {
+        "hp_threshold": 0.7,
+        "abilities": [
+          "summon_minions",
+          "shield"
+        ]
+      },
+      {
+        "hp_threshold": 0.3,
+        "abilities": [
+          "ultimate_attack",
+          "blind"
+        ]
+      }
+    ],
+    "description": "Un puissant boss servant d'exemple.",
+    "defeat_title": "Vainqueur d'Exemple",
+    "dungeon_requirement": "example_dungeon"
+  }
+}
