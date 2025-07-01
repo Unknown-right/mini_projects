@@ -1477,3 +1477,50 @@ class World:
                     'effects': {'xp_gain': 1.1}
                 })
                 print(colored(f"Titre obtenu: {title_name}!", 'green', attrs=['bold']))
+
+    def to_dict(self):
+        """
+        Serialize the full dynamic state of the world for saving.
+        """
+        return {
+            "current_location_id": self.get_current_location_id(),
+            "current_time": self.elapsed_time,
+            "time_of_day": getattr(self, "time_of_day", "jour"),
+            "day_count": getattr(self, "day_count", 1),
+            "current_npcs": [npc["id"] for npc in self.current_npcs],
+            "current_enemies": [e["id"] for e in self.current_enemies] if self.current_enemies else [],
+            "interactive_objects": [
+                {
+                    "id": obj.get("id"),
+                    "interactions": obj.get("interactions", 0),
+                    "secret_revealed": obj.get("secret_revealed", False)
+                }
+                for obj in self.interactive_objects
+            ],
+            "active_events": [dict(e) for e in self.active_events] if hasattr(self, "active_events") else [],
+            "exploration_metrics": {
+                k: list(v) if isinstance(v, set) else v
+                for k, v in self.exploration_metrics.items()
+            },
+            "unlocked_secrets": list(self.unlocked_secrets),
+            "recent_secrets": list(self.recent_secrets),
+            # Optionnel : sérialiser l’état de tous les lieux visités
+            "locations": {
+                loc_id: {
+                    # État dynamique des PNJ, objets, shops de chaque lieu
+                    "npcs": [n["id"] for n in loc.get("npcs", [])],
+                    "shops": [s["id"] for s in loc.get("shops", [])],
+                    "objects": [
+                        {
+                            "id": o.get("id"),
+                            "interactions": o.get("interactions", 0),
+                            "secret_revealed": o.get("secret_revealed", False)
+                        }
+                        for o in loc.get("objects", [])
+                    ]
+                }
+                for loc_id, loc in self.world_map.items()
+            } if hasattr(self, "world_map") else {},
+            # Optionnel : ajout d’un hash ou d’un timestamp pour le debug/perf
+            "save_timestamp": time.time(),
+        }

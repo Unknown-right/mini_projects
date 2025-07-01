@@ -291,6 +291,7 @@ class Game:
         """Sauvegarde l'état actuel du jeu."""
         state = {
             'player': self.player.to_dict(),
+            'world': self.world.to_dict(),
             'achievements': self.achievement_system.serialize(),
             'analysis': self.logic_engine.serialize_analysis_data(),
             # tu peux ajouter world, NPC states, day_count, etc.
