@@ -1,780 +1,642 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-FateQuest - Module Player
-Gestion des caractéristiques du joueur, inventaire, compétences, etc.
-
-Fonctionnalités:
-- Stats du joueur (HP, MP, Force, etc)
-- Système de classes et d'évolution
-- Gestion de l'inventaire
-- Gestion des titres et leurs effets
-- Système de compétences avec progression
-- Système de quêtes
-"""
-
 import json
-import random
-import math
-from termcolor import colored
+import os
 
 class Player:
-    def __init__(self, name, starting_class):
-        self.name = name
+    """
+    Class representing the player character in FateQuest game.
+    Manages player stats, inventory, skills, titles, quests, etc.
+    """
+    # Attributs de classe — chargés une seule fois
+    @staticmethod
+    def load_json(path):
+        full_path = os.path.join("data", path)
+        with open(full_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    base_classes = load_json.__func__("classes\\base_classes.json")
+    adv_classes  = load_json.__func__("classes\\advanced_classes.json")
+    class_skills   = load_json.__func__("skills\\class_skills.json")
+    passive_skills = load_json.__func__("skills\\passive_skills.json")
+    combo_skills   = load_json.__func__("skills\\combo_skills.json")
+    def __init__(self, name, starting_class , data_dir="data"):
+        """Initialize a new player with name and class."""
+        # Player identity
+        self._name = name
+        self.data_dir = data_dir
+
+        # Charger définitions de classes
+        self.base_classes = Player.base_classes
+        self.adv_classes  = Player.adv_classes
+
+        # Charger skills
+        self.class_skills   = Player.class_skills
+        self.passive_skills = Player.passive_skills
+        self.combo_skills   = Player.combo_skills
+
         self.current_class = starting_class
-        self.level = 1
-        self.exp = 0
-        self.exp_to_next = 100  # Expérience requise pour passer au niveau suivant
-        
-        # Stats de base (ajustées selon la classe)
-        self.base_stats = {
-            "hp": 100,
-            "mp": 50,
-            "strength": 10,
-            "intelligence": 10,
-            "agility": 10,
-            "vitality": 10,
-            "luck": 5
-        }
-        
-        # Ajustement des stats selon la classe
-        self.adjust_stats_for_class()
-        
-        # Stats actuelles (peuvent être modifiées par effets, objets, etc.)
-        self.current_hp = self.base_stats["hp"]
-        self.current_mp = self.base_stats["mp"]
-        
-        # Inventaire et équipement
-        self.inventory = []  # Liste d'objets (dictionnaires)
-        self.equipment = {
-            "head": None,
-            "body": None,
-            "legs": None,
-            "feet": None,
-            "weapon": None,
-            "offhand": None,
-            "accessory1": None,
-            "accessory2": None
-        }
-        
-        # Argent
-        self.gold = 100
-        
-        # Compétences (skill_name: {level, exp, type, effect, mp_cost})
-        self.skills = {}
-        self.add_starting_skills()
-        
-        # Titres (actifs et disponibles)
-        self.titles = []  # Liste de titres (dictionnaires)
-        self.active_title = None
-        
-        # Réputation avec diverses factions
-        self.reputation = {
-            "humains": 0,
-            "elfes": 0,
-            "nains": 0,
-            "orcs": -10,  # Commence avec une mauvaise réputation
-            "non-morts": -20
-        }
-        
-        # Quêtes (en cours et terminées)
-        self.active_quests = []
-        self.completed_quests = []
-        
-        # Compteurs pour les accomplissements cachés
-        self.kill_counters = {}  # Type de monstre: nombre tué
-        self.action_counters = {
-            "steps_taken": 0,
-            "items_used": 0,
-            "skills_used": 0,
-            "critical_hits": 0,
-            "treasure_found": 0,
-            "quests_completed": 0,
-            "boss_defeated": 0,
-            "deaths": 0,
-            "times_fled": 0
-        }
-        
-        # Flags pour les événements spéciaux ou découvertes
-        self.discovery_flags = {}
-    
-    def adjust_stats_for_class(self):
-        """Ajuste les statistiques de base selon la classe choisie"""
-        if self.current_class == "Guerrier":
-            self.base_stats["strength"] += 5
-            self.base_stats["vitality"] += 3
-            self.base_stats["hp"] += 20
-        elif self.current_class == "Mage":
-            self.base_stats["intelligence"] += 5
-            self.base_stats["mp"] += 30
-            self.base_stats["strength"] -= 2
-        elif self.current_class == "Voleur":
-            self.base_stats["agility"] += 5
-            self.base_stats["luck"] += 3
-            self.base_stats["vitality"] -= 1
-        elif self.current_class == "Archer":
-            self.base_stats["agility"] += 3
-            self.base_stats["strength"] += 2
-            self.base_stats["luck"] += 2
-    
-    def add_starting_skills(self):
-        """Ajoute les compétences de départ selon la classe"""
-        # Compétences communes à toutes les classes
-        self.skills["Frappe"] = {
-            "level": 1,
-            "exp": 0,
-            "type": "physical",
-            "description": "Une attaque physique basique",
-            "effect": {"damage_mult": 1.0},
-            "mp_cost": 0
-        }
-        
-        # Compétences spécifiques aux classes
-        if self.current_class == "Guerrier":
-            self.skills["Coup Puissant"] = {
-                "level": 1,
-                "exp": 0,
-                "type": "physical",
-                "description": "Une attaque puissante qui ignore une partie de la défense",
-                "effect": {"damage_mult": 1.3, "defense_ignore": 0.2},
-                "mp_cost": 10
-            }
-        elif self.current_class == "Mage":
-            self.skills["Boule de Feu"] = {
-                "level": 1,
-                "exp": 0,
-                "type": "magic",
-                "description": "Lance une boule de feu sur l'ennemi",
-                "effect": {"damage_mult": 1.5, "element": "fire"},
-                "mp_cost": 15
-            }
-        elif self.current_class == "Voleur":
-            self.skills["Attaque Furtive"] = {
-                "level": 1,
-                "exp": 0,
-                "type": "physical",
-                "description": "Une attaque rapide avec chance de coup critique augmentée",
-                "effect": {"damage_mult": 1.1, "crit_chance": 0.15},
-                "mp_cost": 8
-            }
-        elif self.current_class == "Archer":
-            self.skills["Tir Précis"] = {
-                "level": 1,
-                "exp": 0,
-                "type": "physical",
-                "description": "Un tir visant un point faible de l'ennemi",
-                "effect": {"damage_mult": 1.2, "accuracy": 1.2},
-                "mp_cost": 10
-            }
-    
+        self._level = 1
+        self._xp = 0
+        # Initialize stats from class
+        self._stats = self.base_classes.get(starting_class, {}).copy()
+        # Set current and max HP/MP from base stats
+        self._max_hp = self._stats.get('max_hp', 0)
+        self._current_hp = self._max_hp
+        self._max_mp = self._stats.get('max_mp', 0)
+        self._current_mp = self._max_mp
+        # Skills: name -> {'level': int, 'xp': int}
+        self._skills = {}
+        self.load_starting_skills()
+        # Inventory and equipment
+        self._inventory = []  # list of item objects
+        self._equipment = {}  # slot name -> item object
+        # Titles and quests
+        self._titles = []
+        self._active_title = None
+        self._quests = {}  # quest_id -> quest progress data
+        self._completed_quests = []
+        # Counters for kills and actions
+        self._kill_counter = {}
+        self._action_counter = {}
+        # Knowledge
+        self._race_knowledge = {}
+        self._enemy_knowledge = {}
+        # Status effects (temporary stats)
+        self._status_effects = []
+        # Death flag
+        self._is_dead = False
+
+    def load_json(self, rel_path):
+        """Charge un fichier JSON de data/ et renvoie le dict, ou {}."""
+        path = os.path.join(self.data_dir, rel_path)
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except:
+            return {}
+
+    def load_starting_skills(self):
+        """Populate self.skills depuis class_skills + passive_skills."""
+        # Compétences de classe
+        cls_sk = self.class_skills.get(self.current_class, [])
+        for sk in cls_sk:
+            self.skills[sk["id"]] = sk.copy()
+        # Compétences passives communes
+        for sk in self.passive_skills.get("all", []):
+            self.skills[sk["id"]] = sk.copy()
+
     def display_status(self):
-        """Affiche les statistiques du joueur"""
-        print(colored("\n=== STATUT DU JOUEUR ===\n", "cyan", attrs=["bold"]))
-        print(f"Nom: {self.name}")
-        print(f"Classe: {self.current_class}")
-        print(f"Niveau: {self.level}")
-        print(f"EXP: {self.exp}/{self.exp_to_next}")
-        print(f"Titre actif: {self.active_title['name'] if self.active_title else 'Aucun'}")
-        print(f"HP: {self.current_hp}/{self.base_stats['hp']}")
-        print(f"MP: {self.current_mp}/{self.base_stats['mp']}")
-        print(f"Or: {self.gold}")
-        
-        print("\nStatistiques:")
-        print(f"Force: {self.get_total_stat('strength')}")
-        print(f"Intelligence: {self.get_total_stat('intelligence')}")
-        print(f"Agilité: {self.get_total_stat('agility')}")
-        print(f"Vitalité: {self.get_total_stat('vitality')}")
-        print(f"Chance: {self.get_total_stat('luck')}")
-        
-        print("\nÉquipement:")
-        for slot, item in self.equipment.items():
-            print(f"{slot.capitalize()}: {item['name'] if item else 'Vide'}")
-        
-        print("\nQuêtes actives:", len(self.active_quests))
-        print("Quêtes terminées:", len(self.completed_quests))
-    
+        """Display current status (HP, MP, stats, level, etc.)."""
+        print(f"Name: {self._name}    Class: {self._class}    Level: {self._level}    XP: {self._xp}")
+        print(f"HP: {self._current_hp}/{self._max_hp}    MP: {self._current_mp}/{self._max_mp}")
+        print("Stats:")
+        for stat, value in self._stats.items():
+            if stat not in ('max_hp', 'max_mp'):
+                print(f"  {stat.capitalize()}: {value}")
+        if self._active_title:
+            print(f"Active Title: {self._active_title}")
+        print(f"Location: {getattr(self, '_location', 'Unknown')}")
+        print()
+
     def display_inventory(self):
-        """Affiche le contenu de l'inventaire"""
-        print(colored("\n=== INVENTAIRE ===\n", "yellow", attrs=["bold"]))
-        if not self.inventory:
-            print("Votre inventaire est vide.")
+        """Display the items in the player's inventory."""
+        if not self._inventory:
+            print("Inventory is empty.")
             return
-        
-        print(f"Or: {self.gold}")
-        print("\nObjets:")
-        for i, item in enumerate(self.inventory, 1):
-            rarity_color = self.get_rarity_color(item.get("rarity", "commun"))
-            equipped = " [Équipé]" if any(eq and eq.get("id") == item.get("id") for eq in self.equipment.values()) else ""
-            print(colored(f"{i}. {item['name']}{equipped} - {item.get('description', 'Pas de description')}", rarity_color))
-    
+        print("Inventory:")
+        for item in self._inventory:
+            color = self.get_rarity_color(getattr(item, 'rarity', 'Common'))
+            name = getattr(item, 'name', 'Unknown')
+            print(f"  {color}{name}\033[0m (ID: {getattr(item, 'id', 'N/A')})")
+
+    def display_equipment(self):
+        """Display the currently equipped items."""
+        if not self._equipment:
+            print("No equipment.")
+            return
+        print("Equipment:")
+        for slot, item in self._equipment.items():
+            color = self.get_rarity_color(getattr(item, 'rarity', 'Common'))
+            name = getattr(item, 'name', 'Unknown')
+            print(f"  {slot.capitalize()}: {color}{name}\033[0m (ID: {getattr(item, 'id', 'N/A')})")
+
     def get_rarity_color(self, rarity):
-        """Renvoie la couleur correspondant à la rareté d'un objet"""
-        rarity_colors = {
-            "commun": "white",
-            "rare": "blue",
-            "épique": "magenta",
-            "légendaire": "yellow",
-            "mythique": "red"
+        """Return a console ANSI color code based on item rarity."""
+        colors = {
+            'Common': '\033[0m',    # Default
+            'Uncommon': '\033[92m', # Green
+            'Rare': '\033[94m',     # Blue
+            'Epic': '\033[95m',     # Magenta
+            'Legendary': '\033[93m' # Yellow
         }
-        return rarity_colors.get(rarity.lower(), "white")
-    
+        return colors.get(rarity, '\033[0m')
+
     def add_item(self, item):
-        """Ajoute un objet à l'inventaire"""
-        self.inventory.append(item)
-        rarity_color = self.get_rarity_color(item.get("rarity", "commun"))
-        print(colored(f"Vous avez obtenu: {item['name']}", rarity_color))
-        return True
-    
+        """Add an item object to the inventory."""
+        self._inventory.append(item)
+        print(f"Added {getattr(item, 'name', 'an item')} to inventory.")
+
     def remove_item(self, item_id):
-        """Retire un objet de l'inventaire par son ID"""
-        for i, item in enumerate(self.inventory):
-            if item.get("id") == item_id:
-                removed = self.inventory.pop(i)
-                print(f"Vous avez retiré {removed['name']} de votre inventaire.")
-                return True
-        return False
-    
+        """Remove an item (by id) from the inventory."""
+        for idx, item in enumerate(self._inventory):
+            if getattr(item, 'id', None) == item_id:
+                removed = self._inventory.pop(idx)
+                print(f"Removed {getattr(removed, 'name', 'an item')} from inventory.")
+                return removed
+        print(f"Item with ID {item_id} not found in inventory.")
+        return None
+
     def find_item_by_name(self, name):
-        """Trouve un objet dans l'inventaire par son nom"""
-        for item in self.inventory:
-            if item['name'].lower() == name.lower():
+        """Find and return an item in inventory by name."""
+        for item in self._inventory:
+            if getattr(item, 'name', '').lower() == name.lower():
                 return item
         return None
-    
+
     def examine_item(self, item_name):
-        """Examine un objet dans l'inventaire"""
+        """Examine an item to get its description or stats."""
         item = self.find_item_by_name(item_name)
         if not item:
-            return False
-        
-        rarity_color = self.get_rarity_color(item.get("rarity", "commun"))
-        print(colored(f"\n=== {item['name']} ===", rarity_color, attrs=["bold"]))
-        print(f"Type: {item.get('type', 'Divers')}")
-        print(f"Rareté: {item.get('rarity', 'Commun')}")
-        print(f"Description: {item.get('description', 'Pas de description')}")
-        
-        if "stats" in item:
-            print("\nStatistiques:")
-            for stat, value in item["stats"].items():
-                print(f"{stat.capitalize()}: {'+' if value > 0 else ''}{value}")
-        
-        if "effects" in item:
-            print("\nEffets:")
-            for effect, details in item["effects"].items():
-                print(f"{effect}: {details}")
-        
-        if "requirements" in item:
-            print("\nPrérequis:")
-            for req, value in item["requirements"].items():
-                print(f"{req.capitalize()}: {value}")
-        
-        return True
-    
+            print(f"No item named '{item_name}' in inventory.")
+            return
+        name = getattr(item, 'name', 'Unknown')
+        desc = getattr(item, 'description', 'No description.')
+        rarity = getattr(item, 'rarity', 'Common')
+        color = self.get_rarity_color(rarity)
+        print(f"Examining {color}{name}\033[0m - Rarity: {rarity}")
+        print(f"{desc}")
+        bonuses = getattr(item, 'stat_bonuses', {})
+        if bonuses:
+            print("Stat Bonuses:")
+            for stat, val in bonuses.items():
+                print(f"  {stat}: {val}")
+        # If consumable, maybe show effect
+        if getattr(item, 'consumable', False):
+            effect = getattr(item, 'effect', None)
+            if effect:
+                print(f"Effect: {effect}")
+
     def equip_item(self, item_name):
-        """Équipe un objet s'il est équipable"""
+        """Equip an item (weapon/armor) from the inventory."""
         item = self.find_item_by_name(item_name)
         if not item:
-            print(f"Vous n'avez pas d'objet nommé '{item_name}' dans votre inventaire.")
-            return False
-        
-        # Vérifier si l'objet est équipable
-        if "slot" not in item:
-            print(f"{item['name']} n'est pas équipable.")
-            return False
-        
-        # Vérifier les prérequis
-        if "requirements" in item:
-            for stat, req_value in item["requirements"].items():
-                if self.base_stats.get(stat, 0) < req_value:
-                    print(f"Vous ne remplissez pas les conditions pour équiper {item['name']}.")
-                    print(f"Requis: {stat.capitalize()} {req_value}, Actuel: {self.base_stats.get(stat, 0)}")
-                    return False
-        
-        # Si un objet est déjà équipé dans ce slot, le déséquiper
-        current_equipped = self.equipment[item["slot"]]
-        if current_equipped:
-            print(f"Vous déséquipez {current_equipped['name']}.")
-        
-        # Équiper le nouvel objet
-        self.equipment[item["slot"]] = item
-        print(f"Vous équipez {item['name']}.")
-        
-        # Recalculer les stats si nécessaire
-        return True
-    
+            print(f"No item named '{item_name}' to equip.")
+            return
+        slot = getattr(item, 'slot', None)
+        if not slot:
+            print(f"Item '{item_name}' cannot be equipped (no slot defined).")
+            return
+        # Unequip existing item in that slot
+        if slot in self._equipment and self._equipment[slot]:
+            old_item = self._equipment[slot]
+            print(f"Unequipped {getattr(old_item, 'name', 'an item')} from {slot} slot.")
+            self._inventory.append(old_item)
+        # Equip new item
+        self._equipment[slot] = item
+        self._inventory.remove(item)
+        print(f"Equipped {getattr(item, 'name', 'an item')} to {slot} slot.")
+
     def unequip_item(self, slot):
-        """Déséquipe un objet d'un emplacement spécifique"""
-        if slot not in self.equipment or not self.equipment[slot]:
-            print(f"Aucun objet n'est équipé dans l'emplacement {slot}.")
-            return False
-        
-        item = self.equipment[slot]
-        self.equipment[slot] = None
-        print(f"Vous déséquipez {item['name']}.")
-        return True
-    
+        """Unequip the item currently in the given equipment slot."""
+        if slot not in self._equipment or not self._equipment[slot]:
+            print(f"No item equipped in slot '{slot}'.")
+            return
+        item = self._equipment.pop(slot)
+        self._inventory.append(item)
+        print(f"Unequipped {getattr(item, 'name', 'an item')} from {slot} slot.")
+
     def use_item(self, item_name):
-        """Utilise un objet consommable"""
+        """Use a consumable item from the inventory."""
         item = self.find_item_by_name(item_name)
         if not item:
-            print(f"Vous n'avez pas d'objet nommé '{item_name}' dans votre inventaire.")
-            return False
-        
-        # Vérifier si l'objet est utilisable
-        if item.get("type") != "consumable":
-            print(f"{item['name']} n'est pas utilisable.")
-            return False
-        
-        # Appliquer les effets
-        if "effects" in item:
-            print(f"Vous utilisez {item['name']}.")
-            for effect, value in item["effects"].items():
-                if effect == "heal_hp":
-                    self.heal(value)
-                    print(f"Vous récupérez {value} points de vie.")
-                elif effect == "heal_mp":
-                    self.restore_mp(value)
-                    print(f"Vous récupérez {value} points de mana.")
-                elif effect.startswith("buff_"):
-                    stat = effect[5:]  # Extraire le nom de la stat (buff_strength -> strength)
-                    # Implémentation des buffs temporaires à faire
-                    print(f"Votre {stat} est augmenté temporairement de {value}.")
-                # Ajouter d'autres effets selon les besoins
-            
-            # Incrémenter le compteur d'objets utilisés
-            self.action_counters["items_used"] += 1
-            
-            # Supprimer l'objet s'il est consommable
-            if item.get("consumable", True):
-                self.remove_item(item["id"])
-            
-            return True
-        else:
-            print(f"{item['name']} n'a aucun effet.")
-            return False
-    
-    def drop_item(self, item_name):
-        """Jette un objet de l'inventaire"""
-        item = self.find_item_by_name(item_name)
-        if not item:
-            print(f"Vous n'avez pas d'objet nommé '{item_name}' dans votre inventaire.")
-            return False
-        
-        # Vérifier si l'objet est équipé
-        for slot, equipped_item in self.equipment.items():
-            if equipped_item and equipped_item.get("id") == item.get("id"):
-                print(f"Vous devez d'abord déséquiper {item['name']}.")
-                return False
-        
-        # Demander confirmation
-        confirm = input(f"Êtes-vous sûr de vouloir jeter {item['name']}? (o/n): ")
-        if confirm.lower() != 'o':
-            print("Action annulée.")
-            return False
-        
-        # Supprimer l'objet
-        self.remove_item(item["id"])
-        print(f"Vous jetez {item['name']}.")
-        return True
-    
-    def sort_inventory(self, sort_type="name"):
-        """Trie l'inventaire selon différents critères"""
-        if sort_type == "name":
-            self.inventory.sort(key=lambda x: x.get("name", ""))
-        elif sort_type == "type":
-            self.inventory.sort(key=lambda x: x.get("type", ""))
-        elif sort_type == "rarity":
-            rarity_order = {"commun": 0, "rare": 1, "épique": 2, "légendaire": 3, "mythique": 4}
-            self.inventory.sort(key=lambda x: rarity_order.get(x.get("rarity", "").lower(), 0))
-        else:
-            print(f"Critère de tri inconnu: {sort_type}")
-            return False
-        
-        print(f"Inventaire trié par {sort_type}.")
-        return True
-    
-    def display_usable_items(self):
-        """Affiche tous les objets utilisables dans l'inventaire"""
-        usable_items = [item for item in self.inventory if item.get("type") == "consumable"]
-        if not usable_items:
-            print("Vous n'avez aucun objet utilisable.")
+            print(f"No item named '{item_name}' to use.")
             return
-        
-        print(colored("\n=== OBJETS UTILISABLES ===\n", "yellow", attrs=["bold"]))
-        for i, item in enumerate(usable_items, 1):
-            rarity_color = self.get_rarity_color(item.get("rarity", "commun"))
-            print(colored(f"{i}. {item['name']} - {item.get('description', 'Pas de description')}", rarity_color))
-    
-    def get_total_stat(self, stat):
-        """Calcule la valeur totale d'une statistique (base + équipement + buffs)"""
-        # Stat de base
-        total = self.base_stats.get(stat, 0)
-        
-        # Bonus d'équipement
-        for item in self.equipment.values():
-            if item and "stats" in item and stat in item["stats"]:
-                total += item["stats"][stat]
-        
-        # Bonus de titre actif
-        if self.active_title and "effects" in self.active_title:
-            if f"boost_{stat}" in self.active_title["effects"]:
-                total += self.active_title["effects"][f"boost_{stat}"]
-        
-        # Buffs temporaires à implémenter
-        
-        return total
-    
-    def heal(self, amount):
-        """Soigne le joueur d'un montant donné"""
-        self.current_hp = min(self.current_hp + amount, self.base_stats["hp"])
-    
-    def restore_mp(self, amount):
-        """Restaure le mana du joueur d'un montant donné"""
-        self.current_mp = min(self.current_mp + amount, self.base_stats["mp"])
-    
-    def take_damage(self, amount):
-        """Inflige des dégâts au joueur"""
-        self.current_hp -= amount
-        print(f"Vous subissez {amount} points de dégâts.")
-        
-        if self.current_hp <= 0:
-            self.current_hp = 0
-            self.on_death()
-            return True  # Indique que le joueur est mort
-        return False
-    
-    def on_death(self):
-        """Gestion de la mort du joueur"""
-        self.action_counters["deaths"] += 1
-        print(colored("\nVous avez été vaincu!", "red", attrs=["bold"]))
-        # Pénalités de mort, perte d'XP, etc.
-        # À implémenter selon les règles du jeu
-    
-    def use_mp(self, amount):
-        """Utilise du mana pour une compétence"""
-        if self.current_mp < amount:
-            print("Vous n'avez pas assez de mana!")
-            return False
-        
-        self.current_mp -= amount
-        return True
-    
-    def gain_exp(self, amount):
-        """Attribue de l'expérience au joueur et gère le passage de niveau"""
-        self.exp += amount
-        print(f"Vous gagnez {amount} points d'expérience.")
-        
-        # Vérifier si le joueur passe un niveau
-        while self.exp >= self.exp_to_next:
-            self.level_up()
-    
-    def level_up(self):
-        """Fait passer le joueur au niveau supérieur"""
-        self.level += 1
-        self.exp -= self.exp_to_next  # Soustrait l'XP nécessaire
-        
-        # Calcul de l'XP requise pour le prochain niveau (formule à ajuster selon vos préférences)
-        self.exp_to_next = int(self.exp_to_next * 1.5)
-        
-        # Augmentation des stats de base
-        for stat in self.base_stats:
-            if stat in ["hp", "mp"]:
-                self.base_stats[stat] += int(self.base_stats[stat] * 0.1)  # +10% par niveau
+        name_lower = item.name.lower()
+        if 'potion' in name_lower or getattr(item, 'consumable', False):
+            # Apply effect
+            if 'health' in name_lower or 'heal' in name_lower:
+                heal_amount = getattr(item, 'heal_amount', 50)
+                self.heal(heal_amount)
+                print(f"Used {item.name}, healed {heal_amount} HP.")
+            elif 'mana' in name_lower:
+                restore_amount = getattr(item, 'mp_restore', 30)
+                self.restore_mp(restore_amount)
+                print(f"Used {item.name}, restored {restore_amount} MP.")
             else:
-                # Pour les autres stats, augmentation plus modérée
-                self.base_stats[stat] += random.randint(1, 3)
-        
-        # Restaurer complètement HP et MP
-        self.current_hp = self.base_stats["hp"]
-        self.current_mp = self.base_stats["mp"]
-        
-        print(colored(f"\nNIVEAU SUPÉRIEUR! Vous êtes maintenant niveau {self.level}!", "green", attrs=["bold"]))
-        print("Vos statistiques ont augmenté!")
-    
-    def add_skill_exp(self, skill_name, exp_amount):
-        """Ajoute de l'expérience à une compétence"""
-        if skill_name not in self.skills:
-            return False
-        
-        self.skills[skill_name]["exp"] += exp_amount
-        
-        # Vérifier si la compétence monte de niveau
-        exp_for_next = self.calculate_skill_exp_for_level(self.skills[skill_name]["level"] + 1)
-        if self.skills[skill_name]["exp"] >= exp_for_next:
-            self.level_up_skill(skill_name)
-            return True
-        return False
-    
-    def calculate_skill_exp_for_level(self, level):
-        """Calcule l'XP requise pour un niveau de compétence donné"""
-        return 50 * level * level
-    
-    def level_up_skill(self, skill_name):
-        """Fait monter une compétence en niveau"""
-        if skill_name not in self.skills:
-            return False
-        
-        self.skills[skill_name]["level"] += 1
-        level = self.skills[skill_name]["level"]
-        
-        # Améliorer les effets de la compétence selon son niveau
-        if "effect" in self.skills[skill_name]:
-            # Exemple: augmenter les multiplicateurs de dégâts
-            if "damage_mult" in self.skills[skill_name]["effect"]:
-                self.skills[skill_name]["effect"]["damage_mult"] += 0.1
-        
-        print(colored(f"Votre compétence {skill_name} atteint le niveau {level}!", "green"))
-        return True
-    
-    def display_skills(self):
-        """Affiche toutes les compétences du joueur"""
-        print(colored("\n=== COMPÉTENCES ===\n", "cyan", attrs=["bold"]))
-        if not self.skills:
-            print("Vous n'avez aucune compétence.")
-            return
-        
-        for name, skill in self.skills.items():
-            print(colored(f"{name} (Niv. {skill['level']})", "cyan"))
-            print(f"Type: {skill['type']}")
-            print(f"Description: {skill['description']}")
-            print(f"Coût en MP: {skill['mp_cost']}")
-            
-            # Afficher la progression vers le niveau suivant
-            exp_for_next = self.calculate_skill_exp_for_level(skill["level"] + 1)
-            print(f"EXP: {skill['exp']}/{exp_for_next}")
-            
-            # Afficher les effets
-            if "effect" in skill:
-                print("Effets:", end=" ")
-                effects = []
-                for effect, value in skill["effect"].items():
-                    if effect == "damage_mult":
-                        effects.append(f"Dégâts x{value}")
-                    elif effect == "defense_ignore":
-                        effects.append(f"Ignore {int(value*100)}% de la défense")
-                    elif effect == "crit_chance":
-                        effects.append(f"+{int(value*100)}% chance critique")
-                    elif effect == "element":
-                        effects.append(f"Élément: {value}")
-                    # Ajouter d'autres effets au besoin
-                print(", ".join(effects))
-            print("")
-    
-    def add_title(self, title):
-        """Ajoute un nouveau titre au joueur"""
-        # Vérifier si le titre existe déjà
-        for existing_title in self.titles:
-            if existing_title["name"] == title["name"]:
-                print(f"Vous possédez déjà le titre '{title['name']}'.")
-                return False
-        
-        self.titles.append(title)
-        print(colored(f"Nouveau titre obtenu: {title['name']}!", "green", attrs=["bold"]))
-        print(f"Description: {title.get('description', 'Pas de description')}")
-        
-        # Suggérer d'activer le titre
-        if len(self.titles) == 1 or not self.active_title:
-            choice = input("Voulez-vous activer ce titre maintenant? (o/n): ")
-            if choice.lower() == 'o':
-                self.set_active_title(title["name"])
-        
-        return True
-    
-    def set_active_title(self, title_name):
-        """Définit un titre comme actif"""
-        for title in self.titles:
-            if title["name"].lower() == title_name.lower():
-                self.active_title = title
-                print(f"Titre actif: {title['name']}")
-                return True
-        
-        print(f"Vous ne possédez pas le titre '{title_name}'.")
-        return False
-    
-    def display_titles(self):
-        """Affiche tous les titres du joueur"""
-        print(colored("\n=== TITRES ===\n", "magenta", attrs=["bold"]))
-        if not self.titles:
-            print("Vous ne possédez aucun titre.")
-            return
-        
-        print(f"Titre actif: {self.active_title['name'] if self.active_title else 'Aucun'}")
-        print("\nTitres disponibles:")
-        for i, title in enumerate(self.titles, 1):
-            active = " [Actif]" if self.active_title and title["name"] == self.active_title["name"] else ""
-            print(colored(f"{i}. {title['name']}{active}", "magenta"))
-            print(f"   Description: {title.get('description', 'Pas de description')}")
-            if "effects" in title:
-                print("   Effets:", end=" ")
-                effects = []
-                for effect, value in title["effects"].items():
-                    if effect.startswith("boost_"):
-                        stat = effect[6:]
-                        effects.append(f"+{value} {stat}")
-                    elif effect == "damage_bonus":
-                        effects.append(f"+{int(value*100)}% dégâts")
-                    elif effect.startswith("resistance_"):
-                        element = effect[11:]
-                        effects.append(f"+{int(value*100)}% résistance {element}")
-                    # Ajouter d'autres effets au besoin
-                print(", ".join(effects))
-            print("")
-    
-    def add_quest(self, quest):
-        """Ajoute une nouvelle quête au joueur"""
-        # Vérifier si la quête est déjà active ou terminée
-        for active_quest in self.active_quests:
-            if active_quest["id"] == quest["id"]:
-                print(f"Vous avez déjà accepté la quête '{quest['name']}'.")
-                return False
-        
-        for completed_quest in self.completed_quests:
-            if completed_quest["id"] == quest["id"]:
-                print(f"Vous avez déjà terminé la quête '{quest['name']}'.")
-                return False
-        
-        self.active_quests.append(quest)
-        print(colored(f"Nouvelle quête acceptée: {quest['name']}", "green"))
-        print(f"Description: {quest.get('description', 'Pas de description')}")
-        return True
-    
-    def update_quest_progress(self, quest_id, objective_id, progress=1):
-        """Met à jour la progression d'un objectif de quête"""
-        for quest in self.active_quests:
-            if quest["id"] == quest_id:
-                for objective in quest["objectives"]:
-                    if objective["id"] == objective_id:
-                        objective["current"] += progress
-                        if objective["current"] >= objective["required"]:
-                            objective["completed"] = True
-                            print(f"Objectif terminé: {objective['description']}")
-                            
-                            # Vérifier si tous les objectifs sont terminés
-                            all_completed = all(obj.get("completed", False) for obj in quest["objectives"])
-                            if all_completed:
-                                self.complete_quest(quest_id)
-                        else:
-                            print(f"Progression de quête: {objective['current']}/{objective['required']} {objective['description']}")
-                        return True
-        return False
-    
-    def complete_quest(self, quest_id):
-        """Marque une quête comme terminée et attribue les récompenses"""
-        for i, quest in enumerate(self.active_quests):
-            if quest["id"] == quest_id:
-                completed_quest = self.active_quests.pop(i)
-                self.completed_quests.append(completed_quest)
-                
-                print(colored(f"\nQuête terminée: {completed_quest['name']}!", "green", attrs=["bold"]))
-                
-                # Attribuer les récompenses
-                if "rewards" in completed_quest:
-                    print("Récompenses:")
-                    if "exp" in completed_quest["rewards"]:
-                        exp = completed_quest["rewards"]["exp"]
-                        print(f"- {exp} points d'expérience")
-                        self.gain_exp(exp)
-                    
-                    if "gold" in completed_quest["rewards"]:
-                        gold = completed_quest["rewards"]["gold"]
-                        print(f"- {gold} pièces d'or")
-                        self.gold += gold
-                    
-                    if "items" in completed_quest["rewards"]:
-                        for item_id in completed_quest["rewards"]["items"]:
-                            # L'item_manager devrait être passé en paramètre pour créer l'objet
-                            # Pour l'instant, on suppose que l'ID est l'objet lui-même
-                            self.add_item(item_id)
-                    
-                    if "title" in completed_quest["rewards"]:
-                        title = completed_quest["rewards"]["title"]
-                        self.add_title(title)
-                
-                # Incrémenter le compteur de quêtes terminées
-                self.action_counters["quests_completed"] += 1
-                
-                return True
-        return False
-    
-    def display_quests(self):
-        """Affiche toutes les quêtes actives du joueur"""
-        print(colored("\n=== QUÊTES ACTIVES ===\n", "yellow", attrs=["bold"]))
-        if not self.active_quests:
-            print("Vous n'avez aucune quête active.")
+                effect = getattr(item, 'effect', None)
+                if effect:
+                    print(f"Used {item.name}: {effect}")
+            # Remove item from inventory after use
+            self.remove_item(getattr(item, 'id', None))
         else:
-            for i, quest in enumerate(self.active_quests, 1):
-                print(colored(f"{i}. {quest['name']}", "yellow"))
-                print(f"   Description: {quest.get('description', 'Pas de description')}")
-                
-                print("   Objectifs:")
-                for objective in quest["objectives"]:
-                    status = "✓" if objective.get("completed", False) else " "
-                    print(f"   [{status}] {objective['current']}/{objective['required']} {objective['description']}")
-                print("")
-        
-        if self.completed_quests and input("\nVoir les quêtes terminées? (o/n): ").lower() == 'o':
-            print(colored("\n=== QUÊTES TERMINÉES ===\n", "green", attrs=["bold"]))
-            for i, quest in enumerate(self.completed_quests, 1):
-                print(colored(f"{i}. {quest['name']}", "green"))
-                print(f"   Description: {quest.get('description', 'Pas de description')}")
-                print("")
-    
+            print(f"Item '{item_name}' is not usable (consumable) or has no immediate effect.")
+
+    def drop_item(self, item_name):
+        """Drop an item from the inventory."""
+        item = self.find_item_by_name(item_name)
+        if not item:
+            print(f"No item named '{item_name}' to drop.")
+            return
+        self._inventory.remove(item)
+        print(f"Dropped {item.name} (ID: {getattr(item, 'id', 'N/A')}).")
+
+    def sort_inventory(self, sort_type):
+        """Sort inventory by name, rarity, or type."""
+        if sort_type == 'name':
+            self._inventory.sort(key=lambda x: getattr(x, 'name', ''))
+        elif sort_type == 'rarity':
+            rarity_order = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary']
+            self._inventory.sort(key=lambda x: rarity_order.index(getattr(x, 'rarity', 'Common')))
+        elif sort_type == 'type':
+            self._inventory.sort(key=lambda x: getattr(x, 'type', ''))
+        else:
+            print(f"Unknown sort type '{sort_type}'. Sorting by name.")
+            self._inventory.sort(key=lambda x: getattr(x, 'name', ''))
+        print(f"Inventory sorted by {sort_type}.")
+
+    def display_usable_items(self):
+        """Display only the usable (consumable) items in the inventory."""
+        usable = [item for item in self._inventory if 'potion' in getattr(item, 'name', '').lower() or getattr(item, 'consumable', False)]
+        if not usable:
+            print("No usable (consumable) items in inventory.")
+            return
+        print("Usable Items:")
+        for item in usable:
+            color = self.get_rarity_color(getattr(item, 'rarity', 'Common'))
+            print(f"  {color}{item.name}\033[0m (ID: {getattr(item, 'id', 'N/A')})")
+
+    def get_total_stat(self, stat):
+        """Calculate the total value of a stat including base, equipment, and effects."""
+        base_value = self._stats.get(stat, 0)
+        total = base_value
+        # Add equipment bonuses
+        for item in self._equipment.values():
+            if not item:
+                continue
+            bonuses = getattr(item, 'stat_bonuses', {})
+            total += bonuses.get(stat, 0)
+        # Add temporary status effect bonuses
+        for effect in self._status_effects:
+            if effect.get('stat') == stat:
+                total += effect.get('value', 0)
+        return total
+
+    def heal(self, amount):
+        """Heal the player by the given amount (up to max HP)."""
+        if self._current_hp <= 0:
+            print("Cannot heal. Player is dead.")
+            return
+        self._current_hp = min(self._current_hp + amount, self._max_hp)
+        print(f"Player healed by {amount}. Current HP: {self._current_hp}/{self._max_hp}")
+
+    def restore_mp(self, amount):
+        """Restore the player's MP by the given amount (up to max MP)."""
+        self._current_mp = min(self._current_mp + amount, self._max_mp)
+        print(f"MP restored by {amount}. Current MP: {self._current_mp}/{self._max_mp}")
+
+    def take_damage(self, amount):
+        """Inflict damage to the player, reducing HP."""
+        self._current_hp -= amount
+        print(f"Player took {amount} damage. Current HP: {self._current_hp}/{self._max_hp}")
+        if self._current_hp <= 0:
+            self.on_death()
+
+    def on_death(self):
+        """Handle player death."""
+        self._is_dead = True
+        print("You have died. Game over.")
+
+    def use_mp(self, amount):
+        """Use mana points; reduce MP if enough available."""
+        if amount > self._current_mp:
+            print("Not enough MP!")
+            return False
+        self._current_mp -= amount
+        print(f"Used {amount} MP. Current MP: {self._current_mp}/{self._max_mp}")
+        return True
+
+    def gain_exp(self, amount):
+        """Gain experience points and handle leveling up."""
+        self._xp += amount
+        print(f"Gained {amount} experience points.")
+        # Assume XP needed per level: 100 * current level
+        xp_needed = 100 * self._level
+        while self._xp >= xp_needed:
+            self._xp -= xp_needed
+            self.level_up()
+            xp_needed = 100 * self._level
+
+    def level_up(self):
+        """Handle leveling up: increase level and improve stats."""
+        self._level += 1
+        # Increase stats on level up
+        self._stats['max_hp'] = self._stats.get('max_hp', 0) + 10
+        self._stats['max_mp'] = self._stats.get('max_mp', 0) + 5
+        self._stats['strength'] = self._stats.get('strength', 0) + 1
+        self._stats['defense'] = self._stats.get('defense', 0) + 1
+        self._stats['agility'] = self._stats.get('agility', 0) + 1
+        self._stats['intelligence'] = self._stats.get('intelligence', 0) + 1
+        # Heal to full on level up
+        self._current_hp = self._stats.get('max_hp', self._current_hp)
+        self._current_mp = self._stats.get('max_mp', self._current_mp)
+        print(f"Congratulations! {self._name} has reached level {self._level}.")
+
+    def can_upgrade_class(self):
+        """Check if player is eligible to change to an advanced class."""
+        # Example condition: reach level 10
+        cond = self.adv_classes.get(self.current_class, {})
+        # ex. cond = {"required_level": 20, "to": "Knight"}
+        req = cond.get("required_level", 999)
+        return getattr(self, "level", 1) >= req
+
+    def upgrade_class(self):
+        """Upgrade player to a new advanced class if eligible."""
+        cond = self.adv_classes.get(self.current_class, {})
+        new_cls = cond.get("to")
+        if new_cls:
+            self.current_class = new_cls
+            # Appliquer nouveaux stats de base
+            self.stats.update(self.base_classes.get(new_cls, {}))
+            print(f"Vous êtes maintenant {new_cls} !")
+            self.load_starting_skills()
+        return True
+
+    def add_skill_exp(self, skill_name, exp_amount):
+        """Add experience to a specific skill."""
+        skill = self._skills.get(skill_name)
+        if not skill:
+            print(f"Skill '{skill_name}' not known.")
+            return
+        skill['xp'] += exp_amount
+        print(f"Gained {exp_amount} XP in skill '{skill_name}'.")
+        # Check for skill level up
+        xp_needed = self.calculate_skill_exp_for_level(skill['level'])
+        if skill['xp'] >= xp_needed:
+            self.level_up_skill(skill_name)
+
+    def calculate_skill_exp_for_level(self, level):
+        """Calculate required XP for a skill to reach given level."""
+        # Example formula: 100 * level
+        return 100 * level
+
+    def level_up_skill(self, skill_name):
+        """Level up the given skill if enough experience."""
+        skill = self._skills.get(skill_name)
+        if not skill:
+            print(f"Skill '{skill_name}' not known.")
+            return
+        xp_needed = self.calculate_skill_exp_for_level(skill['level'])
+        if skill['xp'] >= xp_needed:
+            skill['xp'] -= xp_needed
+            skill['level'] += 1
+            print(f"Skill '{skill_name}' leveled up to {skill['level']}.")
+        else:
+            print(f"Not enough XP to level up skill '{skill_name}'.")
+
+    def display_skills(self):
+        """Display the player's skills and their levels."""
+        if not self._skills:
+            print("No skills learned yet.")
+            return
+        print("Skills:")
+        for skill, data in self._skills.items():
+            print(f"  {skill} - Level {data['level']} (XP: {data['xp']})")
+
+    def learn_skill(self, skill_id):
+        """Permet d’ajouter une compétence (ex. issue d’un secret)."""
+        # Cherche dans combo_skills si présent
+        sk = self.combo_skills.get(skill_id)
+        if sk and skill_id not in self.skills:
+            self.skills[skill_id] = sk.copy()
+
+    def add_title(self, title):
+        """Add a title to the player's collection."""
+        if title in self._titles:
+            return
+        self._titles.append(title)
+        print(f"New title earned: '{title}'")
+
+    def set_active_title(self, title_name):
+        """Set one of the player's titles as active."""
+        if title_name not in self._titles:
+            print(f"Title '{title_name}' not owned.")
+            return
+        self._active_title = title_name
+        print(f"Title '{title_name}' is now active.")
+
+    def display_titles(self):
+        """Display all titles and highlight the active one."""
+        if not self._titles:
+            print("No titles earned yet.")
+            return
+        print("Titles:")
+        for t in self._titles:
+            if t == self._active_title:
+                print(f"  * {t} (Active)")
+            else:
+                print(f"  - {t}")
+
+    def apply_title_effects(self, title):
+        """Apply effects associated with the given title."""
+        if title not in self._titles:
+            print(f"Title '{title}' not owned.")
+            return
+        # Placeholder for actual title effects
+        print(f"Applied effects of title '{title}' (if any).")
+
+    def add_quest(self, quest):
+        """Add a new quest to the player's active quests."""
+        quest_id = getattr(quest, 'id', None)
+        if quest_id is None:
+            print("Invalid quest.")
+            return
+        # Initialize quest progress structure
+        objectives_data = {}
+        for obj in getattr(quest, 'objectives', []):
+            obj_id = obj.get('id')
+            target = obj.get('target', 0)
+            objectives_data[obj_id] = {'progress': 0, 'target': target}
+        self._quests[quest_id] = {'quest': quest, 'objectives': objectives_data}
+        print(f"Quest '{getattr(quest, 'title', quest_id)}' added to log.")
+
+    def update_quest_progress(self, quest_id, objective_id, progress):
+        """Update progress of a quest objective."""
+        if quest_id not in self._quests:
+            print(f"Quest ID {quest_id} not found.")
+            return
+        quest_data = self._quests[quest_id]
+        if objective_id not in quest_data['objectives']:
+            print(f"Objective ID {objective_id} not found in quest {quest_id}.")
+            return
+        obj = quest_data['objectives'][objective_id]
+        obj['progress'] += progress
+        if obj['progress'] >= obj['target']:
+            obj['progress'] = obj['target']
+            print(f"Objective {objective_id} completed for quest {quest_id}.")
+        # Check if all objectives are complete
+        if all(o['progress'] >= o['target'] for o in quest_data['objectives'].values()):
+            self.complete_quest(quest_id)
+
+    def complete_quest(self, quest_id):
+        """Mark a quest as complete and handle rewards."""
+        if quest_id not in self._quests:
+            print(f"Quest ID {quest_id} not found.")
+            return
+        quest = self._quests.pop(quest_id)['quest']
+        self._completed_quests.append(quest)
+        print(f"Quest '{getattr(quest, 'title', quest_id)}' completed!")
+        # Placeholder for rewards (XP, items, etc.)
+
+    def display_quests(self):
+        """Display all active quests and their progress."""
+        if not self._quests:
+            print("No active quests.")
+            return
+        print("Active Quests:")
+        for quest_id, data in self._quests.items():
+            quest = data.get('quest')
+            title = getattr(quest, 'title', quest_id)
+            print(f"  {title}:")
+            for obj_id, obj_data in data['objectives'].items():
+                progress = obj_data['progress']
+                target = obj_data['target']
+                print(f"    Objective {obj_id}: {progress}/{target}")
+
     def increment_kill_counter(self, monster_type):
-        """Incrémente le compteur de monstres tués"""
-        if monster_type not in self.kill_counters:
-            self.kill_counters[monster_type] = 0
-        
-        self.kill_counters[monster_type] += 1
-        return self.kill_counters[monster_type]
-    
+        """Increment kill count for a monster type and check milestones."""
+        self._kill_counter[monster_type] = self._kill_counter.get(monster_type, 0) + 1
+        count = self._kill_counter[monster_type]
+        # Example milestone: every 100 kills grant a title
+        if count % 100 == 0:
+            title = f"{monster_type} Slayer"
+            self.add_title(title)
+
+    def increment_action_counter(self, action_type):
+        """Increment action usage count and check milestones."""
+        self._action_counter[action_type] = self._action_counter.get(action_type, 0) + 1
+        self.check_action_milestone(action_type)
+
+    def check_action_milestone(self, action_type):
+        """Check if an action usage has reached a milestone."""
+        count = self._action_counter.get(action_type, 0)
+        if count and count % 50 == 0:
+            title = f"Seasoned {action_type.capitalize()}"
+            self.add_title(title)
+
+    def race_knowledge(self, race):
+        """Return or initialize the player's knowledge level of a monster race."""
+        if race not in self._race_knowledge:
+            self._race_knowledge[race] = 0
+        return self._race_knowledge[race]
+
+    def enemy_knowledge(self, enemy_id):
+        """Return or initialize knowledge of a specific enemy."""
+        if enemy_id not in self._enemy_knowledge:
+            self._enemy_knowledge[enemy_id] = 0
+        return self._enemy_knowledge[enemy_id]
+
+    def add_temporary_stat(self, stat, value, duration):
+        """Add a temporary stat modifier for a duration."""
+        import uuid
+        effect_id = str(uuid.uuid4())
+        self._status_effects.append({'id': effect_id, 'stat': stat, 'value': value, 'duration': duration})
+        print(f"Temporary effect added: {stat} +{value} for {duration} turns (ID: {effect_id}).")
+        return effect_id
+
+    def remove_status_effect(self, effect_id):
+        """Remove a status effect by its ID."""
+        for i, eff in enumerate(self._status_effects):
+            if eff.get('id') == effect_id:
+                removed = self._status_effects.pop(i)
+                print(f"Removed status effect {effect_id} ({removed['stat']} +{removed['value']}).")
+                return
+        print(f"Status effect ID {effect_id} not found.")
+
     def to_dict(self):
-        """Convertit les données du joueur en dictionnaire pour la sauvegarde"""
-        return {
-            "name": self.name,
-            "current_class": self.current_class,
-            "level": self.level,
-            "exp": self.exp,
-            "exp_to_next": self.exp_to_next,
-            "base_stats": self.base_stats,
-            "current_hp": self.current_hp,
-            "current_mp": self.current_mp,
-            "inventory": self.inventory,
-            "equipment": self.equipment,
-            "gold": self.gold,
-            "skills": self.skills,
-            "titles": self.titles,
-            "active_title": self.active_title,
-            "reputation": self.reputation,
-            "active_quests": self.active_quests,
-            "completed_quests": self.completed_quests,
-            "kill_counters": self.kill_counters,
-            "action_counters": self.action_counters,
-            "discovery_flags": self.discovery_flags
+        """Convert player data to a dict for saving to JSON."""
+        data = {
+            'name': self._name,
+            'class': self._class,
+            'level': self._level,
+            'xp': self._xp,
+            'stats': self._stats.copy(),
+            'current_hp': self._current_hp,
+            'current_mp': self._current_mp,
+            'skills': {sk: {'level': dat['level'], 'xp': dat['xp']} for sk, dat in self._skills.items()},
+            'inventory': [getattr(item, 'id', None) for item in self._inventory],
+            'equipment': {slot: getattr(item, 'id', None) for slot, item in self._equipment.items()},
+            'titles': list(self._titles),
+            'active_title': self._active_title,
+            'quests': {},
+            'kill_counter': self._kill_counter.copy(),
+            'action_counter': self._action_counter.copy(),
+            'race_knowledge': self._race_knowledge.copy(),
+            'enemy_knowledge': self._enemy_knowledge.copy(),
+            'status_effects': list(self._status_effects)
         }
-    
+        # Save quest progress
+        for quest_id, qdata in self._quests.items():
+            quest_obj = qdata.get('quest')
+            objectives = qdata.get('objectives', {})
+            data_obj = {'title': getattr(quest_obj, 'title', quest_id), 'objectives': {}}
+            for obj_id, obj in objectives.items():
+                data_obj['objectives'][obj_id] = {
+                    'progress': obj.get('progress'),
+                    'target': obj.get('target')
+                }
+            data['quests'][quest_id] = data_obj
+        return data
+
     @classmethod
-    def load_from_data(cls, data, item_manager=None):
-        """Crée un joueur à partir des données de sauvegarde"""
-        player = cls(data["name"], data["current_class"])
-        
-        # Charger les données sauvegardées
-        player.level = data["level"]
-        player.exp = data["exp"]
-        player.exp_to_next = data["exp_to_next"]
-        player.base_stats = data["base_stats"]
-        player.current_hp = data["current_hp"]
-        player.current_mp = data["current_mp"]
-        player.inventory = data["inventory"]
-        player.equipment = data["equipment"]
-        player.gold = data["gold"]
-        player.skills = data["skills"]
-        player.titles = data["titles"]
-        player.active_title = data["active_title"]
-        player.reputation = data["reputation"]
-        player.active_quests = data["active_quests"]
-        player.completed_quests = data["completed_quests"]
-        player.kill_counters = data["kill_counters"]
-        player.action_counters = data["action_counters"]
-        player.discovery_flags = data["discovery_flags"]
-        
+    def load_from_data(cls, data, item_manager):
+        """Create a Player instance from saved data using item_manager for items."""
+        name = data.get('name')
+        starting_class = data.get('class')
+        player = cls(name, starting_class)
+        # Restore level and xp
+        player._level = data.get('level', player._level)
+        player._xp = data.get('xp', player._xp)
+        # Restore stats and HP/MP
+        stats = data.get('stats', {})
+        player._stats = stats.copy()
+        player._max_hp = stats.get('max_hp', player._max_hp)
+        player._current_hp = data.get('current_hp', player._current_hp)
+        player._max_mp = stats.get('max_mp', player._max_mp)
+        player._current_mp = data.get('current_mp', player._current_mp)
+        # Restore skills
+        player._skills = {sk: {'level': dat['level'], 'xp': dat['xp']} for sk, dat in data.get('skills', {}).items()}
+        # Restore inventory (using item_manager)
+        player._inventory = []
+        for item_id in data.get('inventory', []):
+            item = item_manager.get_item_by_id(item_id)
+            if item:
+                player._inventory.append(item)
+        # Restore equipment
+        player._equipment = {}
+        for slot, item_id in data.get('equipment', {}).items():
+            item = item_manager.get_item_by_id(item_id)
+            if item:
+                player._equipment[slot] = item
+        # Titles
+        player._titles = list(data.get('titles', []))
+        player._active_title = data.get('active_title')
+        # Quests
+        player._quests = {}
+        for quest_id, qdata in data.get('quests', {}).items():
+            # Minimal quest object with title and id
+            quest = type('Quest', (), {})()
+            setattr(quest, 'title', qdata.get('title'))
+            setattr(quest, 'id', quest_id)
+            objectives = {}
+            for obj_id, obj in qdata.get('objectives', {}).items():
+                objectives[obj_id] = {'progress': obj.get('progress'), 'target': obj.get('target')}
+            player._quests[quest_id] = {'quest': quest, 'objectives': objectives}
+        # Completed quests
+        player._completed_quests = []
+        # Counters and knowledge
+        player._kill_counter = data.get('kill_counter', {}).copy()
+        player._action_counter = data.get('action_counter', {}).copy()
+        player._race_knowledge = data.get('race_knowledge', {}).copy()
+        player._enemy_knowledge = data.get('enemy_knowledge', {}).copy()
+        # Status effects
+        player._status_effects = data.get('status_effects', []).copy()
         return player
