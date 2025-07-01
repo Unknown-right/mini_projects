@@ -1,0 +1,13 @@
+{
+    "mysterious_key": {
+        "id": "mysterious_key",
+        "name": "Clé mystérieuse",
+        "description": "Une clé énigmatique. Qui sait ce qu'elle ouvre?",
+        "type": "quest",
+        "rarity": "uncommon",
+        "value": 0,
+        "weight": 0.1,
+        "quest_id": "find_secret_door",
+        "unique": true
+    }
+}

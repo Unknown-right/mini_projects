@@ -1,0 +1,90 @@
+
+{
+  "leather_armor": {
+    "id": "leather_armor",
+    "name": "Armure en Cuir",
+    "description": "Une armure légère offrant une protection modérée.",
+    "type": "armor",
+    "subtype": "light",
+    "slot": "chest",
+    "rarity": "common",
+    "level_req": 1,
+    "stats": {
+      "defense": 12,
+      "weight": 8
+    },
+    "durability": 100,
+    "effects": {},
+    "value": 60
+  },
+  "cloth_robe": {
+    "id": "cloth_robe",
+    "name": "Robe en Tissu",
+    "description": "Une robe simple qui favorise la circulation du mana.",
+    "type": "armor",
+    "subtype": "cloth",
+    "slot": "chest",
+    "rarity": "common",
+    "level_req": 1,
+    "stats": {
+      "defense": 6,
+      "magical_defense": 10,
+      "weight": 4
+    },
+    "durability": 80,
+    "effects": {
+      "mp_max": 15
+    },
+    "value": 55
+  },
+  "dragon_scale_mail": {
+    "id": "dragon_scale_mail",
+    "name": "Cotte d'Écailles de Dragon",
+    "description": "Une armure forgée à partir d'écailles de dragon. Résiste au feu.",
+    "type": "armor",
+    "subtype": "heavy",
+    "slot": "chest",
+    "rarity": "epic",
+    "level_req": 35,
+    "stats": {
+      "defense": 65,
+      "magical_defense": 40,
+      "weight": 25
+    },
+    "durability": 200,
+    "effects": {
+      "fire_resistance": 75,
+      "intimidation": 15,
+      "strength_bonus": 5
+    },
+    "value": 8000,
+    "set": "dragon_armor"
+  },
+  "shadow_cowl": {
+    "id": "shadow_cowl",
+    "name": "Capuche des Ombres",
+    "description": "Une capuche qui enveloppe son porteur dans les ténèbres.",
+    "type": "armor",
+    "subtype": "light",
+    "slot": "head",
+    "rarity": "rare",
+    "level_req": 28,
+    "stats": {
+      "defense": 22,
+      "weight": 3
+    },
+    "durability": 120,
+    "effects": {
+      "stealth": 25,
+      "detection": 20,
+      "night_vision": true,
+      "darkness_affinity": {
+        "description": "Augmente les dégâts de 15% la nuit ou dans l'obscurité",
+        "damage_multiplier": 1.15,
+        "condition": "darkness"
+      }
+    },
+    "value": 3200,
+    "set": "shadow_garb"
+  }
+}

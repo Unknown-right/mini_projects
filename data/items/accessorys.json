@@ -1,1 +1,18 @@
-
+{
+    "lucky_charm": {
+        "id": "lucky_charm",
+        "name": "Porte-bonheur",
+        "description": "Un petit talisman qui semble porter chance.",
+        "type": "accessory",
+        "rarity": "uncommon",
+        "value": 100,
+        "weight": 0.1,
+        "stats": {
+            "luck": 2
+        },
+        "equip_slot": "accessory1",
+        "effects": {
+            "lucky": 1
+        }
+    }
+}

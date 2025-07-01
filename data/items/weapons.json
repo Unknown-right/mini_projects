@@ -1,0 +1,123 @@
+{
+  "basic_sword": {
+    "id": "basic_sword",
+    "name": "Épée Simple",
+    "description": "Une épée ordinaire mais fiable.",
+    "type": "weapon",
+    "subtype": "sword",
+    "rarity": "common",
+    "level_req": 1,
+    "stats": {
+      "damage": 10,
+      "attack_speed": 1.0
+    },
+    "scaling": {
+      "str": 1.0
+    },
+    "durability": 100,
+    "effects": {},
+    "value": 50
+  },
+  "apprentice_staff": {
+    "id": "apprentice_staff",
+    "name": "Bâton d'Apprenti",
+    "description": "Un bâton basique pour canaliser la magie.",
+    "type": "weapon",
+    "subtype": "staff",
+    "rarity": "common",
+    "level_req": 1,
+    "stats": {
+      "damage": 6,
+      "magical_power": 15
+    },
+    "scaling": {
+      "int": 1.2
+    },
+    "durability": 80,
+    "effects": {
+      "mp_regen": 2
+    },
+    "value": 45
+  },
+  "simple_dagger": {
+    "id": "simple_dagger",
+    "name": "Dague Simple",
+    "description": "Une dague légère et rapide.",
+    "type": "weapon",
+    "subtype": "dagger",
+    "rarity": "common",
+    "level_req": 1,
+    "stats": {
+      "damage": 7,
+      "attack_speed": 1.5,
+      "critical_chance": 0.05
+    },
+    "scaling": {
+      "dex": 1.3
+    },
+    "durability": 70,
+    "effects": {},
+    "value": 40
+  },
+  "firebrand": {
+    "id": "firebrand",
+    "name": "Flamberge",
+    "description": "Une épée imprégnée de flammes éternelles.",
+    "type": "weapon",
+    "subtype": "sword",
+    "rarity": "rare",
+    "level_req": 25,
+    "stats": {
+      "damage": 45,
+      "attack_speed": 1.1,
+      "magical_power": 20
+    },
+    "scaling": {
+      "str": 1.2,
+      "int": 0.8
+    },
+    "durability": 120,
+    "effects": {
+      "fire_damage": {
+        "value": 15,
+        "chance": 0.3
+      },
+      "burn": {
+        "damage": 8,
+        "duration": 3,
+        "chance": 0.2
+      }
+    },
+    "value": 2800,
+    "upgrade_paths": ["inferno_blade", "dragonfang"]
+  },
+  "shadowstrike": {
+    "id": "shadowstrike",
+    "name": "Frappe-Ombre",
+    "description": "Une dague forgée dans l'ombre pure qui semble parfois disparaître.",
+    "type": "weapon",
+    "subtype": "dagger",
+    "rarity": "epic",
+    "level_req": 30,
+    "stats": {
+      "damage": 35,
+      "attack_speed": 1.8,
+      "critical_chance": 0.15,
+      "critical_damage": 2.2
+    },
+    "scaling": {
+      "dex": 1.5
+    },
+    "durability": 90,
+    "effects": {
+      "stealth_bonus": 20,
+      "backstab_multiplier": 1.5,
+      "shadow_strike": {
+        "description": "10% de chance de devenir invisible pendant 2s après une attaque critique",
+        "chance": 0.1,
+        "duration": 2
+      }
+    },
+    "value": 4500
+  }
+}
