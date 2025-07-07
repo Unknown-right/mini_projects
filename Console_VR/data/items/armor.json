@@ -1,4 +1,3 @@
-
 {
   "leather_armor": {
     "id": "leather_armor",
@@ -86,5 +85,201 @@
     },
     "value": 3200,
     "set": "shadow_garb"
+  },
+  "leather_jacket": {
+    "id": "leather_jacket",
+    "name": "Veste en Cuir",
+    "description": "Une veste légère, appréciée des voleurs et chasseurs de donjons.",
+    "type": "armor",
+    "subtype": "light",
+    "slot": "chest",
+    "rarity": "uncommon",
+    "level_req": 4,
+    "stats": {
+      "defense": 16,
+      "weight": 6
+    },
+    "durability": 90,
+    "effects": {
+      "evasion": 2
+    },
+    "value": 120
+  },
+  "chain_mail": {
+    "id": "chain_mail",
+    "name": "Cotte de Mailles",
+    "description": "Armure intermédiaire, protège bien contre les attaques physiques.",
+    "type": "armor",
+    "subtype": "medium",
+    "slot": "chest",
+    "rarity": "uncommon",
+    "level_req": 6,
+    "stats": {
+      "defense": 22,
+      "weight": 14
+    },
+    "durability": 120,
+    "effects": {},
+    "value": 200
+  },
+  "plate_armor": {
+    "id": "plate_armor",
+    "name": "Armure de Plates",
+    "description": "Armure lourde, réservée aux chevaliers et paladins.",
+    "type": "armor",
+    "subtype": "heavy",
+    "slot": "chest",
+    "rarity": "rare",
+    "level_req": 10,
+    "stats": {
+      "defense": 35,
+      "weight": 28
+    },
+    "durability": 180,
+    "effects": {
+      "resist_stun": 0.1
+    },
+    "value": 400
+  },
+  "aegis_breastplate": {
+    "id": "aegis_breastplate",
+    "name": "Cuirasse Égide",
+    "description": "Armure inspirée du bouclier d'Athéna, protège contre la magie noire.",
+    "type": "armor",
+    "subtype": "heavy",
+    "slot": "chest",
+    "rarity": "epic",
+    "level_req": 32,
+    "stats": {
+      "defense": 55,
+      "magic_defense": 30,
+      "weight": 22
+    },
+    "durability": 180,
+    "effects": {
+      "curse_resist": 0.5,
+      "fear_resist": 0.2
+    },
+    "value": 7000
+  },
+  "kitsune_mask": {
+    "id": "kitsune_mask",
+    "name": "Masque de Kitsune",
+    "description": "Masque magique du folklore japonais, confère ruse et illusion.",
+    "type": "armor",
+    "subtype": "head",
+    "slot": "head",
+    "rarity": "rare",
+    "level_req": 20,
+    "stats": {
+      "defense": 10,
+      "magic_defense": 18,
+      "weight": 2
+    },
+    "durability": 60,
+    "effects": {
+      "illusion": 0.3,
+      "stealth": 0.1
+    },
+    "value": 2100
+  },
+  "berserker_pelt": {
+    "id": "berserker_pelt",
+    "name": "Peau de Berserker",
+    "description": "Cape en fourrure inspirée des guerriers nordiques, augmente la rage.",
+    "type": "armor",
+    "subtype": "cloak",
+    "slot": "back",
+    "rarity": "rare",
+    "level_req": 16,
+    "stats": {
+      "defense": 8,
+      "weight": 4
+    },
+    "durability": 80,
+    "effects": {
+      "rage": 0.2,
+      "fear_resist": 0.1
+    },
+    "value": 950
+  },
+  "divine_robe": {
+    "id": "divine_robe",
+    "name": "Robe Divine",
+    "description": "Robe blanche brodée d'or, portée par les prêtres dans les légendes.",
+    "type": "armor",
+    "subtype": "cloth",
+    "slot": "chest",
+    "rarity": "epic",
+    "level_req": 24,
+    "stats": {
+      "defense": 18,
+      "magical_defense": 40,
+      "weight": 5
+    },
+    "durability": 90,
+    "effects": {
+      "heal_bonus": 0.2,
+      "holy_resist": 0.3
+    },
+    "value": 3200
+  },
+  "wraith_cloak": {
+    "id": "wraith_cloak",
+    "name": "Cape de Spectre",
+    "description": "Cape éthérée portée par les spectres. Offre une résistance à la magie et à la peur.",
+    "type": "armor",
+    "subtype": "cloak",
+    "slot": "back",
+    "rarity": "rare",
+    "level_req": 18,
+    "stats": {
+      "defense": 12,
+      "magic_defense": 18
+    },
+    "durability": 60,
+    "effects": {
+      "fear_resist": 0.2
+    },
+    "value": 900
+  },
+  "cloak_of_the_northern_lights": {
+    "id": "cloak_of_the_northern_lights",
+    "name": "Cape des Aurores Boréales",
+    "description": "Cape chatoyante inspirée des légendes nordiques, protège du froid et des illusions.",
+    "type": "armor",
+    "subtype": "cloak",
+    "slot": "back",
+    "rarity": "epic",
+    "level_req": 22,
+    "stats": {
+      "defense": 14,
+      "magic_defense": 22
+    },
+    "durability": 80,
+    "effects": {
+      "cold_resist": 0.4,
+      "illusion_resist": 0.2
+    },
+    "value": 2500
+  },
+  "scarab_helm": {
+    "id": "scarab_helm",
+    "name": "Heaume du Scarabée",
+    "description": "Casque sacré inspiré de l'Égypte antique, protège contre les malédictions.",
+    "type": "armor",
+    "subtype": "head",
+    "slot": "head",
+    "rarity": "rare",
+    "level_req": 18,
+    "stats": {
+      "defense": 16,
+      "magic_defense": 10
+    },
+    "durability": 70,
+    "effects": {
+      "curse_resist": 0.3
+    },
+    "value": 1200
   }
 }

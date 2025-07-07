@@ -1,4 +1,3 @@
-
 {
   "berserker": {
     "id": "berserker",
@@ -107,6 +106,403 @@
     "armor_proficiency_add": ["heavy"],
     "special_traits": {
       "divine_protection": "Réduit les dégâts de 15% et a 10% de chances de refléter les sorts hostiles"
+    }
+  },
+  "crusader": {
+    "id": "crusader",
+    "name": "Croisé",
+    "parent_class": "paladin",
+    "description": "Paladin d'élite, défenseur de la foi et de la justice. Inspiré des manhwas, il peut invoquer des boucliers sacrés.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "str": 20,
+        "vit": 20
+      },
+      "quests": ["holy_trial"]
+    },
+    "stat_modifiers": {
+      "str": 1.4,
+      "dex": 1.1,
+      "int": 1.2,
+      "vit": 1.6,
+      "hp": 1.3,
+      "mp": 1.1
+    },
+    "special_abilities": ["divine_aegis", "holy_smite"],
+    "weapon_proficiency_add": ["flail"],
+    "special_traits": {
+      "aura_of_faith": "Augmente la défense de l'équipe de 10%"
+    }
+  },
+  "lich": {
+    "id": "lich",
+    "name": "Liche",
+    "parent_class": "necromancer",
+    "description": "Nécromancien suprême, maître de la mort. Inspiré des manhwas, il contrôle des armées de morts-vivants.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "int": 25
+      },
+      "achievements": ["undead_lord"]
+    },
+    "stat_modifiers": {
+      "str": 1.0,
+      "dex": 1.0,
+      "int": 1.7,
+      "vit": 1.2,
+      "hp": 1.1,
+      "mp": 1.5
+    },
+    "special_abilities": ["mass_raise_dead", "soul_drain"],
+    "weapon_proficiency_add": ["scythe"],
+    "special_traits": {
+      "undying": "Peut ressusciter une fois par combat avec 50% de PV"
+    }
+  },
+  "fury": {
+    "id": "fury",
+    "name": "Furie",
+    "parent_class": "berserker",
+    "description": "Berserker ultime, incarne la rage pure. Inspiré des manhwas, il devient incontrôlable en combat.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "str": 30
+      },
+      "kills": 200
+    },
+    "stat_modifiers": {
+      "str": 1.7,
+      "dex": 1.3,
+      "int": 0.8,
+      "vit": 1.3,
+      "hp": 1.5,
+      "mp": 0.7
+    },
+    "special_abilities": ["berserk_rage", "unstoppable"],
+    "weapon_proficiency_add": ["greatsword"],
+    "special_traits": {
+      "bloodlust": "Augmente l'attaque de 5% à chaque élimination"
+    }
+  },
+  "master_assassin": {
+    "id": "master_assassin",
+    "name": "Maître Assassin",
+    "parent_class": "assassin",
+    "description": "Assassin d'élite, expert en élimination silencieuse. Inspiré des manhwas, il frappe sans laisser de trace.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "dex": 30
+      },
+      "stealth_kills": 50
+    },
+    "stat_modifiers": {
+      "str": 1.2,
+      "dex": 1.8,
+      "int": 1.1,
+      "vit": 1.0,
+      "hp": 1.0,
+      "mp": 1.2
+    },
+    "special_abilities": ["shadow_strike", "poison_mastery"],
+    "weapon_proficiency_add": ["throwing_knife"],
+    "special_traits": {
+      "invisibility": "Peut devenir invisible pendant 2 tours"
+    }
+  },
+  "archdruid": {
+    "id": "archdruid",
+    "name": "Archidruide",
+    "parent_class": "druid",
+    "description": "Druide suprême, fusionne avec la nature. Inspiré des manhwas, il contrôle la météo et les bêtes.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "int": 22,
+        "vit": 18
+      },
+      "quests": ["nature_trial"]
+    },
+    "stat_modifiers": {
+      "str": 1.1,
+      "dex": 1.3,
+      "int": 1.6,
+      "vit": 1.4,
+      "hp": 1.2,
+      "mp": 1.4
+    },
+    "special_abilities": ["storm_call", "beast_mastery"],
+    "weapon_proficiency_add": ["totem"],
+    "special_traits": {
+      "nature_blessing": "Régénère 5% de PV chaque tour en forêt"
+    }
+  },
+  "dark_sorcerer": {
+    "id": "dark_sorcerer",
+    "name": "Sorcier Noir",
+    "parent_class": "sorcerer",
+    "description": "Sorcier d'élite, expert en magie noire. Inspiré des manhwas, il manipule les ombres.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "int": 28
+      },
+      "achievements": ["shadow_master"]
+    },
+    "stat_modifiers": {
+      "str": 0.9,
+      "dex": 1.1,
+      "int": 1.8,
+      "vit": 1.0,
+      "hp": 1.0,
+      "mp": 1.6
+    },
+    "special_abilities": ["shadow_blast", "curse_mastery"],
+    "weapon_proficiency_add": ["dark_staff"],
+    "special_traits": {
+      "shadow_form": "Réduit les dégâts subis de 20% la nuit"
+    }
+  },
+  "champion": {
+    "id": "champion",
+    "name": "Champion",
+    "parent_class": "knight",
+    "description": "Chevalier d'élite, symbole de bravoure. Inspiré des manhwas, il inspire ses alliés.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "str": 22,
+        "vit": 22
+      },
+      "achievements": ["heroic_deed"]
+    },
+    "stat_modifiers": {
+      "str": 1.5,
+      "dex": 1.2,
+      "int": 1.0,
+      "vit": 1.7,
+      "hp": 1.4,
+      "mp": 1.1
+    },
+    "special_abilities": ["heroic_shout", "iron_wall"],
+    "weapon_proficiency_add": ["greatshield"],
+    "special_traits": {
+      "leadership": "Augmente l'attaque de l'équipe de 10%"
+    }
+  },
+  "master_hunter": {
+    "id": "master_hunter",
+    "name": "Maître Chasseur",
+    "parent_class": "hunter",
+    "description": "Chasseur suprême, expert en traque. Inspiré des manhwas, il ne rate jamais sa cible.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "dex": 25
+      },
+      "quests": ["great_hunt"]
+    },
+    "stat_modifiers": {
+      "str": 1.2,
+      "dex": 1.7,
+      "int": 1.1,
+      "vit": 1.2,
+      "hp": 1.1,
+      "mp": 1.2
+    },
+    "special_abilities": ["sniper_shot", "trap_mastery"],
+    "weapon_proficiency_add": ["crossbow"],
+    "special_traits": {
+      "eagle_eye": "Augmente la portée de 20%"
+    }
+  },
+  "high_priest": {
+    "id": "high_priest",
+    "name": "Grand Prêtre",
+    "parent_class": "priest",
+    "description": "Prêtre d'élite, maître du soin. Inspiré des manhwas, il peut ressusciter ses alliés.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "int": 24
+      },
+      "quests": ["divine_test"]
+    },
+    "stat_modifiers": {
+      "str": 1.0,
+      "dex": 1.0,
+      "int": 1.8,
+      "vit": 1.3,
+      "hp": 1.2,
+      "mp": 1.7
+    },
+    "special_abilities": ["mass_heal", "revive"],
+    "weapon_proficiency_add": ["blessed_staff"],
+    "special_traits": {
+      "divine_protection": "Réduit les dégâts subis de 15% pour l'équipe"
+    }
+  },
+  "legendary_samurai": {
+    "id": "legendary_samurai",
+    "name": "Samouraï Légendaire",
+    "parent_class": "samurai",
+    "description": "Samouraï suprême, manie le katana légendaire. Inspiré des manhwas, il tranche l’air lui-même.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "str": 22,
+        "dex": 22
+      },
+      "achievements": ["sword_master"]
+    },
+    "stat_modifiers": {
+      "str": 1.6,
+      "dex": 1.6,
+      "int": 1.0,
+      "vit": 1.2,
+      "hp": 1.2,
+      "mp": 1.1
+    },
+    "special_abilities": ["iaido_master", "wind_slash"],
+    "weapon_proficiency_add": ["legendary_katana"],
+    "special_traits": {
+      "focus": "Augmente la précision de 15%"
+    }
+  },
+  "master_battle_monk": {
+    "id": "master_battle_monk",
+    "name": "Maître Moine Guerrier",
+    "parent_class": "battle_monk",
+    "description": "Moine guerrier d'élite, canalise l'énergie spirituelle. Inspiré des manhwas, il repousse les démons.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "str": 18,
+        "int": 18
+      },
+      "quests": ["spirit_journey"]
+    },
+    "stat_modifiers": {
+      "str": 1.3,
+      "dex": 1.5,
+      "int": 1.4,
+      "vit": 1.3,
+      "hp": 1.2,
+      "mp": 1.3
+    },
+    "special_abilities": ["spirit_burst", "demon_banish"],
+    "weapon_proficiency_add": ["spirit_staff"],
+    "special_traits": {
+      "inner_peace": "Régénère 3% de MP par tour"
+    }
+  },
+  "royal_alchemist": {
+    "id": "royal_alchemist",
+    "name": "Alchimiste Royal",
+    "parent_class": "alchemist",
+    "description": "Alchimiste suprême, crée des élixirs légendaires. Inspiré des manhwas, il transmute l’or.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "int": 26
+      },
+      "achievements": ["elixir_master"]
+    },
+    "stat_modifiers": {
+      "str": 1.0,
+      "dex": 1.2,
+      "int": 1.7,
+      "vit": 1.1,
+      "hp": 1.1,
+      "mp": 1.5
+    },
+    "special_abilities": ["mega_elixir", "transmutation"],
+    "weapon_proficiency_add": ["elixir_bomb"],
+    "special_traits": {
+      "alchemy_mastery": "Double les effets des potions créées"
+    }
+  },
+  "virtuoso": {
+    "id": "virtuoso",
+    "name": "Virtuose",
+    "parent_class": "bard",
+    "description": "Barde d'élite, enchante par la musique. Inspiré des manhwas, il inspire les foules.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "dex": 18,
+        "int": 18
+      },
+      "achievements": ["song_master"]
+    },
+    "stat_modifiers": {
+      "str": 1.1,
+      "dex": 1.5,
+      "int": 1.5,
+      "vit": 1.1,
+      "hp": 1.1,
+      "mp": 1.3
+    },
+    "special_abilities": ["grand_concerto", "battle_hymn"],
+    "weapon_proficiency_add": ["magic_lyre"],
+    "special_traits": {
+      "inspiration": "Augmente la vitesse de l'équipe de 10%"
+    }
+  },
+  "grand_summoner": {
+    "id": "grand_summoner",
+    "name": "Grand Invocateur",
+    "parent_class": "summoner",
+    "description": "Invocateur suprême, contrôle des créatures légendaires. Inspiré des manhwas, il invoque des dragons.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "int": 30
+      },
+      "quests": ["summon_dragon"]
+    },
+    "stat_modifiers": {
+      "str": 1.0,
+      "dex": 1.2,
+      "int": 1.9,
+      "vit": 1.1,
+      "hp": 1.1,
+      "mp": 1.7
+    },
+    "special_abilities": ["summon_dragon", "command_legion"],
+    "weapon_proficiency_add": ["dragon_staff"],
+    "special_traits": {
+      "beast_master": "Peut contrôler 2 familiers en même temps"
+    }
+  },
+  "master_swordsman": {
+    "id": "master_swordsman",
+    "name": "Maître Épéiste",
+    "parent_class": "swordsman",
+    "description": "Épéiste d'élite, expert en techniques avancées. Inspiré des manhwas, il tranche l’air lui-même.",
+    "unlock_conditions": {
+      "level": 20,
+      "stats": {
+        "str": 25,
+        "dex": 20
+      },
+      "achievements": ["sword_legend"]
+    },
+    "stat_modifiers": {
+      "str": 1.7,
+      "dex": 1.5,
+      "int": 1.0,
+      "vit": 1.3,
+      "hp": 1.3,
+      "mp": 1.1
+    },
+    "special_abilities": ["sword_rain", "counter_slash"],
+    "weapon_proficiency_add": ["legendary_sword"],
+    "special_traits": {
+      "blade_dance": "Augmente la vitesse d’attaque de 15%"
     }
   }
 }

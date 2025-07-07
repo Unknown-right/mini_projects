@@ -118,5 +118,515 @@
     "armor_proficiency": ["cloth", "light", "medium"],
     "starting_skills": ["heal", "smite", "bless"],
     "advancement_paths": ["paladin", "priest", "oracle"]
+  },
+  "archer": {
+    "id": "archer",
+    "name": "Archer",
+    "description": "Maîtrise les armes à distance et la précision. Inspiré des manhwas, il peut tirer plusieurs flèches à la fois.",
+    "base_stats": {
+      "str": 7,
+      "dex": 12,
+      "int": 5,
+      "vit": 6,
+      "hp_base": 90,
+      "mp_base": 30
+    },
+    "stat_growth": {
+      "str": 1.5,
+      "dex": 2.7,
+      "int": 1.0,
+      "vit": 1.3,
+      "hp": 11,
+      "mp": 6
+    },
+    "starting_equipment": {
+      "weapon": "simple_bow",
+      "armor": "leather_armor",
+      "accessory": "eagle_eye_band"
+    },
+    "weapon_proficiency": ["bow", "dagger"],
+    "armor_proficiency": ["light"],
+    "starting_skills": ["double_shot", "evasion", "focus_aim"],
+    "advancement_paths": ["ranger"]
+  },
+  "monk": {
+    "id": "monk",
+    "name": "Moine",
+    "description": "Combattant spirituel, expert en arts martiaux et en soutien. Inspiré des manhwas, il canalise son énergie intérieure.",
+    "base_stats": {
+      "str": 8,
+      "dex": 8,
+      "int": 6,
+      "vit": 7,
+      "hp_base": 95,
+      "mp_base": 40
+    },
+    "stat_growth": {
+      "str": 1.8,
+      "dex": 1.8,
+      "int": 1.2,
+      "vit": 1.7,
+      "hp": 13,
+      "mp": 8
+    },
+    "starting_equipment": {
+      "weapon": "iron_knuckles",
+      "armor": "cloth_robe",
+      "accessory": "spirit_bead"
+    },
+    "weapon_proficiency": ["knuckles", "staff"],
+    "armor_proficiency": ["cloth", "light"],
+    "starting_skills": ["flurry", "meditate", "inner_peace"],
+    "advancement_paths": ["grand_monk"]
+  },
+  "paladin": {
+    "id": "paladin",
+    "name": "Paladin",
+    "description": "Guerrier sacré, défenseur de la lumière et des faibles. Inspiré des manhwas, il peut soigner et protéger ses alliés.",
+    "base_stats": {
+      "str": 9,
+      "dex": 6,
+      "int": 7,
+      "vit": 10,
+      "hp_base": 120,
+      "mp_base": 40
+    },
+    "stat_growth": {
+      "str": 2.0,
+      "dex": 1.2,
+      "int": 1.5,
+      "vit": 2.3,
+      "hp": 18,
+      "mp": 7
+    },
+    "starting_equipment": {
+      "weapon": "blessed_sword",
+      "armor": "chain_mail",
+      "accessory": "holy_amulet"
+    },
+    "weapon_proficiency": ["sword", "mace", "shield"],
+    "armor_proficiency": ["medium", "heavy"],
+    "starting_skills": ["smite", "heal", "divine_shield"],
+    "advancement_paths": ["crusader"]
+  },
+  "necromancer": {
+    "id": "necromancer",
+    "name": "Nécromancien",
+    "description": "Contrôle les morts et les esprits. Inspiré des manhwas, il peut invoquer des armées de squelettes.",
+    "base_stats": {
+      "str": 4,
+      "dex": 5,
+      "int": 13,
+      "vit": 5,
+      "hp_base": 75,
+      "mp_base": 70
+    },
+    "stat_growth": {
+      "str": 0.8,
+      "dex": 1.0,
+      "int": 3.2,
+      "vit": 1.1,
+      "hp": 9,
+      "mp": 18
+    },
+    "starting_equipment": {
+      "weapon": "bone_staff",
+      "armor": "cloth_robe",
+      "accessory": "dark_ring"
+    },
+    "weapon_proficiency": ["staff", "wand"],
+    "armor_proficiency": ["cloth"],
+    "starting_skills": ["raise_dead", "curse", "life_drain"],
+    "advancement_paths": ["lich"]
+  },
+  "berserker": {
+    "id": "berserker",
+    "name": "Berserker",
+    "description": "Guerrier sauvage, force brute. Inspiré des manhwas, il entre en rage et ignore la douleur.",
+    "base_stats": {
+      "str": 13,
+      "dex": 7,
+      "int": 3,
+      "vit": 9,
+      "hp_base": 130,
+      "mp_base": 20
+    },
+    "stat_growth": {
+      "str": 3.5,
+      "dex": 1.5,
+      "int": 0.5,
+      "vit": 2.5,
+      "hp": 22,
+      "mp": 2
+    },
+    "starting_equipment": {
+      "weapon": "battle_axe",
+      "armor": "leather_armor",
+      "accessory": "rage_band"
+    },
+    "weapon_proficiency": ["axe", "mace"],
+    "armor_proficiency": ["light", "medium"],
+    "starting_skills": ["frenzy", "reckless_swing", "bloodthirst"],
+    "advancement_paths": ["fury"]
+  },
+  "assassin": {
+    "id": "assassin",
+    "name": "Assassin",
+    "description": "Spécialiste de l'élimination rapide et furtive. Inspiré des manhwas, il frappe dans l’ombre.",
+    "base_stats": {
+      "str": 7,
+      "dex": 13,
+      "int": 5,
+      "vit": 5,
+      "hp_base": 80,
+      "mp_base": 30
+    },
+    "stat_growth": {
+      "str": 1.5,
+      "dex": 3.2,
+      "int": 1.0,
+      "vit": 1.0,
+      "hp": 9,
+      "mp": 5
+    },
+    "starting_equipment": {
+      "weapon": "assassin_dagger",
+      "armor": "leather_armor",
+      "accessory": "shadow_cloak"
+    },
+    "weapon_proficiency": ["dagger", "bow"],
+    "armor_proficiency": ["light"],
+    "starting_skills": ["backstab", "poison", "vanish"],
+    "advancement_paths": ["master_assassin"]
+  },
+  "druid": {
+    "id": "druid",
+    "name": "Druide",
+    "description": "Maîtrise la nature et les transformations. Inspiré des manhwas, il peut se métamorphoser en bête.",
+    "base_stats": {
+      "str": 6,
+      "dex": 7,
+      "int": 10,
+      "vit": 7,
+      "hp_base": 90,
+      "mp_base": 50
+    },
+    "stat_growth": {
+      "str": 1.2,
+      "dex": 1.5,
+      "int": 2.5,
+      "vit": 1.5,
+      "hp": 12,
+      "mp": 10
+    },
+    "starting_equipment": {
+      "weapon": "wooden_staff",
+      "armor": "cloth_robe",
+      "accessory": "nature_amulet"
+    },
+    "weapon_proficiency": ["staff", "dagger"],
+    "armor_proficiency": ["cloth", "light"],
+    "starting_skills": ["entangle", "heal", "shapeshift"],
+    "advancement_paths": ["archdruid"]
+  },
+  "sorcerer": {
+    "id": "sorcerer",
+    "name": "Sorcier",
+    "description": "Manipule la magie noire et les malédictions. Inspiré des manhwas, il inflige des altérations d’état.",
+    "base_stats": {
+      "str": 3,
+      "dex": 5,
+      "int": 14,
+      "vit": 4,
+      "hp_base": 65,
+      "mp_base": 80
+    },
+    "stat_growth": {
+      "str": 0.5,
+      "dex": 1.0,
+      "int": 3.5,
+      "vit": 0.8,
+      "hp": 7,
+      "mp": 20
+    },
+    "starting_equipment": {
+      "weapon": "cursed_staff",
+      "armor": "cloth_robe",
+      "accessory": "dark_amulet"
+    },
+    "weapon_proficiency": ["staff", "wand"],
+    "armor_proficiency": ["cloth"],
+    "starting_skills": ["curse", "shadow_bolt", "fear"],
+    "advancement_paths": ["dark_sorcerer"]
+  },
+  "knight": {
+    "id": "knight",
+    "name": "Chevalier",
+    "description": "Expert en armure lourde et défense. Inspiré des manhwas, il protège la première ligne.",
+    "base_stats": {
+      "str": 9,
+      "dex": 6,
+      "int": 5,
+      "vit": 12,
+      "hp_base": 130,
+      "mp_base": 25
+    },
+    "stat_growth": {
+      "str": 2.0,
+      "dex": 1.0,
+      "int": 0.8,
+      "vit": 2.8,
+      "hp": 20,
+      "mp": 4
+    },
+    "starting_equipment": {
+      "weapon": "iron_sword",
+      "armor": "plate_armor",
+      "accessory": "defense_ring"
+    },
+    "weapon_proficiency": ["sword", "shield", "mace"],
+    "armor_proficiency": ["heavy"],
+    "starting_skills": ["taunt", "shield_bash", "fortify"],
+    "advancement_paths": ["champion"]
+  },
+  "hunter": {
+    "id": "hunter",
+    "name": "Chasseur",
+    "description": "Traqueur et expert en survie. Inspiré des manhwas, il pose des pièges et piste ses proies.",
+    "base_stats": {
+      "str": 7,
+      "dex": 10,
+      "int": 6,
+      "vit": 7,
+      "hp_base": 90,
+      "mp_base": 35
+    },
+    "stat_growth": {
+      "str": 1.4,
+      "dex": 2.2,
+      "int": 1.1,
+      "vit": 1.3,
+      "hp": 11,
+      "mp": 7
+    },
+    "starting_equipment": {
+      "weapon": "hunting_bow",
+      "armor": "leather_armor",
+      "accessory": "trap_kit"
+    },
+    "weapon_proficiency": ["bow", "dagger"],
+    "armor_proficiency": ["light"],
+    "starting_skills": ["trap", "aimed_shot", "camouflage"],
+    "advancement_paths": ["master_hunter"]
+  },
+  "priest": {
+    "id": "priest",
+    "name": "Prêtre",
+    "description": "Guérisseur et soutien magique. Inspiré des manhwas, il protège et soigne ses alliés.",
+    "base_stats": {
+      "str": 4,
+      "dex": 5,
+      "int": 12,
+      "vit": 6,
+      "hp_base": 80,
+      "mp_base": 70
+    },
+    "stat_growth": {
+      "str": 0.8,
+      "dex": 1.0,
+      "int": 3.0,
+      "vit": 1.2,
+      "hp": 8,
+      "mp": 18
+    },
+    "starting_equipment": {
+      "weapon": "prayer_staff",
+      "armor": "cloth_robe",
+      "accessory": "blessed_ring"
+    },
+    "weapon_proficiency": ["staff", "wand"],
+    "armor_proficiency": ["cloth"],
+    "starting_skills": ["heal", "bless", "purify"],
+    "advancement_paths": ["high_priest"]
+  },
+  "samurai": {
+    "id": "samurai",
+    "name": "Samouraï",
+    "description": "Guerrier discipliné et rapide. Inspiré des manhwas, il manie le katana avec grâce.",
+    "base_stats": {
+      "str": 10,
+      "dex": 10,
+      "int": 5,
+      "vit": 7,
+      "hp_base": 100,
+      "mp_base": 30
+    },
+    "stat_growth": {
+      "str": 2.2,
+      "dex": 2.2,
+      "int": 0.8,
+      "vit": 1.3,
+      "hp": 13,
+      "mp": 5
+    },
+    "starting_equipment": {
+      "weapon": "katana",
+      "armor": "leather_armor",
+      "accessory": "focus_band"
+    },
+    "weapon_proficiency": ["katana", "bow"],
+    "armor_proficiency": ["light", "medium"],
+    "starting_skills": ["quick_draw", "parry", "iaido"],
+    "advancement_paths": ["legendary_samurai"]
+  },
+  "battle_monk": {
+    "id": "battle_monk",
+    "name": "Moine Guerrier",
+    "description": "Combattant mystique et agile. Inspiré des manhwas, il combine arts martiaux et magie.",
+    "base_stats": {
+      "str": 8,
+      "dex": 9,
+      "int": 7,
+      "vit": 8,
+      "hp_base": 100,
+      "mp_base": 45
+    },
+    "stat_growth": {
+      "str": 1.7,
+      "dex": 2.0,
+      "int": 1.3,
+      "vit": 1.6,
+      "hp": 14,
+      "mp": 9
+    },
+    "starting_equipment": {
+      "weapon": "iron_knuckles",
+      "armor": "cloth_robe",
+      "accessory": "spirit_bead"
+    },
+    "weapon_proficiency": ["knuckles", "staff"],
+    "armor_proficiency": ["cloth", "light"],
+    "starting_skills": ["flurry", "meditate", "spirit_strike"],
+    "advancement_paths": ["master_battle_monk"]
+  },
+  "alchemist": {
+    "id": "alchemist",
+    "name": "Alchimiste",
+    "description": "Maîtrise des potions et explosifs. Inspiré des manhwas, il crée des élixirs puissants.",
+    "base_stats": {
+      "str": 4,
+      "dex": 7,
+      "int": 13,
+      "vit": 5,
+      "hp_base": 75,
+      "mp_base": 60
+    },
+    "stat_growth": {
+      "str": 0.8,
+      "dex": 1.5,
+      "int": 3.2,
+      "vit": 1.0,
+      "hp": 8,
+      "mp": 16
+    },
+    "starting_equipment": {
+      "weapon": "alchemist_kit",
+      "armor": "cloth_robe",
+      "accessory": "elixir_belt"
+    },
+    "weapon_proficiency": ["dagger", "staff"],
+    "armor_proficiency": ["cloth"],
+    "starting_skills": ["throw_potion", "transmute", "explosive_bomb"],
+    "advancement_paths": ["royal_alchemist"]
+  },
+  "bard": {
+    "id": "bard",
+    "name": "Barde",
+    "description": "Soutien par la musique et la magie. Inspiré des manhwas, il booste ses alliés.",
+    "base_stats": {
+      "str": 5,
+      "dex": 8,
+      "int": 9,
+      "vit": 6,
+      "hp_base": 85,
+      "mp_base": 50
+    },
+    "stat_growth": {
+      "str": 1.0,
+      "dex": 1.8,
+      "int": 2.0,
+      "vit": 1.2,
+      "hp": 10,
+      "mp": 12
+    },
+    "starting_equipment": {
+      "weapon": "lyre",
+      "armor": "cloth_robe",
+      "accessory": "charm_necklace"
+    },
+    "weapon_proficiency": ["dagger", "staff"],
+    "armor_proficiency": ["cloth"],
+    "starting_skills": ["song_of_valor", "lullaby", "inspire"],
+    "advancement_paths": ["virtuoso"]
+  },
+  "summoner": {
+    "id": "summoner",
+    "name": "Invocateur",
+    "description": "Invoque des créatures pour combattre. Inspiré des manhwas, il peut contrôler plusieurs familiers.",
+    "base_stats": {
+      "str": 4,
+      "dex": 6,
+      "int": 14,
+      "vit": 5,
+      "hp_base": 70,
+      "mp_base": 80
+    },
+    "stat_growth": {
+      "str": 0.7,
+      "dex": 1.2,
+      "int": 3.5,
+      "vit": 1.0,
+      "hp": 7,
+      "mp": 20
+    },
+    "starting_equipment": {
+      "weapon": "summoner_staff",
+      "armor": "cloth_robe",
+      "accessory": "familiar_ring"
+    },
+    "weapon_proficiency": ["staff", "wand"],
+    "armor_proficiency": ["cloth"],
+    "starting_skills": ["summon_wolf", "summon_golem", "command_familiar"],
+    "advancement_paths": ["grand_summoner"]
+  },
+  "swordsman": {
+    "id": "swordsman",
+    "name": "Épéiste",
+    "description": "Maîtrise des techniques à l'épée. Inspiré des manhwas, il combine vitesse et puissance.",
+    "base_stats": {
+      "str": 11,
+      "dex": 9,
+      "int": 4,
+      "vit": 8,
+      "hp_base": 110,
+      "mp_base": 25
+    },
+    "stat_growth": {
+      "str": 2.8,
+      "dex": 2.0,
+      "int": 0.7,
+      "vit": 1.8,
+      "hp": 15,
+      "mp": 4
+    },
+    "starting_equipment": {
+      "weapon": "long_sword",
+      "armor": "leather_armor",
+      "accessory": "sword_charm"
+    },
+    "weapon_proficiency": ["sword", "dagger"],
+    "armor_proficiency": ["light", "medium"],
+    "starting_skills": ["slash", "parry", "sword_dance"],
+    "advancement_paths": ["master_swordsman"]
   }
 }

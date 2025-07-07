@@ -1,46 +1,935 @@
 {
-  "example_common": {
-    "id": "example_common",
-    "name": "Exemple Common",
-    "type": "humanoïde",
-    "faction": "neutral",
-    "hp": 20.0,
-    "mp": 10.0,
-    "attack": 10.0,
-    "defense": 8.0,
-    "magic_attack": 5.0,
-    "magic_defense": 5.0,
-    "speed": 10,
-    "exp_reward": 15.0,
+  "goblin_scout": {
+    "id": "goblin_scout",
+    "name": "Éclaireur Gobelin",
+    "type": "goblin",
+    "faction": "evil",
+    "hp": 28,
+    "mp": 5,
+    "attack": 8,
+    "defense": 5,
+    "magic_attack": 2,
+    "magic_defense": 2,
+    "speed": 12,
+    "exp_reward": 12,
     "gold_reward": [
-      5,
-      15
+      3,
+      8
     ],
     "level_range": [
       1,
-      5
+      3
     ],
     "abilities": [
       "simple_attack"
     ],
     "loot_table": {
       "common": [
-        "basic_potion"
+        "health_potion_minor",
+        "mouse_tail"
       ],
       "uncommon": [
-        "basic_equipment"
+        "dagger",
+        "lucky_charm"
       ],
       "rare": [
-        "special_item"
+        "shadow_amulet"
       ]
     },
-    "weaknesses": [],
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [],
+    "spawn_locations": [
+      "forest",
+      "cave"
+    ]
+  },
+  "giant_rat": {
+    "id": "giant_rat",
+    "name": "Rat Géant",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 25,
+    "mp": 0,
+    "attack": 4,
+    "defense": 2,
+    "magic_attack": 0,
+    "magic_defense": 1,
+    "speed": 10,
+    "exp_reward": 8,
+    "gold_reward": [
+      1,
+      4
+    ],
+    "level_range": [
+      1,
+      2
+    ],
+    "abilities": [
+      "bite"
+    ],
+    "loot_table": {
+      "common": [
+        "beast_fang",
+        "mouse_tail"
+      ],
+      "uncommon": [
+        "leather_jacket"
+      ],
+      "rare": []
+    },
+    "weaknesses": [
+      "poison"
+    ],
+    "resistances": [],
+    "spawn_locations": [
+      "sewers",
+      "cellar"
+    ]
+  },
+  "forest_wolf": {
+    "id": "forest_wolf",
+    "name": "Loup des Forêts",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 32,
+    "mp": 0,
+    "attack": 7,
+    "defense": 3,
+    "magic_attack": 0,
+    "magic_defense": 2,
+    "speed": 14,
+    "exp_reward": 10,
+    "gold_reward": [
+      2,
+      6
+    ],
+    "level_range": [
+      2,
+      4
+    ],
+    "abilities": [
+      "howl",
+      "bite"
+    ],
+    "loot_table": {
+      "common": [
+        "beast_fang",
+        "wolf_pelt"
+      ],
+      "uncommon": [
+        "leather_jacket",
+        "lucky_charm"
+      ],
+      "rare": [
+        "berserker_pelt"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "ice"
+    ],
+    "spawn_locations": [
+      "forest"
+    ]
+  },
+  "giant_spider": {
+    "id": "giant_spider",
+    "name": "Araignée Géante",
+    "type": "insect",
+    "faction": "neutral",
+    "hp": 30,
+    "mp": 0,
+    "attack": 6,
+    "defense": 3,
+    "magic_attack": 0,
+    "magic_defense": 2,
+    "speed": 9,
+    "exp_reward": 11,
+    "gold_reward": [
+      2,
+      5
+    ],
+    "level_range": [
+      2,
+      4
+    ],
+    "abilities": [
+      "venom_bite",
+      "web_shot"
+    ],
+    "loot_table": {
+      "common": [
+        "spider_silk",
+        "insect_leg"
+      ],
+      "uncommon": [
+        "venom_gland"
+      ],
+      "rare": [
+        "shadow_amulet"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "poison"
+    ],
+    "spawn_locations": [
+      "forest",
+      "cave"
+    ]
+  },
+  "bandit": {
+    "id": "bandit",
+    "name": "Bandit",
+    "type": "humanoid",
+    "faction": "neutral",
+    "hp": 36,
+    "mp": 0,
+    "attack": 9,
+    "defense": 4,
+    "magic_attack": 0,
+    "magic_defense": 2,
+    "speed": 11,
+    "exp_reward": 13,
+    "gold_reward": [
+      4,
+      10
+    ],
+    "level_range": [
+      3,
+      5
+    ],
+    "abilities": [
+      "slash",
+      "steal"
+    ],
+    "loot_table": {
+      "common": [
+        "dagger",
+        "health_potion_minor"
+      ],
+      "uncommon": [
+        "leather_jacket",
+        "ring_of_fortune"
+      ],
+      "rare": [
+        "bandit_emblem"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [],
+    "spawn_locations": [
+      "road",
+      "forest"
+    ]
+  },
+  "giant_bat": {
+    "id": "giant_bat",
+    "name": "Chauve-souris Géante",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 22,
+    "mp": 0,
+    "attack": 5,
+    "defense": 2,
+    "magic_attack": 0,
+    "magic_defense": 1,
+    "speed": 15,
+    "exp_reward": 9,
+    "gold_reward": [
+      1,
+      4
+    ],
+    "level_range": [
+      1,
+      3
+    ],
+    "abilities": [
+      "sonic_screech"
+    ],
+    "loot_table": {
+      "common": [
+        "bat_wing"
+      ],
+      "uncommon": [
+        "spirit_essence"
+      ],
+      "rare": [
+        "phantom_ring"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "cave"
+    ]
+  },
+  "swamp_lizard": {
+    "id": "swamp_lizard",
+    "name": "Lézard des Marais",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 27,
+    "mp": 0,
+    "attack": 6,
+    "defense": 3,
+    "magic_attack": 0,
+    "magic_defense": 2,
+    "speed": 8,
+    "exp_reward": 10,
+    "gold_reward": [
+      2,
+      5
+    ],
+    "level_range": [
+      2,
+      4
+    ],
+    "abilities": [
+      "tail_whip"
+    ],
+    "loot_table": {
+      "common": [
+        "beast_fang",
+        "lizard_skin"
+      ],
+      "uncommon": [
+        "jade_fragment"
+      ],
+      "rare": []
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "poison"
+    ],
+    "spawn_locations": [
+      "swamp"
+    ]
+  },
+  "wild_boar": {
+    "id": "wild_boar",
+    "name": "Sanglier Sauvage",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 34,
+    "mp": 0,
+    "attack": 8,
+    "defense": 4,
+    "magic_attack": 0,
+    "magic_defense": 2,
+    "speed": 9,
+    "exp_reward": 12,
+    "gold_reward": [
+      3,
+      7
+    ],
+    "level_range": [
+      2,
+      4
+    ],
+    "abilities": [
+      "charge"
+    ],
+    "loot_table": {
+      "common": [
+        "boar_tusk",
+        "beast_fang"
+      ],
+      "uncommon": [
+        "leather_jacket"
+      ],
+      "rare": [
+        "berserker_pelt"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
     "resistances": [],
     "spawn_locations": [
       "forest",
       "plains"
+    ]
+  },
+  "swamp_crawler": {
+    "id": "swamp_crawler",
+    "name": "Rampant des Marais",
+    "type": "insect",
+    "faction": "neutral",
+    "hp": 21,
+    "mp": 0,
+    "attack": 5,
+    "defense": 2,
+    "magic_attack": 0,
+    "magic_defense": 1,
+    "speed": 8,
+    "exp_reward": 7,
+    "gold_reward": [
+      1,
+      3
     ],
-    "description": "Un exemple de monstre de rareté common.",
+    "level_range": [
+      1,
+      2
+    ],
+    "abilities": [
+      "poison_bite"
+    ],
+    "loot_table": {
+      "common": [
+        "insect_leg"
+      ],
+      "uncommon": [
+        "venom_gland"
+      ],
+      "rare": []
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "poison"
+    ],
+    "spawn_locations": [
+      "swamp"
+    ],
+    "description": "Un insecte rampant toxique des marais.",
+    "behavior_profile": "cautious"
+  },
+  "crimson_sparrow": {
+    "id": "crimson_sparrow",
+    "name": "Moineau Cramoisi",
+    "type": "bird",
+    "faction": "neutral",
+    "hp": 16,
+    "mp": 0,
+    "attack": 4,
+    "defense": 1,
+    "magic_attack": 0,
+    "magic_defense": 1,
+    "speed": 18,
+    "exp_reward": 6,
+    "gold_reward": [
+      1,
+      2
+    ],
+    "level_range": [
+      1,
+      2
+    ],
+    "abilities": [
+      "quick_peck"
+    ],
+    "loot_table": {
+      "common": [
+        "bird_feather"
+      ],
+      "uncommon": [
+        "spirit_essence"
+      ],
+      "rare": []
+    },
+    "weaknesses": [
+      "wind"
+    ],
+    "resistances": [],
+    "spawn_locations": [
+      "forest"
+    ],
+    "description": "Un petit oiseau vif à la couleur rouge éclatante.",
     "behavior_profile": "standard"
+  },
+  "crystal_beetle": {
+    "id": "crystal_beetle",
+    "name": "Scarabée de Cristal",
+    "type": "insect",
+    "faction": "neutral",
+    "hp": 18,
+    "mp": 0,
+    "attack": 6,
+    "defense": 8,
+    "magic_attack": 0,
+    "magic_defense": 3,
+    "speed": 7,
+    "exp_reward": 8,
+    "gold_reward": [
+      2,
+      5
+    ],
+    "level_range": [
+      2,
+      4
+    ],
+    "abilities": [
+      "harden",
+      "tackle"
+    ],
+    "loot_table": {
+      "common": [
+        "crystal_fragment"
+      ],
+      "uncommon": [
+        "spirit_gem"
+      ],
+      "rare": [
+        "scarab_helm"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "cave",
+      "crystal_cave"
+    ],
+    "description": "Un scarabée dont la carapace brille comme un joyau.",
+    "behavior_profile": "standard"
+  },
+  "ember_moth": {
+    "id": "ember_moth",
+    "name": "Phalène de Braise",
+    "type": "insect",
+    "faction": "neutral",
+    "hp": 15,
+    "mp": 0,
+    "attack": 5,
+    "defense": 2,
+    "magic_attack": 4,
+    "magic_defense": 2,
+    "speed": 12,
+    "exp_reward": 7,
+    "gold_reward": [
+      1,
+      3
+    ],
+    "level_range": [
+      1,
+      3
+    ],
+    "abilities": [
+      "ember_dust",
+      "flutter"
+    ],
+    "loot_table": {
+      "common": [
+        "moth_wing"
+      ],
+      "uncommon": [
+        "spirit_essence"
+      ],
+      "rare": []
+    },
+    "weaknesses": [
+      "water"
+    ],
+    "resistances": [
+      "fire"
+    ],
+    "spawn_locations": [
+      "forest",
+      "volcano"
+    ],
+    "description": "Un papillon de nuit qui laisse une traînée de cendres.",
+    "behavior_profile": "cautious"
+  },
+  "thornback_tortoise": {
+    "id": "thornback_tortoise",
+    "name": "Tortue Épineuse",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 38,
+    "mp": 0,
+    "attack": 7,
+    "defense": 16,
+    "magic_attack": 0,
+    "magic_defense": 8,
+    "speed": 4,
+    "exp_reward": 13,
+    "gold_reward": [
+      3,
+      7
+    ],
+    "level_range": [
+      3,
+      6
+    ],
+    "abilities": [
+      "shell_spin",
+      "spike_shot"
+    ],
+    "loot_table": {
+      "common": [
+        "tortoise_shell"
+      ],
+      "uncommon": [
+        "jade_fragment"
+      ],
+      "rare": [
+        "scarab_helm"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "swamp",
+      "river"
+    ],
+    "description": "Une tortue lente mais très résistante, couverte de piquants.",
+    "behavior_profile": "standard"
+  },
+  "ember_snake": {
+    "id": "ember_snake",
+    "name": "Serpent de Braise",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 24,
+    "mp": 0,
+    "attack": 10,
+    "defense": 3,
+    "magic_attack": 5,
+    "magic_defense": 2,
+    "speed": 13,
+    "exp_reward": 11,
+    "gold_reward": [
+      2,
+      6
+    ],
+    "level_range": [
+      2,
+      5
+    ],
+    "abilities": [
+      "ember_burst",
+      "venom_bite"
+    ],
+    "loot_table": {
+      "common": [
+        "snake_skin"
+      ],
+      "uncommon": [
+        "spirit_essence"
+      ],
+      "rare": [
+        "serpent_bracelet"
+      ]
+    },
+    "weaknesses": [
+      "water"
+    ],
+    "resistances": [
+      "fire"
+    ],
+    "spawn_locations": [
+      "volcano",
+      "forest"
+    ],
+    "description": "Un serpent vif dont les écailles rougeoient.",
+    "behavior_profile": "aggressive"
+  },
+  "cinder_mouse": {
+    "id": "cinder_mouse",
+    "name": "Souris de Cendre",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 12,
+    "mp": 0,
+    "attack": 3,
+    "defense": 1,
+    "magic_attack": 0,
+    "magic_defense": 1,
+    "speed": 15,
+    "exp_reward": 4,
+    "gold_reward": [
+      0,
+      2
+    ],
+    "level_range": [
+      1,
+      2
+    ],
+    "abilities": [
+      "quick_bite"
+    ],
+    "loot_table": {
+      "common": [
+        "mouse_tail"
+      ],
+      "uncommon": [
+        "spirit_essence"
+      ],
+      "rare": []
+    },
+    "weaknesses": [
+      "water"
+    ],
+    "resistances": [
+      "fire"
+    ],
+    "spawn_locations": [
+      "ruins",
+      "fields"
+    ],
+    "description": "Une petite souris qui vit dans les cendres.",
+    "behavior_profile": "cautious"
+  },
+  "bark_lizard": {
+    "id": "bark_lizard",
+    "name": "Lézard Écorce",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 20,
+    "mp": 0,
+    "attack": 5,
+    "defense": 3,
+    "magic_attack": 0,
+    "magic_defense": 2,
+    "speed": 8,
+    "exp_reward": 7,
+    "gold_reward": [
+      1,
+      3
+    ],
+    "level_range": [
+      1,
+      3
+    ],
+    "abilities": [
+      "camouflage"
+    ],
+    "loot_table": {
+      "common": [
+        "lizard_skin"
+      ],
+      "uncommon": [
+        "jade_fragment"
+      ],
+      "rare": []
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "forest",
+      "swamp"
+    ],
+    "description": "Un lézard qui se fond dans l’écorce des arbres.",
+    "behavior_profile": "standard"
+  },
+  "dusk_raven": {
+    "id": "dusk_raven",
+    "name": "Corbeau du Crépuscule",
+    "type": "bird",
+    "faction": "neutral",
+    "hp": 22,
+    "mp": 0,
+    "attack": 6,
+    "defense": 2,
+    "magic_attack": 0,
+    "magic_defense": 2,
+    "speed": 18,
+    "exp_reward": 9,
+    "gold_reward": [
+      2,
+      5
+    ],
+    "level_range": [
+      2,
+      4
+    ],
+    "abilities": [
+      "shadow_peck"
+    ],
+    "loot_table": {
+      "common": [
+        "raven_feather"
+      ],
+      "uncommon": [
+        "spirit_essence"
+      ],
+      "rare": [
+        "phantom_ring"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "forest",
+      "ruins"
+    ],
+    "description": "Un corbeau sombre qui vole à la tombée du jour.",
+    "behavior_profile": "cautious"
+  },
+  "mire_frog": {
+    "id": "mire_frog",
+    "name": "Grenouille des Marais",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 19,
+    "mp": 0,
+    "attack": 4,
+    "defense": 2,
+    "magic_attack": 0,
+    "magic_defense": 1,
+    "speed": 9,
+    "exp_reward": 6,
+    "gold_reward": [
+      1,
+      3
+    ],
+    "level_range": [
+      1,
+      3
+    ],
+    "abilities": [
+      "sticky_tongue"
+    ],
+    "loot_table": {
+      "common": [
+        "frog_leg"
+      ],
+      "uncommon": [
+        "spirit_essence"
+      ],
+      "rare": []
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "water"
+    ],
+    "spawn_locations": [
+      "swamp",
+      "lake"
+    ],
+    "description": "Une grenouille agile vivant dans les marais.",
+    "behavior_profile": "standard"
+  },
+  "will_o_wisp": {
+    "id": "will_o_wisp",
+    "name": "Feu Follet",
+    "type": "spirit",
+    "faction": "neutral",
+    "hp": 18,
+    "mp": 20,
+    "attack": 4,
+    "defense": 2,
+    "magic_attack": 12,
+    "magic_defense": 8,
+    "speed": 16,
+    "exp_reward": 14,
+    "gold_reward": [
+      2,
+      6
+    ],
+    "level_range": [
+      3,
+      6
+    ],
+    "abilities": [
+      "ignite",
+      "fade"
+    ],
+    "loot_table": {
+      "common": [
+        "spirit_dust"
+      ],
+      "uncommon": [
+        "spirit_essence"
+      ],
+      "rare": [
+        "phantom_ring"
+      ]
+    },
+    "weaknesses": [
+      "wind"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "swamp",
+      "ruins"
+    ],
+    "description": "Un esprit lumineux qui attire les voyageurs dans les marais.",
+    "behavior_profile": "cautious"
+  },
+  "chupacabra": {
+    "id": "chupacabra",
+    "name": "Chupacabra",
+    "type": "cryptid",
+    "faction": "evil",
+    "hp": 28,
+    "mp": 0,
+    "attack": 13,
+    "defense": 4,
+    "magic_attack": 0,
+    "magic_defense": 2,
+    "speed": 15,
+    "exp_reward": 16,
+    "gold_reward": [
+      4,
+      9
+    ],
+    "level_range": [
+      4,
+      7
+    ],
+    "abilities": [
+      "leech_life",
+      "pounce"
+    ],
+    "loot_table": {
+      "common": [
+        "beast_fang",
+        "strange_hide"
+      ],
+      "uncommon": [
+        "spirit_essence"
+      ],
+      "rare": [
+        "serpent_bracelet"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "poison"
+    ],
+    "spawn_locations": [
+      "plains",
+      "farms"
+    ],
+    "description": "Une créature nocturne qui s’attaque au bétail.",
+    "behavior_profile": "aggressive"
   }
 }

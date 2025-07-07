@@ -1,0 +1,82 @@
+{
+  "excalibur": {
+    "name": "Excalibur",
+    "type": "sword",
+    "rarity": "legendary",
+    "effect": "Double les dégâts contre les créatures maléfiques.",
+    "unlock_conditions": ["vaincre 10 boss", "obtenir la bénédiction du roi"],
+    "stat_modifiers": {"attack": 20, "speed": 5}
+  },
+  "aegis_shield": {
+    "name": "Égide Divine",
+    "type": "shield",
+    "rarity": "legendary",
+    "effect": "Immunise contre la peur et réduit tous les dégâts magiques.",
+    "unlock_conditions": ["terminer la quête 'Jugement des Dieux'"],
+    "stat_modifiers": {"defense": 18, "magic_defense": 12}
+  },
+  "cloak_of_invisibility": {
+    "name": "Cape d’Invisibilité",
+    "type": "cloak",
+    "rarity": "legendary",
+    "effect": "Permet d’éviter tous les combats pendant 3 tours.",
+    "unlock_conditions": ["trouver tous les fragments de la cape"],
+    "stat_modifiers": {"speed": 10}
+  },
+  "holy_grail": {
+    "name": "Graal Sacré",
+    "type": "relic",
+    "rarity": "legendary",
+    "effect": "Ressuscite le porteur une fois par combat.",
+    "unlock_conditions": ["compléter la quête 'Légende du Graal'"],
+    "stat_modifiers": {"hp": 50, "mp": 30}
+  },
+  "mjolnir": {
+    "name": "Mjölnir",
+    "type": "hammer",
+    "rarity": "legendary",
+    "effect": "Inflige des dégâts de foudre massifs et peut étourdir les ennemis.",
+    "unlock_conditions": ["vaincre le boss 'Seigneur des Tempêtes'"],
+    "stat_modifiers": {"attack": 25, "magic_attack": 10}
+  },
+  "sun_chariot": {
+    "name": "Char du Soleil",
+    "type": "vehicle",
+    "rarity": "legendary",
+    "effect": "Permet de voyager instantanément entre deux lieux. Inspiré d'Hélios.",
+    "unlock_conditions": ["trouver la couronne solaire", "vaincre le gardien du zénith"],
+    "stat_modifiers": {"speed": 100}
+  },
+  "odin_eye": {
+    "name": "Œil d'Odin",
+    "type": "relic",
+    "rarity": "legendary",
+    "effect": "Permet de voir la vérité cachée et d'éviter les illusions.",
+    "unlock_conditions": ["sacrifice d'un œil lors d'un rituel nordique"],
+    "stat_modifiers": {"perception": 20}
+  },
+  "jade_emperor_seal": {
+    "name": "Sceau de l'Empereur de Jade",
+    "type": "relic",
+    "rarity": "legendary",
+    "effect": "Confère l'autorité sur les esprits et les dragons. Inspiré de la mythologie chinoise.",
+    "unlock_conditions": ["obtenir la faveur des quatre gardiens célestes"],
+    "stat_modifiers": {"spirit": 15, "dragon_affinity": 1}
+  },
+  "tome_of_enoch": {
+    "name": "Grimoire d'Enoch",
+    "type": "book",
+    "rarity": "legendary",
+    "effect": "+30% puissance magique, accès à des sorts interdits.",
+    "unlock_conditions": ["trouver tous les fragments du manuscrit"],
+    "stat_modifiers": {"magic_attack": 18, "int": 5}
+  },
+  "mask_of_oni": {
+    "name": "Masque d'Oni",
+    "type": "mask",
+    "rarity": "legendary",
+    "effect": "+40% attaque, risque de folie.",
+    "unlock_conditions": ["vaincre le seigneur Oni en duel"],
+    "stat_modifiers": {"attack": 22, "madness": 0.3}
+  }
+}

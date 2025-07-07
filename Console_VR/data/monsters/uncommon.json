@@ -25,13 +25,15 @@
     ],
     "loot_table": {
       "common": [
-        "basic_potion"
+        "health_potion",
+        "spirit_essence"
       ],
       "uncommon": [
-        "basic_equipment"
+        "leather_armor",
+        "ring_of_fortune"
       ],
       "rare": [
-        "special_item"
+        "blessed_ring"
       ]
     },
     "weaknesses": [],
@@ -42,5 +44,1008 @@
     ],
     "description": "Un exemple de monstre de rareté uncommon.",
     "behavior_profile": "standard"
+  },
+  "orc_grunt": {
+    "id": "orc_grunt",
+    "name": "Orc Grunt",
+    "type": "orc",
+    "faction": "evil",
+    "hp": 48,
+    "mp": 0,
+    "attack": 12,
+    "defense": 6,
+    "magic_attack": 0,
+    "magic_defense": 3,
+    "speed": 10,
+    "exp_reward": 18,
+    "gold_reward": [
+      6,
+      14
+    ],
+    "level_range": [
+      4,
+      6
+    ],
+    "abilities": [
+      "smash",
+      "battlecry"
+    ],
+    "loot_table": {
+      "common": [
+        "orc_tooth",
+        "battle_axe"
+      ],
+      "uncommon": [
+        "iron_ore",
+        "leather_armor"
+      ],
+      "rare": [
+        "berserker_pelt"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "poison"
+    ],
+    "spawn_locations": [
+      "plains",
+      "orc_camp"
+    ]
+  },
+  "skeleton_warrior": {
+    "id": "skeleton_warrior",
+    "name": "Guerrier Squelette",
+    "type": "undead",
+    "faction": "evil",
+    "hp": 30,
+    "mp": 0,
+    "attack": 8,
+    "defense": 4,
+    "magic_attack": 0,
+    "magic_defense": 2,
+    "speed": 9,
+    "exp_reward": 12,
+    "gold_reward": [
+      2,
+      7
+    ],
+    "level_range": [
+      2,
+      4
+    ],
+    "abilities": [
+      "bone_slash"
+    ],
+    "loot_table": {
+      "common": [
+        "bone_fragment",
+        "spirit_dust"
+      ],
+      "uncommon": [
+        "spirit_essence"
+      ],
+      "rare": [
+        "scroll_of_purification"
+      ]
+    },
+    "weaknesses": [
+      "holy"
+    ],
+    "resistances": [
+      "poison"
+    ],
+    "spawn_locations": [
+      "graveyard",
+      "crypt"
+    ]
+  },
+  "dire_wolf": {
+    "id": "dire_wolf",
+    "name": "Loup Terrible",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 40,
+    "mp": 0,
+    "attack": 13,
+    "defense": 5,
+    "magic_attack": 0,
+    "magic_defense": 3,
+    "speed": 16,
+    "exp_reward": 20,
+    "gold_reward": [
+      7,
+      15
+    ],
+    "level_range": [
+      5,
+      8
+    ],
+    "abilities": [
+      "howl",
+      "bite"
+    ],
+    "loot_table": {
+      "common": [
+        "beast_fang",
+        "wolf_pelt"
+      ],
+      "uncommon": [
+        "leather_armor",
+        "lucky_charm"
+      ],
+      "rare": [
+        "berserker_pelt"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "ice"
+    ],
+    "spawn_locations": [
+      "forest",
+      "mountain"
+    ]
+  },
+  "cave_troll": {
+    "id": "cave_troll",
+    "name": "Troll des Cavernes",
+    "type": "giant",
+    "faction": "evil",
+    "hp": 65,
+    "mp": 0,
+    "attack": 18,
+    "defense": 8,
+    "magic_attack": 0,
+    "magic_defense": 4,
+    "speed": 7,
+    "exp_reward": 28,
+    "gold_reward": [
+      10,
+      22
+    ],
+    "level_range": [
+      7,
+      10
+    ],
+    "abilities": [
+      "regenerate",
+      "smash"
+    ],
+    "loot_table": {
+      "common": [
+        "troll_flesh",
+        "troll_blood"
+      ],
+      "uncommon": [
+        "battle_axe",
+        "spirit_essence"
+      ],
+      "rare": [
+        "sacred_herb"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "cave"
+    ]
+  },
+  "sand_serpent": {
+    "id": "sand_serpent",
+    "name": "Serpent des Sables",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 38,
+    "mp": 0,
+    "attack": 11,
+    "defense": 4,
+    "magic_attack": 0,
+    "magic_defense": 3,
+    "speed": 13,
+    "exp_reward": 16,
+    "gold_reward": [
+      5,
+      12
+    ],
+    "level_range": [
+      4,
+      7
+    ],
+    "abilities": [
+      "venom_bite",
+      "burrow"
+    ],
+    "loot_table": {
+      "common": [
+        "serpent_scale",
+        "snake_skin"
+      ],
+      "uncommon": [
+        "venom_gland",
+        "jade_fragment"
+      ],
+      "rare": [
+        "serpent_bracelet"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "desert"
+    ]
+  },
+  "stone_gnoll": {
+    "id": "stone_gnoll",
+    "name": "Gnoll de Pierre",
+    "type": "humanoid",
+    "faction": "evil",
+    "hp": 44,
+    "mp": 0,
+    "attack": 12,
+    "defense": 6,
+    "magic_attack": 0,
+    "magic_defense": 2,
+    "speed": 10,
+    "exp_reward": 18,
+    "gold_reward": [
+      6,
+      14
+    ],
+    "level_range": [
+      5,
+      8
+    ],
+    "abilities": [
+      "rock_throw",
+      "howl"
+    ],
+    "loot_table": {
+      "common": [
+        "stone_fragment",
+        "beast_fang"
+      ],
+      "uncommon": [
+        "gnoll_club",
+        "iron_ore"
+      ],
+      "rare": [
+        "ancient_rune"
+      ]
+    },
+    "weaknesses": [
+      "water"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "hills"
+    ]
+  },
+  "ember_fox": {
+    "id": "ember_fox",
+    "name": "Renard de Braise",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 29,
+    "mp": 8,
+    "attack": 9,
+    "defense": 3,
+    "magic_attack": 6,
+    "magic_defense": 4,
+    "speed": 15,
+    "exp_reward": 14,
+    "gold_reward": [
+      3,
+      8
+    ],
+    "level_range": [
+      3,
+      5
+    ],
+    "abilities": [
+      "ember_burst",
+      "quick_dash"
+    ],
+    "loot_table": {
+      "common": [
+        "fox_fur",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "ember_tail",
+        "spirit_gem"
+      ],
+      "rare": [
+        "kitsune_mask"
+      ]
+    },
+    "weaknesses": [
+      "water"
+    ],
+    "resistances": [
+      "fire"
+    ],
+    "spawn_locations": [
+      "forest",
+      "volcano"
+    ],
+    "description": "Un renard vif dont la queue brûle comme une braise.",
+    "behavior_profile": "aggressive"
+  },
+  "moss_golem": {
+    "id": "moss_golem",
+    "name": "Golem de Mousse",
+    "type": "construct",
+    "faction": "neutral",
+    "hp": 52,
+    "mp": 0,
+    "attack": 10,
+    "defense": 12,
+    "magic_attack": 0,
+    "magic_defense": 6,
+    "speed": 6,
+    "exp_reward": 19,
+    "gold_reward": [
+      5,
+      12
+    ],
+    "level_range": [
+      6,
+      9
+    ],
+    "abilities": [
+      "slam",
+      "regenerate"
+    ],
+    "loot_table": {
+      "common": [
+        "moss_chunk",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "golem_core",
+        "ancient_rune"
+      ],
+      "rare": [
+        "spirit_gem"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "swamp",
+      "forest"
+    ],
+    "description": "Un golem recouvert de mousse, lent mais résistant.",
+    "behavior_profile": "standard"
+  },
+  "azure_serpent": {
+    "id": "azure_serpent",
+    "name": "Serpent Azur",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 42,
+    "mp": 0,
+    "attack": 14,
+    "defense": 5,
+    "magic_attack": 0,
+    "magic_defense": 4,
+    "speed": 17,
+    "exp_reward": 22,
+    "gold_reward": [
+      8,
+      18
+    ],
+    "level_range": [
+      6,
+      9
+    ],
+    "abilities": [
+      "venom_bite",
+      "quick_strike"
+    ],
+    "loot_table": {
+      "common": [
+        "serpent_scale",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "azure_gem",
+        "jade_fragment"
+      ],
+      "rare": [
+        "serpent_bracelet"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "poison"
+    ],
+    "spawn_locations": [
+      "river",
+      "jungle"
+    ],
+    "description": "Un serpent rapide à la peau bleue éclatante.",
+    "behavior_profile": "aggressive"
+  },
+  "shadow_goblin": {
+    "id": "shadow_goblin",
+    "name": "Gobelin de l'Ombre",
+    "type": "goblin",
+    "faction": "evil",
+    "hp": 36,
+    "mp": 10,
+    "attack": 11,
+    "defense": 4,
+    "magic_attack": 7,
+    "magic_defense": 3,
+    "speed": 14,
+    "exp_reward": 19,
+    "gold_reward": [
+      6,
+      14
+    ],
+    "level_range": [
+      5,
+      8
+    ],
+    "abilities": [
+      "shadow_bolt",
+      "stealth"
+    ],
+    "loot_table": {
+      "common": [
+        "goblin_ear",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "shadow_dagger",
+        "shadow_amulet"
+      ],
+      "rare": [
+        "phantom_ring"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "cave",
+      "ruins"
+    ],
+    "description": "Un gobelin rusé qui attaque depuis les ombres.",
+    "behavior_profile": "cautious"
+  },
+  "jade_tiger": {
+    "id": "jade_tiger",
+    "name": "Tigre de Jade",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 54,
+    "mp": 0,
+    "attack": 17,
+    "defense": 7,
+    "magic_attack": 0,
+    "magic_defense": 5,
+    "speed": 18,
+    "exp_reward": 25,
+    "gold_reward": [
+      10,
+      22
+    ],
+    "level_range": [
+      8,
+      12
+    ],
+    "abilities": [
+      "pounce",
+      "roar"
+    ],
+    "loot_table": {
+      "common": [
+        "tiger_fang",
+        "jade_fragment"
+      ],
+      "uncommon": [
+        "jade_shard",
+        "spirit_gem"
+      ],
+      "rare": [
+        "blessed_ring"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "jungle",
+      "mountain"
+    ],
+    "description": "Un tigre féroce à la fourrure luisante de reflets verts.",
+    "behavior_profile": "aggressive"
+  },
+  "mist_wraith": {
+    "id": "mist_wraith",
+    "name": "Spectre de Brume",
+    "type": "spirit",
+    "faction": "evil",
+    "hp": 33,
+    "mp": 20,
+    "attack": 8,
+    "defense": 3,
+    "magic_attack": 12,
+    "magic_defense": 7,
+    "speed": 15,
+    "exp_reward": 21,
+    "gold_reward": [
+      7,
+      15
+    ],
+    "level_range": [
+      7,
+      10
+    ],
+    "abilities": [
+      "mist_form",
+      "drain_life"
+    ],
+    "loot_table": {
+      "common": [
+        "spirit_dust",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "wraith_cloak",
+        "phantom_essence"
+      ],
+      "rare": [
+        "phantom_ring"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "swamp",
+      "ruins"
+    ],
+    "description": "Un esprit insaisissable qui se dissipe dans la brume.",
+    "behavior_profile": "cautious"
+  },
+  "moon_owl": {
+    "id": "moon_owl",
+    "name": "Chouette Lunaire",
+    "type": "bird",
+    "faction": "neutral",
+    "hp": 28,
+    "mp": 10,
+    "attack": 8,
+    "defense": 4,
+    "magic_attack": 7,
+    "magic_defense": 5,
+    "speed": 16,
+    "exp_reward": 18,
+    "gold_reward": [
+      6,
+      13
+    ],
+    "level_range": [
+      5,
+      8
+    ],
+    "abilities": [
+      "moonlight",
+      "silent_flight"
+    ],
+    "loot_table": {
+      "common": [
+        "owl_feather",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "moon_essence",
+        "moonstone_ring"
+      ],
+      "rare": [
+        "blessing_of_light"
+      ]
+    },
+    "weaknesses": [
+      "wind"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "forest",
+      "mountain"
+    ],
+    "description": "Une chouette mystérieuse qui chasse à la lumière de la lune.",
+    "behavior_profile": "cautious"
+  },
+  "ironback_boar": {
+    "id": "ironback_boar",
+    "name": "Sanglier au Dos de Fer",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 48,
+    "mp": 0,
+    "attack": 15,
+    "defense": 10,
+    "magic_attack": 0,
+    "magic_defense": 4,
+    "speed": 10,
+    "exp_reward": 23,
+    "gold_reward": [
+      9,
+      18
+    ],
+    "level_range": [
+      8,
+      12
+    ],
+    "abilities": [
+      "charge",
+      "iron_hide"
+    ],
+    "loot_table": {
+      "common": [
+        "boar_tusk",
+        "iron_ore"
+      ],
+      "uncommon": [
+        "iron_hide",
+        "leather_armor"
+      ],
+      "rare": [
+        "berserker_pelt"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "plains",
+      "mountain"
+    ],
+    "description": "Un sanglier massif à la peau aussi dure que le fer.",
+    "behavior_profile": "aggressive"
+  },
+  "ember_lynx": {
+    "id": "ember_lynx",
+    "name": "Lynx de Braise",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 36,
+    "mp": 0,
+    "attack": 12,
+    "defense": 5,
+    "magic_attack": 0,
+    "magic_defense": 3,
+    "speed": 17,
+    "exp_reward": 19,
+    "gold_reward": [
+      7,
+      15
+    ],
+    "level_range": [
+      6,
+      9
+    ],
+    "abilities": [
+      "ember_dash",
+      "pounce"
+    ],
+    "loot_table": {
+      "common": [
+        "lynx_fur",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "ember_tail",
+        "spirit_gem"
+      ],
+      "rare": [
+        "blessed_ring"
+      ]
+    },
+    "weaknesses": [
+      "water"
+    ],
+    "resistances": [
+      "fire"
+    ],
+    "spawn_locations": [
+      "mountain",
+      "forest"
+    ],
+    "description": "Un lynx rapide aux reflets incandescents.",
+    "behavior_profile": "aggressive"
+  },
+  "spirit_otter": {
+    "id": "spirit_otter",
+    "name": "Loutre Esprit",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 28,
+    "mp": 12,
+    "attack": 7,
+    "defense": 4,
+    "magic_attack": 8,
+    "magic_defense": 5,
+    "speed": 15,
+    "exp_reward": 16,
+    "gold_reward": [
+      5,
+      11
+    ],
+    "level_range": [
+      5,
+      8
+    ],
+    "abilities": [
+      "spirit_wave",
+      "quick_swim"
+    ],
+    "loot_table": {
+      "common": [
+        "otter_fur",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "spirit_gem",
+        "blessing_of_freyja"
+      ],
+      "rare": [
+        "phantom_ring"
+      ]
+    },
+    "weaknesses": [
+      "dark"
+    ],
+    "resistances": [
+      "water"
+    ],
+    "spawn_locations": [
+      "river",
+      "lake"
+    ],
+    "description": "Une loutre malicieuse, mi-animal mi-esprit.",
+    "behavior_profile": "cautious"
+  },
+  "ember_bear": {
+    "id": "ember_bear",
+    "name": "Ours de Braise",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 62,
+    "mp": 0,
+    "attack": 20,
+    "defense": 8,
+    "magic_attack": 0,
+    "magic_defense": 5,
+    "speed": 12,
+    "exp_reward": 28,
+    "gold_reward": [
+      12,
+      25
+    ],
+    "level_range": [
+      10,
+      14
+    ],
+    "abilities": [
+      "ember_swipe",
+      "roar"
+    ],
+    "loot_table": {
+      "common": [
+        "bear_claw",
+        "ember_fur"
+      ],
+      "uncommon": [
+        "ember_fur",
+        "spirit_gem"
+      ],
+      "rare": [
+        "berserker_pelt"
+      ]
+    },
+    "weaknesses": [
+      "water"
+    ],
+    "resistances": [
+      "fire"
+    ],
+    "spawn_locations": [
+      "mountain",
+      "forest"
+    ],
+    "description": "Un ours massif à la fourrure incandescente.",
+    "behavior_profile": "aggressive"
+  },
+  "spirit_heron": {
+    "id": "spirit_heron",
+    "name": "Héron Esprit",
+    "type": "bird",
+    "faction": "neutral",
+    "hp": 34,
+    "mp": 14,
+    "attack": 9,
+    "defense": 4,
+    "magic_attack": 10,
+    "magic_defense": 6,
+    "speed": 17,
+    "exp_reward": 22,
+    "gold_reward": [
+      8,
+      16
+    ],
+    "level_range": [
+      7,
+      11
+    ],
+    "abilities": [
+      "spirit_wave",
+      "moonlight"
+    ],
+    "loot_table": {
+      "common": [
+        "heron_feather",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "spirit_essence",
+        "spirit_gem"
+      ],
+      "rare": [
+        "blessing_of_light"
+      ]
+    },
+    "weaknesses": [
+      "dark"
+    ],
+    "resistances": [
+      "light"
+    ],
+    "spawn_locations": [
+      "lake",
+      "forest"
+    ],
+    "description": "Un héron majestueux, messager des esprits.",
+    "behavior_profile": "cautious"
+  },
+  "kitsune": {
+    "id": "kitsune",
+    "name": "Kitsune",
+    "type": "yokai",
+    "faction": "neutral",
+    "hp": 38,
+    "mp": 30,
+    "attack": 10,
+    "defense": 6,
+    "magic_attack": 18,
+    "magic_defense": 12,
+    "speed": 18,
+    "exp_reward": 28,
+    "gold_reward": [
+      10,
+      22
+    ],
+    "level_range": [
+      8,
+      12
+    ],
+    "abilities": [
+      "fox_fire",
+      "illusion"
+    ],
+    "loot_table": {
+      "common": [
+        "fox_fur",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "kitsune_mask",
+        "spirit_gem"
+      ],
+      "rare": [
+        "blessing_of_freyja"
+      ]
+    },
+    "weaknesses": [
+      "dark"
+    ],
+    "resistances": [
+      "fire"
+    ],
+    "spawn_locations": [
+      "forest",
+      "temple"
+    ],
+    "description": "Un esprit renard rusé, maître des illusions.",
+    "behavior_profile": "cautious"
+  },
+  "wendigo": {
+    "id": "wendigo",
+    "name": "Wendigo",
+    "type": "spirit",
+    "faction": "evil",
+    "hp": 52,
+    "mp": 18,
+    "attack": 19,
+    "defense": 7,
+    "magic_attack": 8,
+    "magic_defense": 6,
+    "speed": 17,
+    "exp_reward": 32,
+    "gold_reward": [
+      12,
+      25
+    ],
+    "level_range": [
+      10,
+      14
+    ],
+    "abilities": [
+      "devour",
+      "howl_of_fear"
+    ],
+    "loot_table": {
+      "common": [
+        "spirit_dust",
+        "wendigo_horn"
+      ],
+      "uncommon": [
+        "spirit_essence",
+        "curse_of_the_wendigo"
+      ],
+      "rare": [
+        "phantom_ring"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "ice"
+    ],
+    "spawn_locations": [
+      "mountain",
+      "forest"
+    ],
+    "description": "Un esprit cannibale des forêts froides, affamé et terrifiant.",
+    "behavior_profile": "aggressive"
   }
 }

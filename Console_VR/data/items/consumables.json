@@ -1,4 +1,3 @@
-
 {
   "health_potion_minor": {
     "id": "health_potion_minor",
@@ -53,5 +52,238 @@
     "use_time": 2,
     "stack_max": 5,
     "value": 120
+  },
+  "healing_potion": {
+    "id": "healing_potion",
+    "name": "Potion de Soin",
+    "description": "Une potion populaire dans les donjons, soigne instantanément les blessures.",
+    "type": "consumable",
+    "subtype": "potion",
+    "rarity": "common",
+    "level_req": 1,
+    "effects": {
+      "heal": {
+        "flat": 100,
+        "percent": 0
+      }
+    },
+    "use_time": 1,
+    "stack_max": 10,
+    "value": 50
+  },
+  "mana_potion": {
+    "id": "mana_potion",
+    "name": "Potion de Mana",
+    "description": "Restaure instantanément le mana. Très utilisée par les mages dans les manhwas.",
+    "type": "consumable",
+    "subtype": "potion",
+    "rarity": "common",
+    "level_req": 1,
+    "effects": {
+      "restore_mp": {
+        "flat": 80,
+        "percent": 0
+      }
+    },
+    "use_time": 1,
+    "stack_max": 10,
+    "value": 60
+  },
+  "elixir_of_speed": {
+    "id": "elixir_of_speed",
+    "name": "Élixir de Vitesse",
+    "description": "Augmente temporairement la vitesse d’action.",
+    "type": "consumable",
+    "subtype": "elixir",
+    "rarity": "uncommon",
+    "level_req": 5,
+    "effects": {
+      "buff": {
+        "speed": 10,
+        "duration": 3
+      }
+    },
+    "use_time": 1,
+    "stack_max": 5,
+    "value": 120
+  },
+  "elixir_of_eternity": {
+    "id": "elixir_of_eternity",
+    "name": "Élixir d’Éternité",
+    "description": "Une potion mythique censée accorder l’immortalité à celui qui la boit.",
+    "type": "consumable",
+    "subtype": "elixir",
+    "rarity": "legendary",
+    "level_req": 40,
+    "effects": {
+      "revive": true,
+      "heal": {
+        "flat": 1000
+      }
+    },
+    "use_time": 3,
+    "stack_max": 1,
+    "value": 10000
+  },
+  "ambrosia": {
+    "id": "ambrosia",
+    "name": "Ambroisie",
+    "description": "Nourriture divine des dieux, restaure tous les PV et MP.",
+    "type": "consumable",
+    "subtype": "food",
+    "rarity": "epic",
+    "level_req": 30,
+    "effects": {
+      "heal": {
+        "flat": 500
+      },
+      "restore_mp": {
+        "flat": 500
+      }
+    },
+    "use_time": 2,
+    "stack_max": 2,
+    "value": 5000
+  },
+  "scroll_of_purification": {
+    "id": "scroll_of_purification",
+    "name": "Parchemin de Purification",
+    "description": "Un ancien parchemin qui dissipe toutes les altérations d’état.",
+    "type": "consumable",
+    "subtype": "scroll",
+    "rarity": "rare",
+    "level_req": 15,
+    "effects": {
+      "cleanse": true
+    },
+    "use_time": 1,
+    "stack_max": 3,
+    "value": 800
+  },
+  "blessed_water": {
+    "id": "blessed_water",
+    "name": "Eau Bénite",
+    "description": "Eau sacrée utilisée dans de nombreux rituels religieux, soigne et protège contre les morts-vivants.",
+    "type": "consumable",
+    "subtype": "potion",
+    "rarity": "uncommon",
+    "level_req": 5,
+    "effects": {
+      "heal": {
+        "flat": 80
+      },
+      "undead_damage": 50
+    },
+    "use_time": 1,
+    "stack_max": 5,
+    "value": 120
+  },
+  "nectar_of_the_gods": {
+    "id": "nectar_of_the_gods",
+    "name": "Nectar des Dieux",
+    "description": "Boisson divine qui restaure la vitalité et le mana. Inspiré de la mythologie grecque.",
+    "type": "consumable",
+    "subtype": "elixir",
+    "rarity": "epic",
+    "level_req": 25,
+    "effects": {
+      "heal": {
+        "flat": 300
+      },
+      "restore_mp": {
+        "flat": 300
+      }
+    },
+    "use_time": 2,
+    "stack_max": 2,
+    "value": 3500
+  },
+  "sacred_herb": {
+    "id": "sacred_herb",
+    "name": "Herbe Sacrée",
+    "description": "Plante médicinale utilisée dans les rituels chamaniques, soigne les poisons.",
+    "type": "consumable",
+    "subtype": "herb",
+    "rarity": "rare",
+    "level_req": 8,
+    "effects": {
+      "cleanse": true,
+      "heal": {
+        "flat": 60
+      }
+    },
+    "use_time": 1,
+    "stack_max": 5,
+    "value": 180
+  },
+  "elixir_of_shadow": {
+    "id": "elixir_of_shadow",
+    "name": "Élixir d'Ombre",
+    "description": "Potion rare qui rend invisible quelques instants. Inspirée des légendes ninja.",
+    "type": "consumable",
+    "subtype": "elixir",
+    "rarity": "epic",
+    "level_req": 20,
+    "effects": {
+      "stealth": {
+        "duration": 3
+      }
+    },
+    "use_time": 1,
+    "stack_max": 2,
+    "value": 2200
+  },
+  "phoenix_ash": {
+    "id": "phoenix_ash",
+    "name": "Cendre de Phénix",
+    "description": "Poudre mythique qui ressuscite le porteur une fois. Inspirée des légendes du Phénix.",
+    "type": "consumable",
+    "subtype": "revive",
+    "rarity": "legendary",
+    "level_req": 35,
+    "effects": {
+      "revive": true,
+      "heal": {
+        "flat": 500
+      }
+    },
+    "use_time": 1,
+    "stack_max": 1,
+    "value": 8000
+  },
+  "elixir_of_the_sun": {
+    "id": "elixir_of_the_sun",
+    "name": "Élixir du Soleil",
+    "description": "Potion dorée inspirée des légendes égyptiennes, restaure la vitalité et protège de l'obscurité.",
+    "type": "consumable",
+    "subtype": "elixir",
+    "rarity": "epic",
+    "level_req": 18,
+    "effects": {
+      "heal": {
+        "flat": 200
+      },
+      "light_resist": 0.3,
+      "duration": 180
+    },
+    "use_time": 2,
+    "stack_max": 2,
+    "value": 1800
+  },
+  "troll_blood": {
+    "id": "troll_blood",
+    "name": "Sang de Troll",
+    "description": "Potion épaisse issue du folklore nordique, régénère les blessures rapidement.",
+    "type": "consumable",
+    "subtype": "potion",
+    "rarity": "rare",
+    "level_req": 12,
+    "effects": {
+      "regen": 50,
+      "duration": 60
+    },
+    "use_time": 1,
+    "stack_max": 1,
+    "value": 900
   }
 }

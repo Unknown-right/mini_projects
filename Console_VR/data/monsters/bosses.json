@@ -32,14 +32,17 @@
       ],
       "common": [
         "health_potion",
-        "mana_potion"
+        "mana_potion",
+        "elixir_of_strength"
       ],
       "uncommon": [
-        "magic_scroll",
-        "enchanted_ring"
+        "enchanted_ring",
+        "spirit_gem",
+        "blessed_ring"
       ],
       "rare": [
-        "legendary_item"
+        "legendary_item",
+        "excalibur"
       ]
     },
     "weaknesses": [
@@ -68,5 +71,928 @@
     "description": "Un puissant boss servant d'exemple.",
     "defeat_title": "Vainqueur d'Exemple",
     "dungeon_requirement": "example_dungeon"
+  },
+  "orc_warlord": {
+    "id": "orc_warlord",
+    "name": "Chef de Guerre Orc",
+    "type": "boss",
+    "faction": "evil",
+    "hp": 800,
+    "mp": 80,
+    "attack": 55,
+    "defense": 40,
+    "magic_attack": 15,
+    "magic_defense": 20,
+    "speed": 10,
+    "exp_reward": 1000,
+    "gold_reward": [
+      300,
+      600
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "powerful_attack",
+      "rage"
+    ],
+    "special_drops": [
+      "warlord_axe",
+      "orc_armor"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "healing_potion",
+        "mana_potion",
+        "troll_blood"
+      ],
+      "uncommon": [
+        "enchanted_ring",
+        "berserker_pelt",
+        "warlord_axe"
+      ],
+      "rare": [
+        "warlord_amulet",
+        "aegis_shield"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "fire"
+    ],
+    "spawn_locations": [
+      "orc_fortress"
+    ]
+  },
+  "ancient_lich": {
+    "id": "ancient_lich",
+    "name": "Liche Ancienne",
+    "type": "boss",
+    "faction": "evil",
+    "hp": 700,
+    "mp": 300,
+    "attack": 30,
+    "defense": 25,
+    "magic_attack": 60,
+    "magic_defense": 40,
+    "speed": 12,
+    "exp_reward": 1200,
+    "gold_reward": [
+      400,
+      800
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "mass_raise_dead",
+      "soul_drain",
+      "curse"
+    ],
+    "special_drops": [
+      "lich_staff",
+      "ancient_robe"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "mana_potion",
+        "elixir_of_speed",
+        "scroll_of_purification"
+      ],
+      "uncommon": [
+        "dark_ring",
+        "lich_staff",
+        "ancient_robe"
+      ],
+      "rare": [
+        "lich_crown",
+        "holy_grail"
+      ]
+    },
+    "weaknesses": [
+      "holy"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "ancient_tomb"
+    ]
+  },
+  "demon_lord": {
+    "id": "demon_lord",
+    "name": "Seigneur Démon",
+    "type": "boss",
+    "faction": "evil",
+    "hp": 1200,
+    "mp": 500,
+    "attack": 80,
+    "defense": 55,
+    "magic_attack": 90,
+    "magic_defense": 60,
+    "speed": 18,
+    "exp_reward": 2000,
+    "gold_reward": [
+      800,
+      1600
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "hellfire",
+      "summon_minions",
+      "dark_barrier"
+    ],
+    "special_drops": [
+      "demon_blade",
+      "demon_robe"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "mana_potion",
+        "elixir_of_speed",
+        "troll_blood"
+      ],
+      "uncommon": [
+        "demon_horn",
+        "demon_blade",
+        "demon_robe"
+      ],
+      "rare": [
+        "demon_crown",
+        "mask_of_oni"
+      ]
+    },
+    "weaknesses": [
+      "holy"
+    ],
+    "resistances": [
+      "dark",
+      "fire"
+    ],
+    "spawn_locations": [
+      "demon_castle"
+    ]
+  },
+  "celestial_phoenix": {
+    "id": "celestial_phoenix",
+    "name": "Phénix Céleste",
+    "type": "boss",
+    "faction": "good",
+    "hp": 1000,
+    "mp": 600,
+    "attack": 70,
+    "defense": 50,
+    "magic_attack": 100,
+    "magic_defense": 80,
+    "speed": 22,
+    "exp_reward": 2200,
+    "gold_reward": [
+      900,
+      1800
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "rebirth",
+      "flame_wing",
+      "heavenly_light"
+    ],
+    "special_drops": [
+      "phoenix_feather",
+      "celestial_ring"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "healing_potion",
+        "mana_potion",
+        "phoenix_feather"
+      ],
+      "uncommon": [
+        "phoenix_ash",
+        "celestial_ring"
+      ],
+      "rare": [
+        "phoenix_crown",
+        "elixir_of_eternity"
+      ]
+    },
+    "weaknesses": [
+      "water"
+    ],
+    "resistances": [
+      "fire",
+      "light"
+    ],
+    "spawn_locations": [
+      "sky_temple"
+    ]
+  },
+  "ancient_behemoth": {
+    "id": "ancient_behemoth",
+    "name": "Béhémoth Ancien",
+    "type": "boss",
+    "faction": "neutral",
+    "hp": 2500,
+    "mp": 200,
+    "attack": 120,
+    "defense": 80,
+    "magic_attack": 40,
+    "magic_defense": 60,
+    "speed": 8,
+    "exp_reward": 3500,
+    "gold_reward": [
+      1500,
+      3000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "earthquake",
+      "roar",
+      "stomp"
+    ],
+    "special_drops": [
+      "behemoth_hide",
+      "ancient_horn"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "healing_potion",
+        "mana_potion",
+        "behemoth_bone"
+      ],
+      "uncommon": [
+        "behemoth_hide",
+        "ancient_horn"
+      ],
+      "rare": [
+        "behemoth_crown",
+        "mjolnir"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "ancient_valley"
+    ]
+  },
+  "abyssal_leviathan": {
+    "id": "abyssal_leviathan",
+    "name": "Léviathan Abyssal",
+    "type": "boss",
+    "faction": "evil",
+    "hp": 3000,
+    "mp": 400,
+    "attack": 140,
+    "defense": 90,
+    "magic_attack": 70,
+    "magic_defense": 80,
+    "speed": 12,
+    "exp_reward": 4000,
+    "gold_reward": [
+      2000,
+      4000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "tidal_wave",
+      "abyssal_roar",
+      "devour"
+    ],
+    "special_drops": [
+      "leviathan_scale",
+      "abyssal_pearl"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "mana_potion",
+        "elixir_of_speed",
+        "leviathan_scale"
+      ],
+      "uncommon": [
+        "leviathan_fang",
+        "abyssal_pearl"
+      ],
+      "rare": [
+        "leviathan_crown",
+        "sun_chariot"
+      ]
+    },
+    "weaknesses": [
+      "lightning"
+    ],
+    "resistances": [
+      "water"
+    ],
+    "spawn_locations": [
+      "abyssal_depths"
+    ]
+  },
+  "void_tyrant": {
+    "id": "void_tyrant",
+    "name": "Tyran du Néant",
+    "type": "boss",
+    "faction": "evil",
+    "hp": 3500,
+    "mp": 600,
+    "attack": 160,
+    "defense": 100,
+    "magic_attack": 120,
+    "magic_defense": 90,
+    "speed": 16,
+    "exp_reward": 5000,
+    "gold_reward": [
+      2500,
+      5000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "void_blast",
+      "summon_shadows",
+      "reality_shift"
+    ],
+    "special_drops": [
+      "void_crystal",
+      "tyrant_cape"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "mana_potion",
+        "elixir_of_speed",
+        "void_essence"
+      ],
+      "uncommon": [
+        "void_crystal",
+        "tyrant_cape"
+      ],
+      "rare": [
+        "void_crown",
+        "cloak_of_invisibility"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark",
+      "void"
+    ],
+    "spawn_locations": [
+      "void_realm"
+    ],
+    "description": "Un seigneur du néant, maître des ombres et de la distorsion.",
+    "defeat_title": "Tyran du Néant vaincu",
+    "dungeon_requirement": "void_palace"
+  },
+  "celestial_dragon": {
+    "id": "celestial_dragon",
+    "name": "Dragon Céleste",
+    "type": "boss",
+    "faction": "good",
+    "hp": 3200,
+    "mp": 1200,
+    "attack": 150,
+    "defense": 110,
+    "magic_attack": 180,
+    "magic_defense": 140,
+    "speed": 28,
+    "exp_reward": 6000,
+    "gold_reward": [
+      3000,
+      6000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "celestial_flare",
+      "divine_roar",
+      "starfall"
+    ],
+    "special_drops": [
+      "celestial_scale",
+      "dragon_heart"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "healing_potion",
+        "mana_potion",
+        "celestial_scale"
+      ],
+      "uncommon": [
+        "celestial_feather",
+        "dragon_heart"
+      ],
+      "rare": [
+        "celestial_crown",
+        "jade_emperor_seal"
+      ]
+    },
+    "weaknesses": [
+      "dark"
+    ],
+    "resistances": [
+      "light",
+      "fire"
+    ],
+    "spawn_locations": [
+      "sky_temple"
+    ],
+    "description": "Un dragon légendaire, gardien des cieux et de la lumière.",
+    "defeat_title": "Gardien du Ciel vaincu",
+    "dungeon_requirement": "celestial_tower"
+  },
+  "abyssal_phoenix": {
+    "id": "abyssal_phoenix",
+    "name": "Phénix Abyssal",
+    "type": "boss",
+    "faction": "evil",
+    "hp": 3400,
+    "mp": 900,
+    "attack": 130,
+    "defense": 90,
+    "magic_attack": 160,
+    "magic_defense": 120,
+    "speed": 24,
+    "exp_reward": 7000,
+    "gold_reward": [
+      3500,
+      7000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "abyssal_flame",
+      "rebirth",
+      "dark_wing"
+    ],
+    "special_drops": [
+      "phoenix_ash",
+      "abyssal_feather"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "mana_potion",
+        "elixir_of_speed",
+        "abyssal_essence"
+      ],
+      "uncommon": [
+        "abyssal_feather",
+        "phoenix_ash"
+      ],
+      "rare": [
+        "abyssal_crown",
+        "odin_eye"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark",
+      "fire"
+    ],
+    "spawn_locations": [
+      "abyssal_depths"
+    ],
+    "description": "Un phénix légendaire renaissant des ténèbres.",
+    "defeat_title": "Phénix Abyssal vaincu",
+    "dungeon_requirement": "abyssal_nest"
+  },
+  "eternal_titan": {
+    "id": "eternal_titan",
+    "name": "Titan Éternel",
+    "type": "boss",
+    "faction": "neutral",
+    "hp": 5000,
+    "mp": 300,
+    "attack": 200,
+    "defense": 160,
+    "magic_attack": 80,
+    "magic_defense": 100,
+    "speed": 10,
+    "exp_reward": 9000,
+    "gold_reward": [
+      4000,
+      8000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "earthquake",
+      "titanic_slam",
+      "regenerate"
+    ],
+    "special_drops": [
+      "titan_heart",
+      "eternal_core"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "healing_potion",
+        "mana_potion",
+        "titan_bone"
+      ],
+      "uncommon": [
+        "titan_heart",
+        "eternal_core"
+      ],
+      "rare": [
+        "titan_crown",
+        "tome_of_enoch"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "ancient_valley"
+    ],
+    "description": "Un titan colossal, incarnation de la force brute.",
+    "defeat_title": "Titan Éternel vaincu",
+    "dungeon_requirement": "titan_arena"
+  },
+  "star_eater": {
+    "id": "star_eater",
+    "name": "Mangeur d’Étoiles",
+    "type": "boss",
+    "faction": "evil",
+    "hp": 6000,
+    "mp": 2000,
+    "attack": 220,
+    "defense": 180,
+    "magic_attack": 260,
+    "magic_defense": 200,
+    "speed": 30,
+    "exp_reward": 12000,
+    "gold_reward": [
+      6000,
+      12000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "starfall",
+      "cosmic_blast",
+      "devour_light"
+    ],
+    "special_drops": [
+      "star_fragment",
+      "eater_claw"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "mana_potion",
+        "elixir_of_speed",
+        "star_essence"
+      ],
+      "uncommon": [
+        "star_fragment",
+        "eater_claw"
+      ],
+      "rare": [
+        "star_crown",
+        "cloak_of_invisibility"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark",
+      "void"
+    ],
+    "spawn_locations": [
+      "cosmic_void"
+    ],
+    "description": "Un être mythique qui dévore la lumière des étoiles.",
+    "defeat_title": "Mangeur d’Étoiles vaincu",
+    "dungeon_requirement": "star_palace"
+  },
+  "eternal_phoenix": {
+    "id": "eternal_phoenix",
+    "name": "Phénix Éternel",
+    "type": "boss",
+    "faction": "good",
+    "hp": 4200,
+    "mp": 1800,
+    "attack": 170,
+    "defense": 120,
+    "magic_attack": 210,
+    "magic_defense": 160,
+    "speed": 32,
+    "exp_reward": 14000,
+    "gold_reward": [
+      7000,
+      14000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "eternal_flame",
+      "rebirth",
+      "phoenix_song"
+    ],
+    "special_drops": [
+      "phoenix_feather",
+      "eternal_ash"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "healing_potion",
+        "mana_potion",
+        "eternal_essence"
+      ],
+      "uncommon": [
+        "phoenix_feather",
+        "eternal_ash"
+      ],
+      "rare": [
+        "phoenix_crown",
+        "veil_of_anubis"
+      ]
+    },
+    "weaknesses": [
+      "dark"
+    ],
+    "resistances": [
+      "light",
+      "fire"
+    ],
+    "spawn_locations": [
+      "sky_temple"
+    ],
+    "description": "Un phénix immortel, gardien du cycle de la vie.",
+    "defeat_title": "Phénix Éternel vaincu",
+    "dungeon_requirement": "eternal_nest"
+  },
+  "abyssal_dragon": {
+    "id": "abyssal_dragon",
+    "name": "Dragon Abyssal",
+    "type": "boss",
+    "faction": "evil",
+    "hp": 8000,
+    "mp": 2500,
+    "attack": 300,
+    "defense": 200,
+    "magic_attack": 350,
+    "magic_defense": 220,
+    "speed": 36,
+    "exp_reward": 20000,
+    "gold_reward": [
+      10000,
+      20000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "abyssal_breath",
+      "dark_wing",
+      "devour_light"
+    ],
+    "special_drops": [
+      "abyssal_scale",
+      "dragon_heart"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "mana_potion",
+        "elixir_of_speed",
+        "abyssal_essence"
+      ],
+      "uncommon": [
+        "abyssal_scale",
+        "dragon_heart"
+      ],
+      "rare": [
+        "abyssal_crown",
+        "mask_of_oni"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark",
+      "fire"
+    ],
+    "spawn_locations": [
+      "abyssal_depths"
+    ],
+    "description": "Un dragon mythique, incarnation des ténèbres abyssales.",
+    "defeat_title": "Dragon Abyssal vaincu",
+    "dungeon_requirement": "abyssal_lair"
+  },
+  "stellar_titan": {
+    "id": "stellar_titan",
+    "name": "Titan Stellaire",
+    "type": "boss",
+    "faction": "neutral",
+    "hp": 9000,
+    "mp": 3500,
+    "attack": 400,
+    "defense": 260,
+    "magic_attack": 320,
+    "magic_defense": 240,
+    "speed": 20,
+    "exp_reward": 25000,
+    "gold_reward": [
+      12000,
+      25000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "stellar_slam",
+      "cosmic_blast",
+      "starfall"
+    ],
+    "special_drops": [
+      "stellar_core",
+      "titan_heart"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "healing_potion",
+        "mana_potion",
+        "stellar_essence"
+      ],
+      "uncommon": [
+        "stellar_core",
+        "titan_heart"
+      ],
+      "rare": [
+        "stellar_crown",
+        "cloak_of_invisibility"
+      ]
+    },
+    "weaknesses": [
+      "dark"
+    ],
+    "resistances": [
+      "light",
+      "earth"
+    ],
+    "spawn_locations": [
+      "cosmic_void"
+    ],
+    "description": "Un titan colossal, forgé dans la lumière des étoiles.",
+    "defeat_title": "Titan Stellaire vaincu",
+    "dungeon_requirement": "stellar_arena"
+  },
+  "slenderman": {
+    "id": "slenderman",
+    "name": "Slenderman",
+    "type": "boss",
+    "faction": "evil",
+    "hp": 3200,
+    "mp": 1200,
+    "attack": 120,
+    "defense": 80,
+    "magic_attack": 180,
+    "magic_defense": 140,
+    "speed": 28,
+    "exp_reward": 6000,
+    "gold_reward": [
+      3000,
+      6000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "tentacle_grab",
+      "mind_fear",
+      "teleport"
+    ],
+    "special_drops": [
+      "slender_suit",
+      "faceless_mask"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "mana_potion",
+        "elixir_of_speed",
+        "shadow_essence"
+      ],
+      "uncommon": [
+        "slender_suit",
+        "faceless_mask"
+      ],
+      "rare": [
+        "slender_gem",
+        "phantom_ring"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark",
+      "void"
+    ],
+    "spawn_locations": [
+      "dark_forest"
+    ],
+    "description": "Entité urbaine terrifiante, maître de la peur et de l’ombre.",
+    "defeat_title": "Chasseur de Légendes Urbaines",
+    "dungeon_requirement": "urban_nightmare"
+  },
+  "nuckelavee": {
+    "id": "nuckelavee",
+    "name": "Nuckelavee",
+    "type": "boss",
+    "faction": "evil",
+    "hp": 3400,
+    "mp": 900,
+    "attack": 130,
+    "defense": 90,
+    "magic_attack": 160,
+    "magic_defense": 120,
+    "speed": 24,
+    "exp_reward": 7000,
+    "gold_reward": [
+      3500,
+      7000
+    ],
+    "level_scaling": true,
+    "abilities": [
+      "toxic_breath",
+      "curse",
+      "trample"
+    ],
+    "special_drops": [
+      "nuckelavee_hide",
+      "toxic_hoof"
+    ],
+    "loot_table": {
+      "guaranteed": [
+        "boss_trophy"
+      ],
+      "common": [
+        "mana_potion",
+        "elixir_of_speed",
+        "toxic_essence"
+      ],
+      "uncommon": [
+        "nuckelavee_hide",
+        "toxic_hoof"
+      ],
+      "rare": [
+        "nuckelavee_crown",
+        "curse_of_the_wendigo"
+      ]
+    },
+    "weaknesses": [
+      "holy"
+    ],
+    "resistances": [
+      "poison",
+      "dark"
+    ],
+    "spawn_locations": [
+      "coastal_ruins"
+    ],
+    "description": "Monstre cauchemardesque du folklore écossais, porteur de malédiction.",
+    "defeat_title": "Vainqueur de l’Abomination Écossaise",
+    "dungeon_requirement": "cursed_coast"
   }
 }

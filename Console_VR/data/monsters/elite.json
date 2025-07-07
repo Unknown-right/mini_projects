@@ -25,13 +25,15 @@
     ],
     "loot_table": {
       "common": [
-        "basic_potion"
+        "elixir_of_speed",
+        "spirit_gem"
       ],
       "uncommon": [
-        "basic_equipment"
+        "armor",
+        "wyrm_talisman"
       ],
       "rare": [
-        "special_item"
+        "legendary_item"
       ]
     },
     "weaknesses": [],
@@ -42,5 +44,801 @@
     ],
     "description": "Un exemple de monstre de rareté elite.",
     "behavior_profile": "standard"
+  },
+  "minotaur_guardian": {
+    "id": "minotaur_guardian",
+    "name": "Gardien Minotaure",
+    "type": "beastman",
+    "faction": "evil",
+    "hp": 120,
+    "mp": 10,
+    "attack": 32,
+    "defense": 18,
+    "magic_attack": 5,
+    "magic_defense": 8,
+    "speed": 8,
+    "exp_reward": 120,
+    "gold_reward": [
+      40,
+      80
+    ],
+    "level_range": [
+      15,
+      18
+    ],
+    "abilities": [
+      "charge",
+      "earthquake"
+    ],
+    "loot_table": {
+      "common": [
+        "battle_axe",
+        "boar_tusk"
+      ],
+      "uncommon": [
+        "minotaur_horn",
+        "ancient_rune"
+      ],
+      "rare": [
+        "labyrinth_key"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "labyrinth"
+    ]
+  },
+  "storm_drake": {
+    "id": "storm_drake",
+    "name": "Drake des Tempêtes",
+    "type": "dragon",
+    "faction": "neutral",
+    "hp": 150,
+    "mp": 60,
+    "attack": 38,
+    "defense": 22,
+    "magic_attack": 30,
+    "magic_defense": 18,
+    "speed": 18,
+    "exp_reward": 150,
+    "gold_reward": [
+      60,
+      120
+    ],
+    "level_range": [
+      18,
+      22
+    ],
+    "abilities": [
+      "lightning_breath",
+      "wing_buffet"
+    ],
+    "loot_table": {
+      "common": [
+        "dragon_scale",
+        "storm_gem"
+      ],
+      "uncommon": [
+        "drake_claw",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "earth"
+    ],
+    "resistances": [
+      "lightning"
+    ],
+    "spawn_locations": [
+      "mountain_peak"
+    ]
+  },
+  "iron_golem": {
+    "id": "iron_golem",
+    "name": "Golem de Fer",
+    "type": "construct",
+    "faction": "neutral",
+    "hp": 180,
+    "mp": 0,
+    "attack": 35,
+    "defense": 30,
+    "magic_attack": 0,
+    "magic_defense": 20,
+    "speed": 6,
+    "exp_reward": 160,
+    "gold_reward": [
+      70,
+      140
+    ],
+    "level_range": [
+      20,
+      24
+    ],
+    "abilities": [
+      "iron_fist",
+      "fortify"
+    ],
+    "loot_table": {
+      "common": [
+        "iron_ore",
+        "golem_core"
+      ],
+      "uncommon": [
+        "ancient_rune",
+        "juggernaut_core"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "lightning"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "ancient_ruins"
+    ]
+  },
+  "blood_hydra": {
+    "id": "blood_hydra",
+    "name": "Hydre de Sang",
+    "type": "beast",
+    "faction": "evil",
+    "hp": 210,
+    "mp": 40,
+    "attack": 42,
+    "defense": 18,
+    "magic_attack": 22,
+    "magic_defense": 15,
+    "speed": 12,
+    "exp_reward": 180,
+    "gold_reward": [
+      80,
+      160
+    ],
+    "level_range": [
+      22,
+      26
+    ],
+    "abilities": [
+      "multi_strike",
+      "regenerate"
+    ],
+    "loot_table": {
+      "common": [
+        "beast_fang",
+        "hydra_scale"
+      ],
+      "uncommon": [
+        "blood_gem",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "poison"
+    ],
+    "spawn_locations": [
+      "swamp"
+    ]
+  },
+  "obsidian_minotaur": {
+    "id": "obsidian_minotaur",
+    "name": "Minotaure d'Obsidienne",
+    "type": "beastman",
+    "faction": "evil",
+    "hp": 220,
+    "mp": 20,
+    "attack": 48,
+    "defense": 22,
+    "magic_attack": 10,
+    "magic_defense": 12,
+    "speed": 10,
+    "exp_reward": 200,
+    "gold_reward": [
+      90,
+      180
+    ],
+    "level_range": [
+      25,
+      28
+    ],
+    "abilities": [
+      "obsidian_strike",
+      "earthquake"
+    ],
+    "loot_table": {
+      "common": [
+        "obsidian_fragment",
+        "minotaur_horn"
+      ],
+      "uncommon": [
+        "ancient_rune",
+        "oni_gem"
+      ],
+      "rare": [
+        "labyrinth_key"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "deep_labyrinth"
+    ]
+  },
+  "sky_serpent": {
+    "id": "sky_serpent",
+    "name": "Serpent du Ciel",
+    "type": "dragon",
+    "faction": "neutral",
+    "hp": 170,
+    "mp": 80,
+    "attack": 36,
+    "defense": 18,
+    "magic_attack": 40,
+    "magic_defense": 22,
+    "speed": 22,
+    "exp_reward": 210,
+    "gold_reward": [
+      100,
+      200
+    ],
+    "level_range": [
+      28,
+      32
+    ],
+    "abilities": [
+      "wind_blast",
+      "lightning_breath"
+    ],
+    "loot_table": {
+      "common": [
+        "storm_gem",
+        "sky_scale"
+      ],
+      "uncommon": [
+        "serpent_fang",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "earth"
+    ],
+    "resistances": [
+      "lightning"
+    ],
+    "spawn_locations": [
+      "mountain_peak"
+    ]
+  },
+  "onyx_minotaur": {
+    "id": "onyx_minotaur",
+    "name": "Minotaure d’Onyx",
+    "type": "beastman",
+    "faction": "evil",
+    "hp": 240,
+    "mp": 30,
+    "attack": 52,
+    "defense": 24,
+    "magic_attack": 12,
+    "magic_defense": 14,
+    "speed": 11,
+    "exp_reward": 220,
+    "gold_reward": [
+      100,
+      200
+    ],
+    "level_range": [
+      30,
+      34
+    ],
+    "abilities": [
+      "onyx_strike",
+      "earthquake"
+    ],
+    "loot_table": {
+      "common": [
+        "onyx_fragment",
+        "minotaur_horn"
+      ],
+      "uncommon": [
+        "ancient_rune",
+        "oni_gem"
+      ],
+      "rare": [
+        "labyrinth_key"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "deep_labyrinth"
+    ],
+    "description": "Un minotaure colossal à la peau noire comme la nuit.",
+    "behavior_profile": "aggressive"
+  },
+  "sky_wyvern": {
+    "id": "sky_wyvern",
+    "name": "Vouivre du Ciel",
+    "type": "dragon",
+    "faction": "neutral",
+    "hp": 180,
+    "mp": 90,
+    "attack": 42,
+    "defense": 20,
+    "magic_attack": 44,
+    "magic_defense": 24,
+    "speed": 24,
+    "exp_reward": 230,
+    "gold_reward": [
+      110,
+      220
+    ],
+    "level_range": [
+      34,
+      38
+    ],
+    "abilities": [
+      "wind_blast",
+      "sky_dive"
+    ],
+    "loot_table": {
+      "common": [
+        "sky_scale",
+        "wyvern_claw"
+      ],
+      "uncommon": [
+        "storm_gem",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "earth"
+    ],
+    "resistances": [
+      "wind"
+    ],
+    "spawn_locations": [
+      "mountain_peak"
+    ]
+  },
+  "storm_colossus": {
+    "id": "storm_colossus",
+    "name": "Colosse des Tempêtes",
+    "type": "construct",
+    "faction": "neutral",
+    "hp": 260,
+    "mp": 40,
+    "attack": 60,
+    "defense": 28,
+    "magic_attack": 38,
+    "magic_defense": 22,
+    "speed": 14,
+    "exp_reward": 250,
+    "gold_reward": [
+      120,
+      240
+    ],
+    "level_range": [
+      38,
+      42
+    ],
+    "abilities": [
+      "storm_punch",
+      "lightning_blast"
+    ],
+    "loot_table": {
+      "common": [
+        "storm_gem",
+        "colossus_core"
+      ],
+      "uncommon": [
+        "storm_crown",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "earth"
+    ],
+    "resistances": [
+      "lightning"
+    ],
+    "spawn_locations": [
+      "mountain_peak",
+      "ancient_ruins"
+    ],
+    "description": "Un géant mécanique qui commande la foudre.",
+    "behavior_profile": "aggressive"
+  },
+  "blood_gryphon": {
+    "id": "blood_gryphon",
+    "name": "Griffon de Sang",
+    "type": "beast",
+    "faction": "evil",
+    "hp": 210,
+    "mp": 60,
+    "attack": 48,
+    "defense": 18,
+    "magic_attack": 28,
+    "magic_defense": 16,
+    "speed": 22,
+    "exp_reward": 260,
+    "gold_reward": [
+      130,
+      260
+    ],
+    "level_range": [
+      42,
+      46
+    ],
+    "abilities": [
+      "blood_screech",
+      "wing_slash"
+    ],
+    "loot_table": {
+      "common": [
+        "gryphon_feather",
+        "blood_essence"
+      ],
+      "uncommon": [
+        "gryphon_claw",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "mountain",
+      "ruins"
+    ],
+    "description": "Un griffon féroce, avide de chair et de sang.",
+    "behavior_profile": "aggressive"
+  },
+  "iron_juggernaut": {
+    "id": "iron_juggernaut",
+    "name": "Cuirassé de Fer",
+    "type": "construct",
+    "faction": "evil",
+    "hp": 320,
+    "mp": 60,
+    "attack": 80,
+    "defense": 38,
+    "magic_attack": 28,
+    "magic_defense": 22,
+    "speed": 12,
+    "exp_reward": 280,
+    "gold_reward": [
+      140,
+      280
+    ],
+    "level_range": [
+      46,
+      50
+    ],
+    "abilities": [
+      "iron_crush",
+      "fortify"
+    ],
+    "loot_table": {
+      "common": [
+        "iron_ore",
+        "juggernaut_core"
+      ],
+      "uncommon": [
+        "ancient_rune",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "lightning"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "ancient_ruins",
+      "mountain"
+    ],
+    "description": "Un colosse mécanique, invincible sur le champ de bataille.",
+    "behavior_profile": "aggressive"
+  },
+  "storm_leviathan": {
+    "id": "storm_leviathan",
+    "name": "Léviathan des Tempêtes",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 260,
+    "mp": 120,
+    "attack": 68,
+    "defense": 28,
+    "magic_attack": 58,
+    "magic_defense": 32,
+    "speed": 20,
+    "exp_reward": 300,
+    "gold_reward": [
+      150,
+      300
+    ],
+    "level_range": [
+      50,
+      54
+    ],
+    "abilities": [
+      "tidal_wave",
+      "lightning_breath"
+    ],
+    "loot_table": {
+      "common": [
+        "leviathan_scale",
+        "storm_gem"
+      ],
+      "uncommon": [
+        "leviathan_crown",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "earth"
+    ],
+    "resistances": [
+      "water",
+      "lightning"
+    ],
+    "spawn_locations": [
+      "ocean",
+      "storm_sea"
+    ],
+    "description": "Un monstre marin colossal, maître des tempêtes.",
+    "behavior_profile": "aggressive"
+  },
+  "obsidian_golem": {
+    "id": "obsidian_golem",
+    "name": "Golem d’Obsidienne",
+    "type": "construct",
+    "faction": "evil",
+    "hp": 340,
+    "mp": 80,
+    "attack": 90,
+    "defense": 42,
+    "magic_attack": 38,
+    "magic_defense": 32,
+    "speed": 10,
+    "exp_reward": 320,
+    "gold_reward": [
+      160,
+      320
+    ],
+    "level_range": [
+      54,
+      58
+    ],
+    "abilities": [
+      "obsidian_crush",
+      "fortify"
+    ],
+    "loot_table": {
+      "common": [
+        "obsidian_fragment",
+        "golem_core"
+      ],
+      "uncommon": [
+        "ancient_rune",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "lightning"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "ancient_ruins",
+      "volcano"
+    ],
+    "description": "Un géant de pierre noire, quasi indestructible.",
+    "behavior_profile": "aggressive"
+  },
+  "sky_phoenix": {
+    "id": "sky_phoenix",
+    "name": "Phénix du Ciel",
+    "type": "beast",
+    "faction": "good",
+    "hp": 260,
+    "mp": 120,
+    "attack": 68,
+    "defense": 28,
+    "magic_attack": 58,
+    "magic_defense": 32,
+    "speed": 30,
+    "exp_reward": 340,
+    "gold_reward": [
+      170,
+      340
+    ],
+    "level_range": [
+      58,
+      62
+    ],
+    "abilities": [
+      "sky_flare",
+      "rebirth"
+    ],
+    "loot_table": {
+      "common": [
+        "phoenix_feather",
+        "sky_essence"
+      ],
+      "uncommon": [
+        "sky_crown",
+        "spirit_gem"
+      ],
+      "rare": [
+        "elixir_of_eternity"
+      ]
+    },
+    "weaknesses": [
+      "dark"
+    ],
+    "resistances": [
+      "light",
+      "fire"
+    ],
+    "spawn_locations": [
+      "sky_temple",
+      "mountain_peak"
+    ],
+    "description": "Un phénix légendaire, gardien des cieux.",
+    "behavior_profile": "standard"
+  },
+  "oni_warlord": {
+    "id": "oni_warlord",
+    "name": "Seigneur Oni",
+    "type": "yokai",
+    "faction": "evil",
+    "hp": 180,
+    "mp": 40,
+    "attack": 48,
+    "defense": 22,
+    "magic_attack": 18,
+    "magic_defense": 14,
+    "speed": 14,
+    "exp_reward": 210,
+    "gold_reward": [
+      100,
+      200
+    ],
+    "level_range": [
+      30,
+      34
+    ],
+    "abilities": [
+      "oni_smash",
+      "fear_aura"
+    ],
+    "loot_table": {
+      "common": [
+        "oni_horn",
+        "demon_mask"
+      ],
+      "uncommon": [
+        "oni_gem",
+        "spirit_gem"
+      ],
+      "rare": [
+        "mask_of_oni"
+      ]
+    },
+    "weaknesses": [
+      "holy"
+    ],
+    "resistances": [
+      "fire"
+    ],
+    "spawn_locations": [
+      "mountain",
+      "ruins"
+    ],
+    "description": "Un démon géant du folklore japonais, chef de clan brutal.",
+    "behavior_profile": "aggressive"
+  },
+  "black_shuck": {
+    "id": "black_shuck",
+    "name": "Black Shuck",
+    "type": "beast",
+    "faction": "evil",
+    "hp": 160,
+    "mp": 30,
+    "attack": 44,
+    "defense": 18,
+    "magic_attack": 16,
+    "magic_defense": 12,
+    "speed": 22,
+    "exp_reward": 200,
+    "gold_reward": [
+      90,
+      180
+    ],
+    "level_range": [
+      28,
+      32
+    ],
+    "abilities": [
+      "shadow_bite",
+      "howl_of_doom"
+    ],
+    "loot_table": {
+      "common": [
+        "beast_fang",
+        "shadow_fur"
+      ],
+      "uncommon": [
+        "shuck_eye",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "graveyard",
+      "moors"
+    ],
+    "description": "Un chien spectral géant, messager de malheur dans les légendes anglaises.",
+    "behavior_profile": "aggressive"
   }
 }

@@ -424,6 +424,7 @@ Voici les fichiers JSON que je recommande pour structurer correctement les donn�
    - `items/legendary.json` - Objets légendaires et conditions
    - `items/crafting_materials.json` - Matériaux d'artisanat
    - `items/enchantments.json` - Enchantements et leurs effets
+   - `items/accessorys.json` - Accessoires comme bagues, boucles
 
 3. **Monstres**
    - `monsters/common.json` - Monstres communs

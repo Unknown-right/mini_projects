@@ -25,13 +25,15 @@
     ],
     "loot_table": {
       "common": [
-        "basic_potion"
+        "elixir_of_strength",
+        "spirit_essence"
       ],
       "uncommon": [
-        "basic_equipment"
+        "armor",
+        "moonstone_ring"
       ],
       "rare": [
-        "special_item"
+        "blessing_of_light"
       ]
     },
     "weaknesses": [],
@@ -42,5 +44,809 @@
     ],
     "description": "Un exemple de monstre de rareté rare.",
     "behavior_profile": "standard"
+  },
+  "frost_wraith": {
+    "id": "frost_wraith",
+    "name": "Revenant de Givre",
+    "type": "spirit",
+    "faction": "evil",
+    "hp": 48,
+    "mp": 60,
+    "attack": 10,
+    "defense": 8,
+    "magic_attack": 28,
+    "magic_defense": 18,
+    "speed": 17,
+    "exp_reward": 65,
+    "gold_reward": [
+      22,
+      45
+    ],
+    "level_range": [
+      12,
+      16
+    ],
+    "abilities": [
+      "frost_bolt",
+      "chill_aura"
+    ],
+    "loot_table": {
+      "common": [
+        "mana_crystal",
+        "frost_essence"
+      ],
+      "uncommon": [
+        "wraith_cloak",
+        "spirit_gem"
+      ],
+      "rare": [
+        "blessing_of_freyja"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "ice"
+    ],
+    "spawn_locations": [
+      "frozen_cave"
+    ]
+  },
+  "desert_phantom": {
+    "id": "desert_phantom",
+    "name": "Fantôme du Désert",
+    "type": "spirit",
+    "faction": "neutral",
+    "hp": 44,
+    "mp": 50,
+    "attack": 12,
+    "defense": 7,
+    "magic_attack": 22,
+    "magic_defense": 15,
+    "speed": 18,
+    "exp_reward": 60,
+    "gold_reward": [
+      20,
+      40
+    ],
+    "level_range": [
+      11,
+      15
+    ],
+    "abilities": [
+      "sandstorm",
+      "vanish"
+    ],
+    "loot_table": {
+      "common": [
+        "spirit_dust",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "desert_cloth",
+        "phantom_ring"
+      ],
+      "rare": [
+        "blessing_of_tlaloc"
+      ]
+    },
+    "weaknesses": [
+      "water"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "desert"
+    ]
+  },
+  "crystal_golem": {
+    "id": "crystal_golem",
+    "name": "Golem de Cristal",
+    "type": "construct",
+    "faction": "neutral",
+    "hp": 70,
+    "mp": 0,
+    "attack": 20,
+    "defense": 14,
+    "magic_attack": 0,
+    "magic_defense": 10,
+    "speed": 7,
+    "exp_reward": 38,
+    "gold_reward": [
+      15,
+      30
+    ],
+    "level_range": [
+      12,
+      16
+    ],
+    "abilities": [
+      "crystal_shard",
+      "fortify"
+    ],
+    "loot_table": {
+      "common": [
+        "mana_crystal",
+        "crystal_fragment"
+      ],
+      "uncommon": [
+        "golem_core",
+        "spirit_gem"
+      ],
+      "rare": [
+        "ancient_rune"
+      ]
+    },
+    "weaknesses": [
+      "lightning"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "crystal_cave"
+    ]
+  },
+  "nightmare_horse": {
+    "id": "nightmare_horse",
+    "name": "Cheval Cauchemar",
+    "type": "beast",
+    "faction": "evil",
+    "hp": 62,
+    "mp": 20,
+    "attack": 18,
+    "defense": 8,
+    "magic_attack": 12,
+    "magic_defense": 8,
+    "speed": 20,
+    "exp_reward": 42,
+    "gold_reward": [
+      18,
+      36
+    ],
+    "level_range": [
+      14,
+      18
+    ],
+    "abilities": [
+      "flame_charge",
+      "fear_aura"
+    ],
+    "loot_table": {
+      "common": [
+        "nightmare_mane",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "flame_hoof",
+        "phantom_ring"
+      ],
+      "rare": [
+        "moonstone_ring"
+      ]
+    },
+    "weaknesses": [
+      "water"
+    ],
+    "resistances": [
+      "fire"
+    ],
+    "spawn_locations": [
+      "haunted_forest"
+    ]
+  },
+  "ember_drake": {
+    "id": "ember_drake",
+    "name": "Drake de Braise",
+    "type": "dragon",
+    "faction": "neutral",
+    "hp": 62,
+    "mp": 30,
+    "attack": 22,
+    "defense": 10,
+    "magic_attack": 18,
+    "magic_defense": 8,
+    "speed": 16,
+    "exp_reward": 48,
+    "gold_reward": [
+      20,
+      40
+    ],
+    "level_range": [
+      15,
+      18
+    ],
+    "abilities": [
+      "flame_breath",
+      "wing_buffet"
+    ],
+    "loot_table": {
+      "common": [
+        "dragon_scale",
+        "ember_gem"
+      ],
+      "uncommon": [
+        "drake_claw",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "water"
+    ],
+    "resistances": [
+      "fire"
+    ],
+    "spawn_locations": [
+      "volcano",
+      "mountain"
+    ],
+    "description": "Un jeune drake crachant des flammes ardentes.",
+    "behavior_profile": "aggressive"
+  },
+  "phantom_knight": {
+    "id": "phantom_knight",
+    "name": "Chevalier Fantôme",
+    "type": "undead",
+    "faction": "evil",
+    "hp": 58,
+    "mp": 20,
+    "attack": 19,
+    "defense": 12,
+    "magic_attack": 14,
+    "magic_defense": 10,
+    "speed": 12,
+    "exp_reward": 52,
+    "gold_reward": [
+      22,
+      44
+    ],
+    "level_range": [
+      16,
+      20
+    ],
+    "abilities": [
+      "phantom_slash",
+      "fear_aura"
+    ],
+    "loot_table": {
+      "common": [
+        "phantom_essence",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "knight_armor",
+        "phantom_blade"
+      ],
+      "rare": [
+        "blessed_ring"
+      ]
+    },
+    "weaknesses": [
+      "holy"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "haunted_castle"
+    ],
+    "description": "Un chevalier spectral gardant les ruines anciennes.",
+    "behavior_profile": "standard"
+  },
+  "obsidian_gargoyle": {
+    "id": "obsidian_gargoyle",
+    "name": "Gargouille d'Obsidienne",
+    "type": "construct",
+    "faction": "evil",
+    "hp": 78,
+    "mp": 0,
+    "attack": 24,
+    "defense": 18,
+    "magic_attack": 0,
+    "magic_defense": 12,
+    "speed": 10,
+    "exp_reward": 55,
+    "gold_reward": [
+      22,
+      44
+    ],
+    "level_range": [
+      18,
+      22
+    ],
+    "abilities": [
+      "stone_skin",
+      "wing_slash"
+    ],
+    "loot_table": {
+      "common": [
+        "obsidian_fragment",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "gargoyle_wing",
+        "scarab_helm"
+      ],
+      "rare": [
+        "gargoyle_eye"
+      ]
+    },
+    "weaknesses": [
+      "lightning"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "ancient_ruins",
+      "mountain"
+    ],
+    "description": "Une gargouille massive taillée dans l'obsidienne.",
+    "behavior_profile": "standard"
+  },
+  "storm_harpy": {
+    "id": "storm_harpy",
+    "name": "Harpie des Tempêtes",
+    "type": "bird",
+    "faction": "evil",
+    "hp": 60,
+    "mp": 15,
+    "attack": 16,
+    "defense": 6,
+    "magic_attack": 14,
+    "magic_defense": 8,
+    "speed": 20,
+    "exp_reward": 58,
+    "gold_reward": [
+      24,
+      48
+    ],
+    "level_range": [
+      19,
+      23
+    ],
+    "abilities": [
+      "wind_gust",
+      "screech"
+    ],
+    "loot_table": {
+      "common": [
+        "harpy_feather",
+        "storm_gem"
+      ],
+      "uncommon": [
+        "harpy_claw",
+        "spirit_gem"
+      ],
+      "rare": [
+        "blessing_of_tlaloc"
+      ]
+    },
+    "weaknesses": [
+      "earth"
+    ],
+    "resistances": [
+      "wind"
+    ],
+    "spawn_locations": [
+      "mountain",
+      "cliff"
+    ],
+    "description": "Une harpie qui commande les tempêtes.",
+    "behavior_profile": "aggressive"
+  },
+  "frost_salamander": {
+    "id": "frost_salamander",
+    "name": "Salamandre de Givre",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 58,
+    "mp": 20,
+    "attack": 17,
+    "defense": 8,
+    "magic_attack": 16,
+    "magic_defense": 10,
+    "speed": 14,
+    "exp_reward": 62,
+    "gold_reward": [
+      25,
+      50
+    ],
+    "level_range": [
+      20,
+      24
+    ],
+    "abilities": [
+      "frost_breath",
+      "tail_whip"
+    ],
+    "loot_table": {
+      "common": [
+        "frost_essence",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "salamander_scale",
+        "frost_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "fire"
+    ],
+    "resistances": [
+      "ice"
+    ],
+    "spawn_locations": [
+      "frozen_cave",
+      "mountain"
+    ],
+    "description": "Une salamandre rare qui manipule la glace.",
+    "behavior_profile": "standard"
+  },
+  "phantom_fox": {
+    "id": "phantom_fox",
+    "name": "Renard Fantôme",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 52,
+    "mp": 30,
+    "attack": 14,
+    "defense": 7,
+    "magic_attack": 18,
+    "magic_defense": 12,
+    "speed": 20,
+    "exp_reward": 68,
+    "gold_reward": [
+      28,
+      56
+    ],
+    "level_range": [
+      22,
+      26
+    ],
+    "abilities": [
+      "phantom_dash",
+      "spirit_blast"
+    ],
+    "loot_table": {
+      "common": [
+        "fox_fur",
+        "phantom_essence"
+      ],
+      "uncommon": [
+        "spirit_gem",
+        "kitsune_mask"
+      ],
+      "rare": [
+        "blessing_of_freyja"
+      ]
+    },
+    "weaknesses": [
+      "dark"
+    ],
+    "resistances": [
+      "light"
+    ],
+    "spawn_locations": [
+      "haunted_forest",
+      "mountain"
+    ],
+    "description": "Un renard insaisissable, mi-esprit mi-animal.",
+    "behavior_profile": "cautious"
+  },
+  "obsidian_serpent": {
+    "id": "obsidian_serpent",
+    "name": "Serpent d’Obsidienne",
+    "type": "beast",
+    "faction": "evil",
+    "hp": 68,
+    "mp": 18,
+    "attack": 22,
+    "defense": 10,
+    "magic_attack": 16,
+    "magic_defense": 8,
+    "speed": 18,
+    "exp_reward": 72,
+    "gold_reward": [
+      32,
+      64
+    ],
+    "level_range": [
+      26,
+      30
+    ],
+    "abilities": [
+      "obsidian_bite",
+      "venom_burst"
+    ],
+    "loot_table": {
+      "common": [
+        "obsidian_fragment",
+        "serpent_scale"
+      ],
+      "uncommon": [
+        "obsidian_gem",
+        "spirit_essence"
+      ],
+      "rare": [
+        "serpent_bracelet"
+      ]
+    },
+    "weaknesses": [
+      "ice"
+    ],
+    "resistances": [
+      "earth"
+    ],
+    "spawn_locations": [
+      "volcano",
+      "deep_cave"
+    ],
+    "description": "Un serpent massif à la peau noire et luisante.",
+    "behavior_profile": "aggressive"
+  },
+  "phantom_stag": {
+    "id": "phantom_stag",
+    "name": "Cerf Fantôme",
+    "type": "beast",
+    "faction": "neutral",
+    "hp": 60,
+    "mp": 30,
+    "attack": 15,
+    "defense": 8,
+    "magic_attack": 20,
+    "magic_defense": 12,
+    "speed": 22,
+    "exp_reward": 78,
+    "gold_reward": [
+      36,
+      72
+    ],
+    "level_range": [
+      28,
+      32
+    ],
+    "abilities": [
+      "spirit_charge",
+      "moonlight"
+    ],
+    "loot_table": {
+      "common": [
+        "stag_antler",
+        "spirit_essence"
+      ],
+      "uncommon": [
+        "phantom_essence",
+        "spirit_gem"
+      ],
+      "rare": [
+        "blessing_of_light"
+      ]
+    },
+    "weaknesses": [
+      "dark"
+    ],
+    "resistances": [
+      "light"
+    ],
+    "spawn_locations": [
+      "haunted_forest",
+      "mountain"
+    ],
+    "description": "Un cerf majestueux, apparition des nuits brumeuses.",
+    "behavior_profile": "cautious"
+  },
+  "crystal_phoenix": {
+    "id": "crystal_phoenix",
+    "name": "Phénix de Cristal",
+    "type": "beast",
+    "faction": "good",
+    "hp": 88,
+    "mp": 60,
+    "attack": 28,
+    "defense": 14,
+    "magic_attack": 32,
+    "magic_defense": 18,
+    "speed": 24,
+    "exp_reward": 92,
+    "gold_reward": [
+      44,
+      88
+    ],
+    "level_range": [
+      32,
+      36
+    ],
+    "abilities": [
+      "crystal_flare",
+      "rebirth"
+    ],
+    "loot_table": {
+      "common": [
+        "crystal_fragment",
+        "phoenix_feather"
+      ],
+      "uncommon": [
+        "crystal_crown",
+        "spirit_gem"
+      ],
+      "rare": [
+        "elixir_of_eternity"
+      ]
+    },
+    "weaknesses": [
+      "dark"
+    ],
+    "resistances": [
+      "light",
+      "fire"
+    ],
+    "spawn_locations": [
+      "crystal_cave",
+      "mountain"
+    ],
+    "description": "Un phénix rare, incarnation de la lumière et du cristal.",
+    "behavior_profile": "standard"
+  },
+  "phantom_panther": {
+    "id": "phantom_panther",
+    "name": "Panthère Fantôme",
+    "type": "beast",
+    "faction": "evil",
+    "hp": 80,
+    "mp": 40,
+    "attack": 26,
+    "defense": 12,
+    "magic_attack": 24,
+    "magic_defense": 14,
+    "speed": 28,
+    "exp_reward": 98,
+    "gold_reward": [
+      48,
+      96
+    ],
+    "level_range": [
+      34,
+      38
+    ],
+    "abilities": [
+      "phantom_dash",
+      "shadow_claw"
+    ],
+    "loot_table": {
+      "common": [
+        "panther_fur",
+        "phantom_essence"
+      ],
+      "uncommon": [
+        "spirit_gem",
+        "shadow_amulet"
+      ],
+      "rare": [
+        "phantom_ring"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "haunted_forest",
+      "mountain"
+    ],
+    "description": "Une panthère insaisissable, tapie dans les ombres.",
+    "behavior_profile": "aggressive"
+  },
+  "banshee": {
+    "id": "banshee",
+    "name": "Banshee",
+    "type": "spirit",
+    "faction": "evil",
+    "hp": 44,
+    "mp": 60,
+    "attack": 8,
+    "defense": 5,
+    "magic_attack": 28,
+    "magic_defense": 18,
+    "speed": 20,
+    "exp_reward": 60,
+    "gold_reward": [
+      20,
+      40
+    ],
+    "level_range": [
+      14,
+      18
+    ],
+    "abilities": [
+      "wail_of_doom",
+      "fade"
+    ],
+    "loot_table": {
+      "common": [
+        "spirit_dust",
+        "banshee_veil"
+      ],
+      "uncommon": [
+        "wail_gem",
+        "phantom_essence"
+      ],
+      "rare": [
+        "blessing_of_light"
+      ]
+    },
+    "weaknesses": [
+      "light"
+    ],
+    "resistances": [
+      "dark"
+    ],
+    "spawn_locations": [
+      "ruins",
+      "graveyard"
+    ],
+    "description": "Un esprit hurlant annonciateur de mort.",
+    "behavior_profile": "cautious"
+  },
+  "kraken_spawn": {
+    "id": "kraken_spawn",
+    "name": "Rejeton du Kraken",
+    "type": "beast",
+    "faction": "evil",
+    "hp": 58,
+    "mp": 10,
+    "attack": 22,
+    "defense": 10,
+    "magic_attack": 8,
+    "magic_defense": 8,
+    "speed": 14,
+    "exp_reward": 68,
+    "gold_reward": [
+      25,
+      50
+    ],
+    "level_range": [
+      18,
+      22
+    ],
+    "abilities": [
+      "tentacle_whip",
+      "ink_cloud"
+    ],
+    "loot_table": {
+      "common": [
+        "kraken_tentacle",
+        "sea_essence"
+      ],
+      "uncommon": [
+        "abyssal_pearl",
+        "spirit_gem"
+      ],
+      "rare": [
+        "legendary_item"
+      ]
+    },
+    "weaknesses": [
+      "lightning"
+    ],
+    "resistances": [
+      "water"
+    ],
+    "spawn_locations": [
+      "ocean",
+      "deep_sea"
+    ],
+    "description": "Un rejeton monstrueux issu des abysses marines.",
+    "behavior_profile": "aggressive"
   }
 }

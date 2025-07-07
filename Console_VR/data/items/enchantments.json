@@ -1,0 +1,79 @@
+{
+  "flame_touch": {
+    "name": "Toucher de Flamme",
+    "effect": "Ajoute des dégâts de feu aux attaques physiques.",
+    "stat_modifiers": {"attack": 3},
+    "element": "fire",
+    "rarity": "rare"
+  },
+  "blessing_of_light": {
+    "name": "Bénédiction de Lumière",
+    "effect": "Soins accrus et résistance à l’ombre.",
+    "stat_modifiers": {"magic_defense": 5},
+    "element": "light",
+    "rarity": "epic"
+  },
+  "curse_of_decay": {
+    "name": "Malédiction de Déclin",
+    "effect": "Inflige des dégâts sur la durée à l’ennemi.",
+    "stat_modifiers": {"attack": -2},
+    "element": "dark",
+    "rarity": "rare"
+  },
+  "windstep": {
+    "name": "Pas du Vent",
+    "effect": "Augmente la vitesse et l’esquive.",
+    "stat_modifiers": {"speed": 4},
+    "element": "wind",
+    "rarity": "uncommon"
+  },
+  "stone_skin": {
+    "name": "Peau de Pierre",
+    "effect": "Augmente la défense physique.",
+    "stat_modifiers": {"defense": 6},
+    "element": "earth",
+    "rarity": "rare"
+  },
+  "blessing_of_freyja": {
+    "name": "Bénédiction de Freyja",
+    "effect": "Accorde une régénération de vie accrue. Inspiré de la déesse nordique de la fertilité.",
+    "stat_modifiers": {"regen": 5},
+    "element": "life",
+    "rarity": "rare"
+  },
+  "flame_of_amaterasu": {
+    "name": "Flamme d'Amaterasu",
+    "effect": "Enflamme les armes avec un feu éternel. Inspiré de la déesse japonaise du soleil.",
+    "stat_modifiers": {"fire": 8},
+    "element": "fire",
+    "rarity": "epic"
+  },
+  "veil_of_anubis": {
+    "name": "Voile d'Anubis",
+    "effect": "Protège contre les malédictions et la mort subite. Inspiré du dieu égyptien des morts.",
+    "stat_modifiers": {"curse_resist": 0.5, "death_resist": 0.1},
+    "element": "dark",
+    "rarity": "legendary"
+  },
+  "sylph_breath": {
+    "name": "Souffle de Sylphide",
+    "effect": "Allège l'équipement, augmente la vitesse. Inspiré des esprits du vent.",
+    "stat_modifiers": {"speed": 3},
+    "element": "wind",
+    "rarity": "rare"
+  },
+  "blessing_of_tlaloc": {
+    "name": "Bénédiction de Tlaloc",
+    "effect": "Augmente la résistance à l'eau et la puissance des sorts de pluie. Inspiré du dieu aztèque de la pluie.",
+    "stat_modifiers": {"water_resist": 0.3, "magic_attack": 3},
+    "element": "water",
+    "rarity": "epic"
+  },
+  "curse_of_the_wendigo": {
+    "name": "Malédiction du Wendigo",
+    "effect": "Inflige une faim insatiable, mais augmente la force. Inspiré du folklore amérindien.",
+    "stat_modifiers": {"str": 3, "hp": -30},
+    "element": "dark",
+    "rarity": "epic"
+  }
+}

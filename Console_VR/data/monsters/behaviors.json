@@ -22,5 +22,34 @@
     "skill_usage_rate": 0.4,
     "flee_chance": 0.2,
     "priority_targets": []
+  },
+  "berserk": {
+    "attack_preference": "nearest",
+    "defensive_threshold": 0.1,
+    "skill_usage_rate": 0.8,
+    "flee_chance": 0.0,
+    "priority_targets": ["strongest"]
+  },
+  "summoner": {
+    "attack_preference": "random",
+    "defensive_threshold": 0.4,
+    "skill_usage_rate": 0.6,
+    "flee_chance": 0.05,
+    "priority_targets": ["mages", "healers"],
+    "special_behavior": "summon_minions"
+  },
+  "stealth": {
+    "attack_preference": "weakest",
+    "defensive_threshold": 0.3,
+    "skill_usage_rate": 0.5,
+    "flee_chance": 0.3,
+    "priority_targets": ["isolated"]
+  },
+  "defensive": {
+    "attack_preference": "random",
+    "defensive_threshold": 0.7,
+    "skill_usage_rate": 0.3,
+    "flee_chance": 0.15,
+    "priority_targets": ["attackers"]
   }
 }

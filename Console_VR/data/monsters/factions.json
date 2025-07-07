@@ -3,7 +3,14 @@
     "name": "Neutres",
     "relations": {
       "evil": "cautious",
-      "good": "friendly"
+      "good": "friendly",
+      "yokai": "mysterious",
+      "cryptid": "curious",
+      "spirit": "indifferent",
+      "undead": "wary",
+      "beastman": "tribal",
+      "construct": "indifferent",
+      "dragon": "distant"
     },
     "description": "Faction neutre qui ne s'allie à personne en particulier."
   },
@@ -11,7 +18,14 @@
     "name": "Maléfiques",
     "relations": {
       "neutral": "manipulative",
-      "good": "hostile"
+      "good": "hostile",
+      "yokai": "rival",
+      "cryptid": "predator",
+      "spirit": "vengeful",
+      "undead": "master",
+      "beastman": "hostile",
+      "construct": "used",
+      "dragon": "rival"
     },
     "description": "Créatures maléfiques cherchant à dominer le monde."
   },
@@ -19,8 +33,78 @@
     "name": "Bénéfiques",
     "relations": {
       "neutral": "protective",
-      "evil": "hostile"
+      "evil": "hostile",
+      "yokai": "distrustful",
+      "cryptid": "protective",
+      "spirit": "respectful",
+      "undead": "hated",
+      "beastman": "wary",
+      "construct": "curious",
+      "dragon": "respectful"
     },
     "description": "Créatures bénéfiques qui protègent la nature et les innocents."
+  },
+  "yokai": {
+    "name": "Yokai",
+    "relations": {
+      "evil": "rival",
+      "good": "distrustful",
+      "neutral": "mysterious"
+    },
+    "description": "Esprits et créatures surnaturelles du folklore asiatique, imprévisibles et puissants."
+  },
+  "cryptid": {
+    "name": "Cryptides",
+    "relations": {
+      "neutral": "secretive",
+      "evil": "avoid",
+      "good": "fearful"
+    },
+    "description": "Créatures mystérieuses issues des légendes urbaines et du folklore mondial."
+  },
+  "spirit": {
+    "name": "Esprits",
+    "relations": {
+      "good": "respectful",
+      "evil": "vengeful",
+      "neutral": "indifferent"
+    },
+    "description": "Entités immatérielles liées à la nature, la mort ou les émotions."
+  },
+  "undead": {
+    "name": "Morts-vivants",
+    "relations": {
+      "evil": "servant",
+      "good": "hated",
+      "neutral": "ignored"
+    },
+    "description": "Êtres ramenés à la vie par magie noire ou malédiction."
+  },
+  "beastman": {
+    "name": "Hommes-bêtes",
+    "relations": {
+      "neutral": "tribal",
+      "evil": "hostile",
+      "good": "wary"
+    },
+    "description": "Créatures mi-humaines mi-animales, souvent organisées en clans."
+  },
+  "construct": {
+    "name": "Créatures Artificielles",
+    "relations": {
+      "neutral": "indifferent",
+      "evil": "used",
+      "good": "curious"
+    },
+    "description": "Êtres créés par magie ou technologie, sans volonté propre."
+  },
+  "dragon": {
+    "name": "Dragons",
+    "relations": {
+      "good": "respectful",
+      "evil": "rival",
+      "neutral": "distant"
+    },
+    "description": "Créatures légendaires, puissantes et anciennes, souvent solitaires."
   }
 }

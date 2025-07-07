@@ -28,5 +28,118 @@
     "mp_cost": 15,
     "cooldown": 3,
     "effects": []
+  },
+  "ignite": {
+    "name": "Ignition",
+    "type": "magic",
+    "damage_multiplier": 1.2,
+    "mp_cost": 6,
+    "cooldown": 1,
+    "effects": [{"type": "burn", "chance": 0.4, "duration": 2}]
+  },
+  "fade": {
+    "name": "Disparition",
+    "type": "utility",
+    "mp_cost": 8,
+    "cooldown": 2,
+    "effects": [{"type": "invisible", "chance": 1.0, "duration": 1}]
+  },
+  "fox_fire": {
+    "name": "Feu-Fox",
+    "type": "magic",
+    "damage_multiplier": 1.5,
+    "mp_cost": 10,
+    "cooldown": 2,
+    "effects": [{"type": "burn", "chance": 0.5, "duration": 2}]
+  },
+  "illusion": {
+    "name": "Illusion",
+    "type": "utility",
+    "mp_cost": 12,
+    "cooldown": 3,
+    "effects": [{"type": "confuse", "chance": 0.7, "duration": 2}]
+  },
+  "leech_life": {
+    "name": "Suce-Vie",
+    "type": "physical",
+    "damage_multiplier": 1.1,
+    "mp_cost": 5,
+    "cooldown": 1,
+    "effects": [{"type": "drain_hp", "chance": 1.0, "amount": 0.3}]
+  },
+  "tentacle_grab": {
+    "name": "Prise Tentaculaire",
+    "type": "physical",
+    "damage_multiplier": 1.3,
+    "mp_cost": 12,
+    "cooldown": 2,
+    "effects": [{"type": "immobilize", "chance": 0.5, "duration": 1}]
+  },
+  "mind_fear": {
+    "name": "Peur Mentale",
+    "type": "magic",
+    "mp_cost": 18,
+    "cooldown": 3,
+    "effects": [{"type": "fear", "chance": 0.7, "duration": 2}]
+  },
+  "teleport": {
+    "name": "Téléportation",
+    "type": "utility",
+    "mp_cost": 20,
+    "cooldown": 4,
+    "effects": [{"type": "evade", "chance": 1.0, "duration": 1}]
+  },
+  "oni_smash": {
+    "name": "Coup d'Oni",
+    "type": "physical",
+    "damage_multiplier": 2.0,
+    "mp_cost": 15,
+    "cooldown": 3,
+    "effects": [{"type": "stun", "chance": 0.5, "duration": 1}]
+  },
+  "howl_of_fear": {
+    "name": "Hurlement de Peur",
+    "type": "magic",
+    "mp_cost": 10,
+    "cooldown": 2,
+    "effects": [{"type": "fear", "chance": 0.6, "duration": 1}]
+  },
+  "devour": {
+    "name": "Dévoration",
+    "type": "physical",
+    "damage_multiplier": 1.6,
+    "mp_cost": 12,
+    "cooldown": 2,
+    "effects": [{"type": "drain_hp", "chance": 1.0, "amount": 0.5}]
+  },
+  "wail_of_doom": {
+    "name": "Cri Funeste",
+    "type": "magic",
+    "mp_cost": 20,
+    "cooldown": 4,
+    "effects": [{"type": "fear", "chance": 0.9, "duration": 2}]
+  },
+  "tentacle_whip": {
+    "name": "Fouet Tentaculaire",
+    "type": "physical",
+    "damage_multiplier": 1.4,
+    "mp_cost": 10,
+    "cooldown": 2,
+    "effects": [{"type": "bleed", "chance": 0.5, "duration": 2}]
+  },
+  "ink_cloud": {
+    "name": "Nuage d'Encre",
+    "type": "utility",
+    "mp_cost": 8,
+    "cooldown": 2,
+    "effects": [{"type": "blind", "chance": 0.7, "duration": 1}]
+  },
+  "shadow_bite": {
+    "name": "Morsure d'Ombre",
+    "type": "physical",
+    "damage_multiplier": 1.5,
+    "mp_cost": 10,
+    "cooldown": 2,
+    "effects": [{"type": "dark", "chance": 0.5, "duration": 2}]
   }
 }

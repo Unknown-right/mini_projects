@@ -1,0 +1,130 @@
+{
+  "ancient_tablet": {
+    "id": "ancient_tablet",
+    "name": "Tablette Ancienne",
+    "description": "Une tablette couverte de runes oubliées, clé d’un secret enfoui.",
+    "type": "quest_item",
+    "rarity": "rare",
+    "quest": "mystery_of_the_ruins"
+  },
+  "sacred_relic": {
+    "id": "sacred_relic",
+    "name": "Relique Sacrée",
+    "description": "Un artefact religieux vénéré, indispensable pour une quête divine.",
+    "type": "quest_item",
+    "rarity": "epic",
+    "quest": "divine_intervention"
+  },
+  "bandit_emblem": {
+    "id": "bandit_emblem",
+    "name": "Emblème de Bandit",
+    "description": "Un insigne volé sur un chef de bandits, preuve de sa défaite.",
+    "type": "quest_item",
+    "rarity": "common",
+    "quest": "cleanse_the_road"
+  },
+  "phoenix_feather": {
+    "id": "phoenix_feather",
+    "name": "Plume de Phénix",
+    "description": "Plume incandescente, ingrédient rare pour rituels de renaissance.",
+    "type": "quest_item",
+    "rarity": "legendary",
+    "quest": "rebirth_ritual"
+  },
+  "holy_grail_fragment": {
+    "id": "holy_grail_fragment",
+    "name": "Fragment du Graal Sacré",
+    "description": "Un éclat du légendaire Graal, indispensable pour la quête divine.",
+    "type": "quest_item",
+    "rarity": "epic",
+    "quest": "grail_recovery"
+  },
+  "oni_horn": {
+    "id": "oni_horn",
+    "name": "Corne d'Oni",
+    "description": "Corne arrachée à un démon japonais, clé d'un rituel d'exorcisme.",
+    "type": "quest_item",
+    "rarity": "rare",
+    "quest": "oni_exorcism"
+  },
+  "dragon_scale": {
+    "id": "dragon_scale",
+    "name": "Écaille de Dragon",
+    "description": "Écaille précieuse, preuve d'un exploit héroïque.",
+    "type": "quest_item",
+    "rarity": "epic",
+    "quest": "slay_the_dragon"
+  },
+  "labyrinth_key": {
+    "id": "labyrinth_key",
+    "name": "Clé du Labyrinthe",
+    "description": "Clé ouvrant les portes du labyrinthe minotaure. Objet de quête rare.",
+    "type": "quest_item",
+    "rarity": "rare",
+    "quest": "minotaur_labyrinth"
+  },
+  "boss_trophy": {
+    "id": "boss_trophy",
+    "name": "Trophée de Boss",
+    "description": "Trophée unique prouvant la défaite d'un boss majeur. Peut être échangé contre des récompenses spéciales.",
+    "type": "quest_item",
+    "rarity": "legendary",
+    "quest": "boss_hunt"
+  },
+  "phoenix_crown": {
+    "id": "phoenix_crown",
+    "name": "Couronne de Phénix",
+    "description": "Couronne flamboyante forgée à partir des plumes d'un phénix légendaire. Objet de quête et d'enchantement.",
+    "type": "quest_item",
+    "rarity": "legendary",
+    "quest": "phoenix_ascension"
+  },
+  "leviathan_crown": {
+    "id": "leviathan_crown",
+    "name": "Couronne de Léviathan",
+    "description": "Couronne marine forgée à partir d'écailles de Léviathan. Objet de quête et d'enchantement.",
+    "type": "quest_item",
+    "rarity": "legendary",
+    "quest": "leviathan_conquest"
+  },
+  "titan_crown": {
+    "id": "titan_crown",
+    "name": "Couronne de Titan",
+    "description": "Couronne massive forgée à partir d'os de titan. Objet de quête et d'enchantement.",
+    "type": "quest_item",
+    "rarity": "legendary",
+    "quest": "titan_arena"
+  },
+  "star_crown": {
+    "id": "star_crown",
+    "name": "Couronne Stellaire",
+    "description": "Couronne forgée dans la lumière d'une étoile. Objet de quête cosmique.",
+    "type": "quest_item",
+    "rarity": "legendary",
+    "quest": "star_palace"
+  },
+  "stellar_crown": {
+    "id": "stellar_crown",
+    "name": "Couronne de Titan Stellaire",
+    "description": "Couronne forgée à partir de l'essence d'un titan stellaire. Objet de quête cosmique.",
+    "type": "quest_item",
+    "rarity": "legendary",
+    "quest": "stellar_arena"
+  },
+  "mirror_of_truth": {
+    "id": "mirror_of_truth",
+    "name": "Miroir de Vérité",
+    "description": "Objet légendaire qui révèle la véritable nature de toute chose. Inspiré des mythes grecs et asiatiques.",
+    "type": "quest_item",
+    "rarity": "legendary",
+    "quest": "reveal_the_truth"
+  },
+  "crystal_rose": {
+    "id": "crystal_rose",
+    "name": "Rose de Cristal",
+    "description": "Fleur magique qui ne fane jamais, clé d'une quête d'amour éternel.",
+    "type": "quest_item",
+    "rarity": "epic",
+    "quest": "eternal_love"
+  }
+}
