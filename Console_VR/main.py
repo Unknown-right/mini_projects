@@ -6,16 +6,16 @@ main.py - Boucle principale et gestion des états pour FateQuest
 
 import sys
 import time
-import os 
+import os
 from colorama import init, Fore, Back, Style
-from player import Player
-from world import World
-from combat import Combat
-from items import ItemManager
-from monsters import MonsterManager
-from achievements import AchievementSystem
-from logic_engine import LogicEngine
-from save_system import SaveSystem
+from core.player import Player
+from core.world import World
+from core.combat import Combat
+from core.items import ItemManager
+from core.monsters import MonsterManager
+from core.achievements import AchievementSystem
+from core.logic_engine import LogicEngine
+from core.save_system import SaveSystem
 
 class Game:
     def __init__(self):
@@ -385,8 +385,21 @@ class Game:
 
     
 if __name__ == "__main__":
-    game = Game()
-    game.run()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--ui', action='store_true', help='Lancer l’interface graphique minimaliste (étape 1)')
+    args = parser.parse_args()
+    if args.ui:
+        from PyQt5.QtWidgets import QApplication
+        from ui.map_view import MapView
+        locations_path = os.path.join(os.path.dirname(__file__), 'data', 'world', 'locations.json')
+        app = QApplication(sys.argv)
+        window = MapView(locations_path)
+        window.show()
+        sys.exit(app.exec_())
+    else:
+        game = Game()
+        game.run()
   
 
 """This `main.py` :

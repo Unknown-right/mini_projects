@@ -13,11 +13,11 @@ class Player:
         with open(full_path, "r", encoding="utf-8") as f:
             return json.load(f)
 
-    base_classes = load_json.__func__("classes\\base_classes.json")
-    adv_classes  = load_json.__func__("classes\\advanced_classes.json")
-    class_skills   = load_json.__func__("skills\\class_skills.json")
-    passive_skills = load_json.__func__("skills\\passive_skills.json")
-    combo_skills   = load_json.__func__("skills\\combo_skills.json")
+    base_classes = load_json.__func__("classes/base_classes.json")
+    adv_classes  = load_json.__func__("classes/advanced_classes.json")
+    class_skills   = load_json.__func__("skills/class_skills.json")
+    passive_skills = load_json.__func__("skills/passive_skills.json")
+    combo_skills   = load_json.__func__("skills/combo_skills.json")
     def __init__(self, name, starting_class , data_dir="data"):
         """Initialize a new player with name and class."""
         # Player identity
